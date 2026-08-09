@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en" style="overflow-x: hidden; position: relative;"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MM Fitness | Premium Gym &amp; Fitness Center in Dopemu, Lagos</title>
+<meta content="MM Fitness is a premium gym in Dopemu, Lagos built for beginners, strength training, HIIT, weight loss coaching, and personal training. Join, book, or chat with our team today." name="description"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#00ff66",
+                    "on-error-container": "#ffdad6",
+                    "inverse-on-surface": "#2d3134",
+                    "on-primary-container": "#002107",
+                    "tertiary-fixed-dim": "#bdc8d3",
+                    "on-primary-fixed-variant": "#00531b",
+                    "secondary-container": "#454747",
+                    "background": "#0b0f12",
+                    "surface-container-high": "#262a2e",
+                    "surface-bright": "#363a3d",
+                    "error": "#ffb4ab",
+                    "on-primary": "#003911",
+                    "tertiary-container": "#d4dfeb",
+                    "surface": "#101417",
+                    "primary-fixed": "#00ff66",
+                    "on-background": "#e0e3e7",
+                    "outline-variant": "#3b4b3a",
+                    "on-tertiary-fixed-variant": "#3d4851",
+                    "on-secondary-fixed-variant": "#454747",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-tertiary-container": "#58636d",
+                    "on-surface": "#e0e3e7",
+                    "surface-dim": "#101417",
+                    "surface-container-lowest": "#0b0f12",
+                    "surface-container-highest": "#313539",
+                    "surface-tint": "#00ff66",
+                    "tertiary-fixed": "#d9e4ef",
+                    "primary-container": "#00ff66",
+                    "surface-container-low": "#181c1f",
+                    "on-tertiary-fixed": "#121d25",
+                    "inverse-primary": "#006e27",
+                    "outline": "#3b4b3a",
+                    "inverse-surface": "#e0e3e7",
+                    "tertiary": "#f8faff",
+                    "on-primary-fixed": "#002107",
+                    "primary-fixed-dim": "#00ff66",
+                    "on-secondary": "#2f3131",
+                    "secondary": "#c6c6c7",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-tertiary": "#27323a",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "surface-container": "#1c2023",
+                    "surface-variant": "#313539",
+                    "on-surface-variant": "#b9ccb5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "8px",
+                    "lg": "8px",
+                    "xl": "12px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-xl": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: 2rem;
+        }
+        .marquee-content {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-around;
+            min-width: 100%;
+            gap: 2rem;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        .luxury-overlay {
+            background: linear-gradient(to top, rgba(11, 15, 18, 1) 0%, rgba(11, 15, 18, 0.4) 50%, rgba(11, 15, 18, 0.6) 100%);
+        }
+        
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* --- Motion Design & Micro-interactions --- */
+        @media (prefers-reduced-motion: no-preference) {
+            .fade-in-section {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .fade-in-section.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            /* Staggered entrance for hero */
+            .hero-stagger-1 { animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; opacity: 0; }
+            .hero-stagger-2 { animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; opacity: 0; }
+            .hero-stagger-3 { animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards; opacity: 0; }
+            .hero-pulse { animation: pulseIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards; opacity: 0; transform: scale(0.95); }
+            .nav-fade-in { animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+
+            @keyframes slideUpFade {
+                from { opacity: 0; transform: translateY(40px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes pulseIn {
+                0% { opacity: 0; transform: scale(0.95); }
+                50% { opacity: 1; transform: scale(1.02); }
+                100% { opacity: 1; transform: scale(1); }
+            }
+            @keyframes fadeInDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            /* Card Hover Effects */
+            .hover-card-effect {
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+            }
+            .hover-card-effect:hover {
+                transform: scale(1.05) translateY(-5px);
+                box-shadow: 0 10px 30px -10px rgba(0, 255, 102, 0.3);
+                border-color: rgba(0, 255, 102, 0.8);
+            }
+
+            /* Button Shimmer & Tap */
+            .btn-interactive {
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.1s ease, filter 0.3s ease;
+            }
+            .btn-interactive::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+                transform: rotate(45deg) translateX(-150%);
+                transition: transform 0.6s ease;
+            }
+            .btn-interactive:hover::after {
+                transform: rotate(45deg) translateX(150%);
+            }
+            .btn-interactive:active {
+                transform: scale(0.95);
+            }
+
+            /* Nav Link Underline */
+            .nav-link-anim {
+                position: relative;
+            }
+            .nav-link-anim::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                background-color: #00ff66;
+                transition: width 0.3s ease, left 0.3s ease;
+            }
+            .nav-link-anim:hover::after {
+                width: 100%;
+                left: 0;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-section { opacity: 1; transform: none; }
+            .hero-stagger-1, .hero-stagger-2, .hero-stagger-3, .hero-pulse, .nav-fade-in { opacity: 1; animation: none; transform: none; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Shader Background -->
+<div class="fixed inset-0 w-full h-full -z-10">
+<canvas id="glcanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+</div>
+<!-- TopNavBar -->
+<header>
+<nav class="bg-surface/80 backdrop-blur-md fixed top-0 w-full border-b border-white/10 shadow-sm z-50">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<a class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary-container transition-colors" href="index.html">MM Fitness</a>
+<div class="hidden md:flex gap-gutter items-center">
+<a aria-current="page" class="font-label-md text-label-md text-primary-container border-b-2 border-primary-container pb-1 hover:scale-105 active:scale-95 transition-all" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="pages/about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="pages/services.html">Services</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="pages/membership.html">Membership</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="pages/shop.html">Essentials</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="pages/contact.html">Contact</a>
+</div>
+<a href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]">Book A Session</a>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation" class="md:hidden text-on-surface">
+<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+</header>
+
+<!-- Mobile SideNav Drawer -->
+<div aria-label="Mobile Navigation" aria-modal="true" class="fixed inset-y-0 left-0 z-50 flex flex-col bg-surface-container-high h-full w-64 shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out" id="mobileMenu" role="dialog">
+<div class="p-6 border-b border-surface-container-highest">
+<div class="flex justify-between items-center">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary-container">MM Fitness</h2>
+<p class="font-body-md text-body-md text-on-surface mt-1">Modern Athletic Minimalism</p>
+</div>
+<button id="closeMenuBtn" class="text-on-surface hover:text-primary-container transition-colors" aria-label="Close menu">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+</div>
+<nav class="flex flex-col flex-grow p-4 gap-2">
+<a aria-current="page" class="flex items-center gap-4 p-3 font-body-md text-body-md bg-primary-container text-background rounded font-bold" href="index.html">
+<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span> Home
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="pages/about.html">
+<span aria-hidden="true" class="material-symbols-outlined">info</span> About
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="pages/services.html">
+<span aria-hidden="true" class="material-symbols-outlined">fitness_center</span> Services
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="pages/membership.html">
+<span aria-hidden="true" class="material-symbols-outlined">card_membership</span> Membership
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="pages/booking.html">
+<span aria-hidden="true" class="material-symbols-outlined">event_available</span> Book a Session
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="pages/shop.html">
+<span aria-hidden="true" class="material-symbols-outlined">shopping_bag</span> Fitness Essentials
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="pages/contact.html">
+<span aria-hidden="true" class="material-symbols-outlined">contact_support</span> Contact
+            </a>
+</nav>
+<div class="p-6 border-t border-surface-container-highest">
+<a class="w-full flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 mb-4 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]" href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer">Book A Session</a>
+<div class="flex gap-4 text-on-surface">
+<a href="tel:+2347048050420" aria-label="Call Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">call</a>
+<a href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Chat with Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">chat</a>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A powerful, high-contrast action shot of an athlete lifting heavy dumbbells in a moody, dark-themed luxury gym. The atmosphere is filled with subtle chalk dust illuminated by sharp, dramatic electric green spotlights. The background is slightly blurred showing state-of-the-art black equipment. Cinematic lighting creates long shadows and highlights pure muscle definition in a premium fitness setting." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCurorh9jD3GG1imOOZxR-6SUjywFXKKzxpqGofcJr_eeaHvuQ4X2ZtpbpbCjk5ELay-VvX8OmZWwrq6doa3G_b49zovbec0MX_Yf0xLG13CBv0zGiRhguxAbtLY3TX_Bt1FRqWNUQE8whgKLesSoHBP3--QPVBSgYm4yEDnBVt1mQeDQFbCqbEShImyBC6cpV3wpsrCmFGlDsvi1nHl1_VoZ-Fw1gg9riNdsGjUJGesEja7c23jKYyPA");'></div>
+<div class="absolute inset-0 bg-background/70 luxury-overlay"></div>
+</div>
+<div class="relative z-10 container mx-auto px-6 mt-16 text-center lg:text-left flex flex-col items-center lg:items-start gap-8 max-w-5xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/20 border border-primary-container/40 rounded-full hero-stagger-1">
+<span class="flex size-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-primary-container text-xs font-bold tracking-widest uppercase">Premier Fitness Destination in Lagos</span>
+</div>
+<h1 class="text-white text-5xl md:text-7xl font-black leading-tight tracking-[-0.033em] max-w-4xl hero-stagger-2">
+                Build Strength.<br/><span class="text-primary-container">Transform</span> Your Body.<br/>Stay Consistent.
+            </h1>
+<p class="text-secondary text-lg md:text-xl font-normal leading-relaxed max-w-2xl hero-stagger-3">
+                Experience world-class professional coaching and a high-energy community at Dopemu's finest athletic center. We help you achieve elite performance through modern science and unwavering support.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto hero-pulse">
+<button class="bg-primary-container text-background px-8 py-4 rounded-lg font-bold text-lg btn-interactive hover:brightness-110 transition-all flex items-center justify-center gap-2 group">
+                    Join MM Fitness
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-surface-container border border-outline px-8 py-4 rounded-lg font-bold text-lg btn-interactive hover:bg-surface-variant transition-all flex items-center justify-center">
+                    Book a Free Trial
+                </button>
+</div>
+<div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-8 mt-4 hero-pulse">
+<div class="flex items-center gap-2">
+<span class="text-primary-container material-symbols-outlined" data-icon="star" data-weight="fill" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="text-white font-bold text-sm sm:text-base">5.0 Google Rating</span>
+</div>
+<div class="flex items-center gap-2 sm:border-l sm:border-outline/50 sm:pl-6 lg:pl-8">
+<span class="text-primary-container material-symbols-outlined" data-icon="verified">verified</span>
+<span class="text-white font-bold text-sm sm:text-base">Professional Coaching</span>
+</div>
+<div class="flex items-center gap-2 sm:border-l sm:border-outline/50 sm:pl-6 lg:pl-8">
+<span class="text-primary-container material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span class="text-white font-bold text-sm sm:text-base">Modern Equipment</span>
+</div>
+<div class="flex items-center gap-2 sm:border-l sm:border-outline/50 sm:pl-6 lg:pl-8">
+<span class="text-primary-container material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-white font-bold text-sm sm:text-base">Community Driven</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
+<span class="text-secondary text-xs uppercase tracking-widest font-bold">Scroll</span>
+<span class="material-symbols-outlined text-primary-container" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</section>
+<!-- Mobile Persistent Actions -->
+<div class="fixed inset-x-0 bottom-0 z-50 md:hidden px-4 pb-4">
+<div class="mx-auto max-w-md rounded-full border border-white/10 bg-background/85 backdrop-blur-xl p-2 shadow-2xl flex items-center gap-2">
+<a class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-surface-container text-white py-3 font-bold" href="tel:+2347048050420">
+<span class="material-symbols-outlined text-primary-container">call</span>
+Call
+</a>
+<a class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white py-3 font-bold" href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer">
+<span class="material-symbols-outlined">chat</span>
+WhatsApp
+</a>
+</div>
+</div>
+<!-- Social Proof Marquee -->
+<div class="bg-surface-container-low border-y border-outline/20 py-8">
+<div class="marquee-container">
+<div class="marquee-content">
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Modern Equipment <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Personal Training <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">HIIT <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Weight Loss <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Strength Training <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Bodybuilding <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Open 7 Days <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Friendly Coaches <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Dopemu, Lagos <span class="size-2 bg-primary-container rounded-full"></span></span>
+</div>
+<!-- Duplicate for infinite effect -->
+<div class="marquee-content">
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Modern Equipment <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Personal Training <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">HIIT <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Weight Loss <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Strength Training <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Bodybuilding <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Open 7 Days <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Friendly Coaches <span class="size-2 bg-primary-container rounded-full"></span></span>
+<span class="text-white/60 text-xl font-bold uppercase tracking-tighter flex items-center gap-4">Dopemu, Lagos <span class="size-2 bg-primary-container rounded-full"></span></span>
+</div>
+</div>
+</div>
+<!-- Why MM Fitness -->
+<section id="why-mm-fitness" class="py-24 px-6 md:px-12 lg:px-40 fade-in-section">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+<div class="flex flex-col gap-4">
+<h2 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-tight">
+                        Why Choose <span class="text-primary-container">MM Fitness</span>?
+                    </h2>
+<p class="text-secondary text-lg max-w-xl">
+                        We don't just provide equipment; we provide a lifestyle transformation platform designed for the dedicated.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Feature Card 1 -->
+<div class="group bg-surface-container border border-outline hover:border-primary-container transition-all duration-300 p-8 rounded-xl flex flex-col gap-6 cursor-default hover-card-effect">
+<div class="size-14 bg-primary-container/10 border border-primary-container/30 text-primary-container rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="person_celebrate">person_celebrate</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-white text-xl font-bold">Professional Coaches</h3>
+<p class="text-secondary text-sm leading-relaxed">Certified experts dedicated to correcting your form and pushing your boundaries with scientific precision.</p>
+</div>
+</div>
+<!-- Feature Card 2 -->
+<div class="group bg-surface-container border border-outline hover:border-primary-container transition-all duration-300 p-8 rounded-xl flex flex-col gap-6 cursor-default hover-card-effect">
+<div class="size-14 bg-primary-container/10 border border-primary-container/30 text-primary-container rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="groups">groups</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-white text-xl font-bold">Supportive Community</h3>
+<p class="text-secondary text-sm leading-relaxed">Join a tribe of like-minded achievers who celebrate every milestone and motivate you through every set.</p>
+</div>
+</div>
+<!-- Feature Card 3 -->
+<div class="group bg-surface-container border border-outline hover:border-primary-container transition-all duration-300 p-8 rounded-xl flex flex-col gap-6 cursor-default hover-card-effect">
+<div class="size-14 bg-primary-container/10 border border-primary-container/30 text-primary-container rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="fitness_center">fitness_center</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-white text-xl font-bold">Modern Equipment</h3>
+<p class="text-secondary text-sm leading-relaxed">Our facility features top-tier cardio machines and elite-level strength equipment for every muscle group.</p>
+</div>
+</div>
+<!-- Feature Card 4 -->
+<div class="group bg-surface-container border border-outline hover:border-primary-container transition-all duration-300 p-8 rounded-xl flex flex-col gap-6 cursor-default hover-card-effect">
+<div class="size-14 bg-primary-container/10 border border-primary-container/30 text-primary-container rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="accessibility_new">accessibility_new</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-white text-xl font-bold">Beginner Friendly</h3>
+<p class="text-secondary text-sm leading-relaxed">No ego here. We provide specialized introductory programs to help newcomers start their journey safely.</p>
+</div>
+</div>
+<!-- Feature Card 5 -->
+<div class="group bg-surface-container border border-outline hover:border-primary-container transition-all duration-300 p-8 rounded-xl flex flex-col gap-6 cursor-default hover-card-effect">
+<div class="size-14 bg-primary-container/10 border border-primary-container/30 text-primary-container rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="calendar_month">calendar_month</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-white text-xl font-bold">Flexible Membership</h3>
+<p class="text-secondary text-sm leading-relaxed">Variety of plans designed to fit your schedule and commitment level without any hidden fees.</p>
+</div>
+</div>
+<!-- Feature Card 6 -->
+<div class="group bg-surface-container border border-outline hover:border-primary-container transition-all duration-300 p-8 rounded-xl flex flex-col gap-6 cursor-default hover-card-effect">
+<div class="size-14 bg-primary-container/10 border border-primary-container/30 text-primary-container rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="emoji_events">emoji_events</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-white text-xl font-bold">Results Focused</h3>
+<p class="text-secondary text-sm leading-relaxed">We track your progress meticulously, ensuring that every drop of sweat leads to the results you desire.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Preview -->
+<section id="services" class="py-24 bg-surface-container-lowest/50 px-6 md:px-12 lg:px-40 fade-in-section">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-white text-4xl md:text-5xl font-black mb-6">Our Services</h2>
+<div class="w-24 h-1 bg-primary-container mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-[400px] hover-card-effect border border-transparent hover:border-primary-container">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A detailed shot of a member using a premium lat pulldown machine in a dark, high-end gym. The lighting is focused, creating dramatic shadows and highlighting the textured finish of the professional gym equipment. The scene exudes power and elite performance." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHKwSuLMComqAf6iysCxBd0HNbF6iW31TcL7KWV4SPR2wtI-BbaBhU7GWZ-3IWmloNUkTsYd6f3x0RRAY6tSU-ylAU3M0uGQyVmspC2JaSqQH-6dpSvany6gY2YWNilGIPmbuIhd0bUt8WTKxuxGX14AZheA8jfulJdOV8jJGtqf48G4BBg5rj2Zew2XCOJ6O80Pz3mVFHmGicxko8Mmow9owSkeuLlGA_bWmKO1PFjEI4qFlh-osV8A");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="card_membership">card_membership</span>
+<h3 class="text-white text-2xl font-bold">Gym Membership</h3>
+<p class="text-secondary text-sm">Full access to our premium facilities and top-tier equipment.</p>
+<a class="text-primary-container font-bold flex items-center gap-2 hover:gap-4 transition-all" href="pages/services.html">Learn More <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span></a>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-[400px] hover-card-effect border border-transparent hover:border-primary-container">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A personalized training session where a coach is guiding a client through an intensive kettlebell workout. The focus is on the interaction and professional guidance. The setting is a modern Lagos fitness studio with soft ambient green lighting and sleek dark wood flooring." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwLjJ4YkBAQBTAMQwkmmkRM2S8G6ZqP4lozIAgJAd7xuVhkpTPd_xUwpX16L3-LdKCDK-EqkqhAamEDIyk5bTXDJpScDw8oGxEeshFZKobEoRUyshLqkCnWBAlGSsvNZ0kI5gBTomlqoRx3XV5Nzh3tdHi10dRgrRU0N5XjiwLPZmTL9swSFDGEZ2hgw_m6fsNxo8HzuAfNX0TZku0pkyXbbW4sULbtHOj85Kmft2okKEC6DyM1zT3lg");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="person">person</span>
+<h3 class="text-white text-2xl font-bold">Personal Training</h3>
+<p class="text-secondary text-sm">1-on-1 sessions tailored to your specific physique goals.</p>
+<a class="text-primary-container font-bold flex items-center gap-2 hover:gap-4 transition-all" href="pages/services.html">Learn More <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span></a>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-[400px] hover-card-effect border border-transparent hover:border-primary-container">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A high-energy group fitness class in session. Multiple athletic people are performing explosive movements in unison under dynamic neon green lighting. The mood is intense, communal, and highly motivating, reflecting the energetic culture of Lagos fitness enthusiasts." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhL_8AayE880FSngmmCN4zOSISFEcgqfBij-O1PoNNYn5hdAhHJqlOF9zm0m1MjGFiap74ZfRwNJOclHji9aF9Bd5pSvKCbi6oX-t7RRVqzEnhiFsDluU6xPLgvU_d9-40ntIHp6Zdo23d8Ejw9HoBcPc1QxPA5cPWH4lNcJJU8j7YYR7X1RK5NP0u7jgLKJbF0x_IdyMItGO-hU_xACQRdbbLqCwsrYftBK-WARVdsacORYY_0S6C7Q");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="groups_3">groups_3</span>
+<h3 class="text-white text-2xl font-bold">Group Classes</h3>
+<p class="text-secondary text-sm">Join motivating group workouts led by expert instructors.</p>
+<a class="text-primary-container font-bold flex items-center gap-2 hover:gap-4 transition-all" href="pages/services.html">Learn More <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span></a>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-[400px] hover-card-effect border border-transparent hover:border-primary-container">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A close up of battle ropes being slammed on a gym floor, motion blur indicating fast, intense movement." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCW_V0XliQmU1s4b2dWU4XdDf_zDIss2qpzUW5CzZeOreDpFIBdVjnir2kZHw4pj-noVMeC36e3z9YqXBS9LT5KWPNJP1g04D_JDJ7TBzkRztXpX2KcA1RbNyAI2B_pR4Qw6J0dPhgnApojf3V6cmu3GXvczxpPedsJA4khTTLWqv727k6RUoSLrcn--JUCobb2xpJVpPGCzubUi7-ICeQbROoKXLzQqG1JOPtKIcWuCSPfHmpeqrKX5g");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="timer">timer</span>
+<h3 class="text-white text-2xl font-bold">HIIT</h3>
+<p class="text-secondary text-sm">Explosive interval training that burns maximum calories.</p>
+<a class="text-primary-container font-bold flex items-center gap-2 hover:gap-4 transition-all" href="pages/services.html">Learn More <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span></a>
+</div>
+</div>
+<!-- Service 5 -->
+<div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-[400px] hover-card-effect border border-transparent hover:border-primary-container">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A person running on a treadmill, looking focused and determined." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWBpmhhG0CiDIOfkFdbGfMvjuBA83OE2V-_Zu01MLkiYOAuS4FHgXfK_C1L3YoTJiM82Kz2_bdlJf0tIXy78XPqGOkOuKqjY6cJgjkOZLt2k0A6nBf9mUgAfFk7d8_NWsASmYVVgjX990pnDmyWdKX2sRNsJWRGH5SItEZ_seBfy_D1YfIWCJCTaLH21jSMJ2RGB8LEDc3d_aaIqpg0vxiev3fC43f_KL-s2VH3hojsr2cnaQg8lO0Og");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="monitor_weight">monitor_weight</span>
+<h3 class="text-white text-2xl font-bold">Weight Loss Coaching</h3>
+<p class="text-secondary text-sm">Targeted programs combining nutrition guidance and effective training.</p>
+<a class="text-primary-container font-bold flex items-center gap-2 hover:gap-4 transition-all" href="pages/services.html">Learn More <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span></a>
+</div>
+</div>
+<!-- Service 6 -->
+<div class="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-auto md:h-[400px] hover-card-effect border border-transparent hover:border-primary-container">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A wide view of a modern gym floor with various cardio and weight machines." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCjh6FDyKyjo_rnPv5dgQ8N-_ZS8398M_Vx7ukZwrYsfAmMnrPOOeG2eHrjDWmCZqHA7bPagRQcJonUAp3SX5p1jIick2Q72q_tFiiikPZaDt6je-teKk31jE_8yd7uAIWVWtyrgUrEMfuytXf8Nf364QuoXWIIIJq1gMegDnR5-ZCu_uVRliARw4B8hsLBZzBTtQXMFTAYEIbk5REEwJhhglHk7lKj5W-9yQD5s7NYYovVmSCPJ2QJQ");'></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="health_and_safety">health_and_safety</span>
+<h3 class="text-white text-2xl font-bold">General Fitness</h3>
+<p class="text-secondary text-sm">Build a solid foundation for overall health and well-being.</p>
+<a class="text-primary-container font-bold flex items-center gap-2 hover:gap-4 transition-all" href="pages/services.html">Learn More <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Membership Preview -->
+<section id="membership" class="py-24 px-6 md:px-12 lg:px-40 fade-in-section">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col items-center text-center gap-4 mb-16">
+<h2 class="text-white text-4xl md:text-5xl font-black">Membership Plans</h2>
+<p class="text-secondary max-w-xl">Choose the plan that best fits your goals and commitment.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+<div class="bg-surface-container p-6 rounded-lg border border-outline hover-card-effect transition-all flex flex-col items-center gap-4">
+<span class="text-secondary text-xs font-bold tracking-widest uppercase">Daily</span>
+<span class="text-white text-3xl font-black">₦3,000</span>
+<p class="text-secondary text-xs text-center">Single session pass with full facility access.</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg border border-outline hover-card-effect transition-all flex flex-col items-center gap-4">
+<span class="text-secondary text-xs font-bold tracking-widest uppercase">Weekly</span>
+<span class="text-white text-3xl font-black">₦8,000</span>
+<p class="text-secondary text-xs text-center">7 days of unlimited access for short-term visitors.</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg border border-outline hover-card-effect transition-all flex flex-col items-center gap-4">
+<span class="text-secondary text-xs font-bold tracking-widest uppercase">Monthly</span>
+<span class="text-white text-3xl font-black">₦25,000</span>
+<p class="text-secondary text-xs text-center">Standard month-to-month plan for consistent training.</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg border border-outline hover-card-effect transition-all flex flex-col items-center gap-4 relative">
+<span class="text-secondary text-xs font-bold tracking-widest uppercase">3 Months</span>
+<span class="text-white text-3xl font-black">₦68,000</span>
+<p class="text-secondary text-xs text-center">Save more with our quarterly commitment plan.</p>
+</div>
+<div class="bg-primary-container/10 p-6 rounded-lg border border-primary-container transition-all flex flex-col items-center gap-4 relative overflow-hidden transform md:-translate-y-4 shadow-[0_0_30px_rgba(0,255,102,0.15)] hover-card-effect">
+<div class="absolute top-0 right-0 bg-primary-container text-background text-[10px] font-black px-2 py-1 uppercase rounded-bl-lg">Best Value</div>
+<span class="text-primary-container text-xs font-bold tracking-widest uppercase">6 Months</span>
+<span class="text-white text-3xl font-black">₦135k</span>
+<p class="text-primary-container font-bold text-[10px] text-center uppercase tracking-wide bg-primary-container/20 px-2 py-1 rounded w-full">Includes One Month FREE</p>
+</div>
+<div class="bg-surface-container p-6 rounded-lg border border-outline hover-card-effect transition-all flex flex-col items-center gap-4">
+<span class="text-secondary text-xs font-bold tracking-widest uppercase">30-Visit Flex</span>
+<span class="text-white text-3xl font-black">₦45,000</span>
+<p class="text-secondary text-xs text-center">30 visits. No monthly expiry.</p>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a class="inline-flex items-center justify-center bg-surface-container border border-outline px-10 py-4 rounded-lg font-bold text-white btn-interactive hover:bg-surface-variant transition-all" href="pages/membership.html">View Full Membership Plans</a>
+</div>
+</div>
+</section>
+<!-- Fitness Essentials Preview -->
+<section id="shop" class="py-24 bg-surface-container-lowest/50 px-6 md:px-12 lg:px-40 fade-in-section">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col sm:flex-row items-center justify-between mb-12 gap-4">
+<h2 class="text-white text-3xl font-black uppercase tracking-tight">Fitness Essentials</h2>
+<a class="text-primary-container font-bold border-b border-primary-container hover:text-white hover:border-white transition-all" href="pages/shop.html">Shop Essentials</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+<!-- Product 1 -->
+<div class="group flex flex-col gap-4 hover-card-effect rounded-lg p-2">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden border border-outline group-hover:border-primary-container transition-all">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A sleek black container of premium whey protein isolate standing against a minimalist dark backdrop with subtle green lighting accents. The packaging is professional and minimalist, representing the high quality of MM Fitness nutritional supplements." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlTu_yu1k6tQUMVZwZ-8DBdbknIpkW4iTU8s9kukvG9Pff886u71bDGjnYz60sWYKOlqlv6_06yMHkJ3ms9HHkvHq1jUCHhKBPXgLkBPcDoI573CtvhMMYx1m2D5cLNglqbLzUcLK1M8c-wYXdB9ipTw_TmkaDJ9cG1fFfB-r6eWAA1HvNka7FyZQkzK0hycH5SzclPuF5bmKdPUvj3cOge4-N-6Alg0huz3u5zk445eB7hKT-NAIpPA");'></div>
+</div>
+<div class="flex flex-col">
+<h4 class="text-white font-bold text-sm">Supplements</h4>
+<p class="text-primary-container font-black">₦45,000</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group flex flex-col gap-4 hover-card-effect rounded-lg p-2">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden border border-outline group-hover:border-primary-container transition-all">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A modern, matte black stainless steel shaker bottle with a discreet electric green MM Fitness logo. It is placed on a gym bench, illuminated by a single spotlight, creating a sharp, high-end look for gym accessories." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZhWIOBVC6_ISi4p-cvMXpEbh4ZkZXZbpAtmrXnwAd4K03uE-MmXFSJ9NaC64kwkrcx25Q8Zw9YBpAWOefwLDCD5QwdBYZzeYH4FfacVPetsMgcK3bov-dBBlEGRWZ9ofMwWGORZwH80gwFDsvQsK8owSXomw9ahYMDNrU8XMSgpWfy9Qs7Ex5PU0bIVvPqCCRVOSzN40hTZlU63sjIKNEJFfGTpH8vJ5nSWXpC-pH5cKbSmnLxcCY2w");'></div>
+</div>
+<div class="flex flex-col">
+<h4 class="text-white font-bold text-sm">Protein Shakes</h4>
+<p class="text-primary-container font-black">₦12,000</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group flex flex-col gap-4 hover-card-effect rounded-lg p-2">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden border border-outline group-hover:border-primary-container transition-all">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="High-performance athletic gym wear, including a black compression shirt and shorts with electric green stitching. The garments are neatly folded on a textured dark stone surface, lit with professional product photography lighting." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDljQHEOB_Rc-dMXcWQv9cqjrA9YDpTAaqF2I5hvB6E0Yd8j9KNzAwcVbK_bud6bxvlC1HNGVRkE1itV3Cyi0It-_KtZn9NaRyHZVMmIYBs6bt13VockhQA7wtcwQcic7qhjjHq31MMjXZSfyjCsoGQNy0xWsJ6kK6dNqf2gb70Bl7Mdl7jfoxgDIg-mDvrbYad--j_r9EwwBJhSwAcXCPHbpJdigvR6bSZ4a0P9SjqrfC8RMsPnlH06g");'></div>
+</div>
+<div class="flex flex-col">
+<h4 class="text-white font-bold text-sm">Gym Wear</h4>
+<p class="text-primary-container font-black">₦28,000</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group flex flex-col gap-4 hover-card-effect rounded-lg p-2">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden border border-outline group-hover:border-primary-container transition-all">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="A set of high-quality, heavy-duty resistance bands in varying shades of black and green, displayed in a dynamic arrangement. The material looks durable and professional, suitable for elite strength training." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAsFMOpOWm4S9IuM6DntAs45a6y7UNOyoIs_9HSbnPn-LaBtiLQEDGs1FjqQcq1H9FamZFfBl-mS89C0DkRWAHRgrxTJe19kbBWwbi5a2EpfL5l2K1bMuXXS7_vxo7sAk33o2I92IVY4PEAUMkEt8EMNTlLI4edhWEvxF3MCmrLkAYXK564HI-ZM4Hpw0qdujgd2eTZ0erWSww24Xkb1Ol8hS5wK-fFnhgOcEhdAqSJLIOC4lKw7iPZ2g");'></div>
+</div>
+<div class="flex flex-col">
+<h4 class="text-white font-bold text-sm">Resistance Bands</h4>
+<p class="text-primary-container font-black">₦15,000</p>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="group flex flex-col gap-4 hover-card-effect rounded-lg p-2">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden border border-outline group-hover:border-primary-container transition-all">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Premium weightlifting gloves and wrist wraps made of black leather with green accents. The equipment shows high-quality craftsmanship, displayed on a gym floor with a shallow depth of field." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqeBtt7gw507GTYFGHxXPsl9GDyvCmnNIjNUARzA-x3ZeDaHp-41qMPOZpAMFt-6A58_RAjADUtlPnJjafbIPgebnannR1CU1ZwoZs96piAozKQlJVoh5akl6WsMWOSAyf0nl1M0wk5bnp8HYWkB7RI1NPp4xIxwcZyl126OCICQxkeetnW8iUy6V7AmwXmMfhMTks33iVG2yj_C0vdKhb37Jpf5OQjRj9wBIDWyfjD5rrCgDQUDwEoA");'></div>
+</div>
+<div class="flex flex-col">
+<h4 class="text-white font-bold text-sm">Gym Accessories</h4>
+<p class="text-primary-container font-black">₦18,500</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Gallery -->
+<section id="gallery" class="py-24 px-6 md:px-12 lg:px-40 fade-in-section">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-white text-4xl md:text-5xl font-black mb-6">Our Community</h2>
+<p class="text-secondary max-w-xl mx-auto">Join the movement of athletes pushing their limits every single day at MM Fitness.</p>
+</div>
+<div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+<div class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent">
+<img class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" data-alt="A candid, energetic photo of a diverse group of people in Lagos high-fiving after an intense HIIT session at MM Fitness. The atmosphere is filled with joy, sweat, and community spirit. The background features the modern dark aesthetics of the gym." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3sMw69cWErj1LB5cVHmWfrwpLKCnG1tRow5FlX-f9Te7U8kK8AYQEQ-Jqk-WCkOifpWiockOUMPdvSU6jYPSkehNAhHJm-rkkduQuD2CWLcD2LUDGBhuvt5DK4cxJp7Q3Wr1QYKZN0bP3vghqKi8_N_gU0YfOF7twPs8VGvPZUxr9xzRJq2abJ2KXncsLsB0_uFQPGr72m2uujT59zLxm7X5RZJqxEvwrzcSWG8xMXv6p9hQnA13kMg"/>
+</div>
+<div class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent">
+<img class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" data-alt="A close-up of a female athlete performing a heavy barbell squat with perfect form. She is focused, with sweat glistening on her forehead. The lighting is moody and dramatic, focusing on the movement and strength." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-FxTI4SxsPCAk4t-ekChiHlmHrJ4mxjfMEPvgiZSh19xP2sl_K5Ec_rgmgcC9irNwFdLYg4ADCcuEsWC4uLYV2zbtUeQEmbWCcMB5PZhI75zcoGjMG77MxtO2Kbxt9v1or6SQs7YkiCnIMHZS3xJUiUEyeJFTuC3rrNIIajMGTT_nCMeqX2LxPTt4dcSy0uC9J652FOOGcBJ900tRZVia9EnqDkUFE3bs5HdCvw1NZWbVPGIU2Z2iCg"/>
+</div>
+<div class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent">
+<img class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" data-alt="A male bodybuilder posing in front of a mirror at MM Fitness, showing off incredible muscle definition. The gym's lighting highlights the peaks of his muscles. The environment is clean, professional, and elite." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN2Igyz70rsMo-N8LFOll40MrH5FIrYThDjqIygfWCEC_7UBo5H8o3WYTS-AiC4aaCRc9CfhXeNhOzW88vntX-Mipwp0Y4XtInP8nPG68G89K723quYWtbyGw5fJr0NaBANL_bc7DOov_a23GhmbreNde4wyCmdaBAmnFcGcSdOOhhOavfxNByxhNLwQb9AjpEV3DSk-PEGtaR-WZoHrq-P9T5F8-uN16WzmH3nCWmTI0GGt0hNZMTEw"/>
+</div>
+<div class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent">
+<img class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" data-alt="A wide shot of the MM Fitness main floor in Dopemu, Lagos, during a busy morning hour. People of various fitness levels are training seriously but politely sharing equipment. The scene shows the vast array of modern equipment available." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlhYJUeejFSXt4t-T8Fb-ArwvG_N36j1obuARHsBW0r6vWccyMIds-OklswxmsaVxl4ykikWvCy3epw-5zvBQKrsba7BpTqNgLD8Jo4hS20y7X59adtRz6Hh4p_UtxMR3friZ_fxQ6yeBbl_fu4y74UXJqkVDpAFf2P1b822Lpcwmos5zu5ULL1Nr-PNa9LQpKJyHl9Onb0DrMroyooVXDqoFhlGpbQHkmM5C9e5G5v1ptPHWKwSsiUA"/>
+</div>
+<div class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent">
+<img class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" data-alt="Two trainers at MM Fitness discussing a workout plan on a tablet with a client. They look professional, knowledgeable, and approachable. The gym logo is visible in the background on a sleek black wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy1jBNlCn51EGQE8xYz63VzYOqLdVB-fe24t8mdcyJgmi7MGRJQyomxsucTK_ZXephm4m5yLEPRPw6njUoOpoBwIQma7_qkChJ6ra3pl4Z1ZKST_qAbngndDSNix9CAh7Pao7vKagFNDGY9MzTLmZyaXOdIQ3N8JwVwstalb3P8o-tzS0LpMfb4f1oHkYo5_ovFKUw3RbBTJlliEsyR-xs8PFPPpkYTFMPDktjdactjU0zBp2Qs6O7kQ"/>
+</div>
+<div class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent">
+<img class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover" data-alt="A dramatic silhouette of a person jumping rope in front of a large window with city lights in the background. The motion blur creates a sense of high-speed cardio and dedication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpa4yxBVPPGH0wN7bu56I3C-GIAnHEqZMvJhL2drO5ZVNAhjl2Z0IsTHYMg2-0FyS-AdEN9RXgZKgVRZmHGhfY3XDdk3_bU4cuKja6tj7LxysXU3QFgWQE8zUVNO1moDBI2O-EexsNfgsPIxNkg5eRBFjpfY1yxGt9dUNJHmL5pn4lk7EbvjwFPy6tt2KoUkGhFuZh7Z1pgBUyWD0CkaKScvcQ9kd6mTJIIDfLBN4HXLZ-Z8r6ZxI4VA"/>
+</div>
+</div>
+<div class="mt-12 text-center">
+<a class="inline-flex items-center justify-center bg-primary-container text-background px-10 py-4 rounded-lg font-bold btn-interactive hover:brightness-110 transition-all" href="#gallery">View Full Gallery</a>
+</div>
+</div>
+</section>
+<!-- Booking CTA Banner -->
+<section id="booking" class="py-12 px-6 fade-in-section">
+<div class="max-w-7xl mx-auto relative overflow-hidden rounded-3xl bg-surface-container-high border border-outline p-12 md:p-20 flex flex-col items-center text-center gap-8">
+<div class="absolute inset-0 bg-primary-container/5 pointer-events-none"></div>
+<h2 class="text-white text-4xl md:text-5xl font-black relative z-10">Ready to Start Your <span class="text-primary-container">Fitness Journey?</span></h2>
+<p class="text-secondary text-lg max-w-2xl relative z-10">Book your first session today and experience the difference of a premium fitness environment tailored for your success.</p>
+<div class="flex flex-col sm:flex-row gap-6 relative z-10 w-full sm:w-auto">
+<a class="bg-primary-container text-background px-10 py-4 rounded-lg font-bold flex items-center justify-center gap-2 group btn-interactive hover:brightness-110 transition-all" href="pages/booking.html">Book a Session<span class="material-symbols-outlined" data-icon="event_available">event_available</span></a>
+<button class="bg-[#25D366] text-white px-10 py-4 rounded-lg font-bold flex items-center justify-center gap-2 group btn-interactive hover:brightness-110 transition-all">
+                    Chat on WhatsApp
+                    <svg class="size-6" fill="currentColor" viewbox="0 0 256 256"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"></path></svg>
+</button>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section id="location" class="py-24 px-6 md:px-12 lg:px-40 bg-surface-container-lowest/50 fade-in-section">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+<div class="flex-1 flex flex-col gap-8">
+<h2 class="text-white text-4xl font-black uppercase tracking-tight">Visit Us In <span class="text-primary-container">Dopemu</span></h2>
+<div class="flex flex-col gap-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1" data-icon="location_on">location_on</span>
+<div class="flex flex-col">
+<h4 class="text-white font-bold">Address</h4>
+<p class="text-secondary">11/13 Adebayo Johnson Street, Pako Bus Stop, Dopemu, Lagos</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1" data-icon="schedule">schedule</span>
+<div class="flex flex-col">
+<h4 class="text-white font-bold">Opening Hours</h4>
+<p class="text-secondary">Mon - Sat: 6:30 AM - 9:30 PM</p>
+<p class="text-secondary">Sun: 11:30 AM - 8:00 PM</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container mt-1" data-icon="phone_in_talk">phone_in_talk</span>
+<div class="flex flex-col">
+<h4 class="text-white font-bold">Contact</h4>
+<p class="text-secondary">+234 704 805 0420</p>
+<p class="text-secondary">WhatsApp: +234 704 805 0420</p>
+<p class="text-secondary">mmfitnesssstudio@gmail.com</p>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="bg-primary-container text-background px-8 py-3 rounded-lg font-bold flex items-center gap-2 btn-interactive hover:brightness-110 transition-all">
+                        Get Directions <span class="material-symbols-outlined" data-icon="map">map</span>
+</button>
+<button class="bg-surface-container border border-outline text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 btn-interactive hover:bg-surface-variant transition-all">
+                        Call Now <span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+</div>
+</div>
+<div class="flex-1 h-[400px] lg:h-auto rounded-2xl overflow-hidden border border-outline relative">
+<!-- Embedded Google Map -->
+<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3854125883015!2d3.310156976075936!3d6.611417593382755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b918f8e132cb9%3A0x367f0f671c6dc32c!2sDopemu%20Rd%2C%20Agege%2C%20Lagos!5e0!3m2!1sen!2sng!4v1716912345678!5m2!1sen!2sng" style="border: 0px; width: 100%; height: 100%;"></iframe>
+<div class="absolute inset-0 pointer-events-none border-[12px] border-surface-container-lowest/50"></div>
+</div>
+</div>
+</section>
+<!-- FAQ Preview -->
+<section id="faqs" class="py-24 px-6 md:px-12 lg:px-40 fade-in-section">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-white text-3xl font-black text-center mb-12 uppercase tracking-tight">Frequently Asked Questions</h2>
+<div class="flex flex-col gap-4">
+<details class="group bg-surface-container rounded-lg border border-outline open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="text-white font-bold">Can beginners join?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-secondary text-sm leading-relaxed border-t border-outline/30 pt-4">
+                        Absolutely. MM Fitness is built to help beginners start confidently with friendly coaches, clear guidance, and a supportive environment.
+                    </div>
+</details>
+<details class="group bg-surface-container rounded-lg border border-outline open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="text-white font-bold">Do I need a personal trainer?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-secondary text-sm leading-relaxed border-t border-outline/30 pt-4">
+                        Not at all. You can train independently, or choose personal training if you want faster results, accountability, and form correction.
+                    </div>
+</details>
+<details class="group bg-surface-container rounded-lg border border-outline open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="text-white font-bold">Do you offer weight loss coaching?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-secondary text-sm leading-relaxed border-t border-outline/30 pt-4">
+                        Yes. We help clients with practical weight loss plans that combine training, coaching, and sustainable habits.
+                    </div>
+</details>
+<details class="group bg-surface-container rounded-lg border border-outline open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="text-white font-bold">Can I book online?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-secondary text-sm leading-relaxed border-t border-outline/30 pt-4">
+                        Yes. You can book a session online, message us on WhatsApp, or call the studio if you prefer a quick conversation.
+                    </div>
+</details>
+<details class="group bg-surface-container rounded-lg border border-outline open:border-primary-container transition-all">
+<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+<span class="text-white font-bold">How much are memberships?</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-secondary text-sm leading-relaxed border-t border-outline/30 pt-4">
+                        We offer daily, weekly, monthly, three-month, six-month, and 30-visit flex pass plans so you can choose the commitment that fits your schedule and goals.
+                    </div>
+</details>
+</div>
+<div class="text-center mt-12">
+<a class="text-primary-container font-bold flex items-center justify-center gap-2 hover:gap-4 transition-all" href="#faqs">View All FAQs <span class="material-symbols-outlined" data-icon="arrow_outward">arrow_outward</span></a>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="relative py-32 px-6 overflow-hidden fade-in-section">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-fixed bg-center" data-alt="A cinematic, low-angle shot of a person finishing a run on a treadmill at dawn, looking out over the silhouette of Lagos. The lighting is cold with electric green neon accents from the gym's branding. The feeling is one of accomplishment, silence, and determination." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAv5-vXqfQNdBTpXPI0IukuXZZrUDz78qlrHo3yWCnI4Zpmj4EhWddPmtFu7DBYisa5ZGQ3xdogv3epP-zb73sNtPTJ5KNRc6Pq6JkYGwuNz0maK4TfLW5b_D-acZnOUHWQmMvNZ0SZDak3n8aaRcokddi_3CCO0JR6gONRIUzjRpuP_PeHOc3x1ZQeZyTCBAoFUt90qkeeqYGQc68cGog9K8cw9H-nO3-3TFbDfhTfjEzUdajMO2vlpg");'></div>
+<div class="absolute inset-0 bg-background/90 luxury-overlay"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto text-center flex flex-col items-center gap-10">
+<h2 class="text-white text-5xl md:text-7xl font-black max-w-4xl tracking-tighter leading-none">Your Fitness Journey <span class="text-primary-container">Starts Today.</span></h2>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary-container text-background px-12 py-5 rounded-lg font-black text-xl btn-interactive hover:scale-105 transition-all">Join MM Fitness</button>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-12 py-5 rounded-lg font-black text-xl btn-interactive hover:bg-white/20 transition-all">Book a Session</button>
+</div>
+</div>
+</section>
+<!-- Footer Section -->
+<footer class="bg-surface-container-lowest border-t border-outline/20 py-20 px-6 md:px-12 lg:px-40">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary-container">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold">MM Fitness</h2>
+</div>
+<p class="text-secondary text-sm leading-relaxed">Elite fitness center in the heart of Dopemu, Lagos. Dedicated to transformation and excellence.</p>
+<div class="flex gap-4">
+<a class="size-10 bg-surface-container rounded-lg flex items-center justify-center text-white hover:text-primary-container transition-colors" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">music_note</span></a>
+<a class="size-10 bg-surface-container rounded-lg flex items-center justify-center text-white hover:text-primary-container transition-colors" href="https://www.google.com/maps/search/?api=1&query=11%2F13%20Adebayo%20Johnson%20Street%2C%20Pako%20Bus%20Stop%2C%20Dopemu%2C%20Lagos" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">map</span></a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="text-white font-bold uppercase tracking-widest text-xs">Quick Links</h4>
+<div class="flex flex-col gap-3">
+<a class="text-secondary text-sm hover:text-white transition-colors" href="#services">Services</a>
+<a class="text-secondary text-sm hover:text-white transition-colors" href="#membership">Membership</a>
+<a class="text-secondary text-sm hover:text-white transition-colors" href="#shop">Fitness Essentials</a>
+<a class="text-secondary text-sm hover:text-white transition-colors" href="#gallery">Gallery</a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="text-white font-bold uppercase tracking-widest text-xs">Support</h4>
+<div class="flex flex-col gap-3">
+<a class="text-secondary text-sm hover:text-white transition-colors" href="#faqs">FAQ</a>
+<a class="text-secondary text-sm hover:text-white transition-colors" href="pages/contact.html">Contact Us</a>
+<a class="text-secondary text-sm hover:text-white transition-colors" href="pages/contact.html">Privacy Policy</a>
+<a class="text-secondary text-sm hover:text-white transition-colors" href="pages/contact.html">Terms of Service</a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="text-white font-bold uppercase tracking-widest text-xs">Contact &amp; Hours</h4>
+<p class="text-secondary text-xs leading-relaxed">11/13 Adebayo Johnson Street, Pako Bus Stop, Dopemu, Lagos</p>
+<p class="text-secondary text-xs">Phone: +234 704 805 0420</p>
+<p class="text-secondary text-xs">WhatsApp: +234 704 805 0420</p>
+<p class="text-secondary text-xs">Mon-Sat: 6:30 AM - 9:30 PM</p>
+<p class="text-secondary text-xs">Sun: 11:30 AM - 8:00 PM</p>
+<div class="flex gap-2">
+<a class="size-10 bg-surface-container rounded-lg flex items-center justify-center text-white hover:text-primary-container transition-colors" href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">chat</span></a>
+<a class="size-10 bg-surface-container rounded-lg flex items-center justify-center text-white hover:text-primary-container transition-colors" href="https://www.google.com/maps/search/?api=1&query=11%2F13%20Adebayo%20Johnson%20Street%2C%20Pako%20Bus%20Stop%2C%20Dopemu%2C%20Lagos" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">map</span></a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-outline/20 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-secondary text-xs">&copy; 2024 MM Fitness Lagos. All Rights Reserved.</p>
+<p class="text-secondary text-xs">Designed for Performance.</p>
+</div>
+</footer>
+<script>
+        // Shader Implementation
+        const canvas = document.getElementById('glcanvas');
+        const gl = canvas.getContext('webgl');
+
+        if (gl) {
+            const vertexShaderSource = `
+                attribute vec2 position;
+                varying vec2 v_texCoord;
+                void main() {
+                    gl_Position = vec4(position, 0.0, 1.0);
+                    v_texCoord = position * 0.5 + 0.5;
+                }
+            `;
+
+            const fragmentShaderSource = `
+                precision highp float;
+                uniform float u_time;
+                uniform vec2 u_resolution;
+                uniform vec2 u_mouse;
+
+                varying vec2 v_texCoord;
+
+                void main() {
+                    vec2 uv = v_texCoord;
+                    vec2 mouse = u_mouse / u_resolution;
+                    
+                    // Create a dynamic, dark energetic field
+                    float pulse = sin(u_time * 0.5) * 0.5 + 0.5;
+                    
+                    // Core color: MM Fitness Electric Green derived from #00ff66
+                    vec3 accentColor = vec3(0.0, 1.0, 0.4); 
+                    vec3 bgColor = vec3(0.06, 0.08, 0.09); // Matches surface-container-lowest (#0b0f12)
+                    
+                    // Animated noise/grain
+                    float noise = fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453);
+                    
+                    // Radial glow follows mouse subtly
+                    float dist = distance(uv, mouse);
+                    float glow = 1.0 - smoothstep(0.0, 0.8, dist);
+                    
+                    // Wave motion
+                    float wave = sin(uv.x * 10.0 + u_time) * cos(uv.y * 10.0 + u_time * 0.8);
+                    float energy = smoothstep(0.4, 0.6, wave * 0.1 + 0.5);
+                    
+                    vec3 finalColor = mix(bgColor, accentColor * 0.15, energy * glow);
+                    finalColor += accentColor * 0.02 * noise; // Add texture
+                    
+                    gl_FragColor = vec4(finalColor, 1.0);
+                }
+            `;
+
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    console.error(gl.getShaderInfoLog(shader));
+                    gl.deleteShader(shader);
+                    return null;
+                }
+                return shader;
+            }
+
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+
+            const positionAttributeLocation = gl.getAttribLocation(program, "position");
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            const positions = [
+                -1, -1,
+                1, -1,
+                -1,  1,
+                -1,  1,
+                1, -1,
+                1,  1,
+            ];
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+            const timeUniformLocation = gl.getUniformLocation(program, "u_time");
+            const resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+            const mouseUniformLocation = gl.getUniformLocation(program, "u_mouse");
+
+            let mouseX = 0;
+            let mouseY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = window.innerHeight - e.clientY;
+            });
+
+            function resizeCanvasToDisplaySize(canvas) {
+                const displayWidth  = canvas.clientWidth;
+                const displayHeight = canvas.clientHeight;
+                if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+                    canvas.width  = displayWidth;
+                    canvas.height = displayHeight;
+                }
+            }
+
+            function render(time) {
+                time *= 0.001; 
+                resizeCanvasToDisplaySize(gl.canvas);
+                gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
+                gl.useProgram(program);
+                gl.enableVertexAttribArray(positionAttributeLocation);
+                gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+                gl.uniform1f(timeUniformLocation, time);
+                gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
+                gl.uniform2f(mouseUniformLocation, mouseX, mouseY);
+
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+                requestAnimationFrame(render);
+            }
+            requestAnimationFrame(render);
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            // Check if user prefers reduced motion before observing
+            if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+                observer.observe(section);
+            } else {
+                 section.classList.add('is-visible');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('button[aria-controls="mobileMenu"]');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if(menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('-translate-x-full');
+            });
+        }
+        if(closeMenuBtn && mobileMenu) {
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-x-full');
+            });
+        }
+        if(mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('-translate-x-full');
+                });
+            });
+        }
+    </script>
+  <script src="assets/js/site-links.js"></script>
+</body></html>
+
+
+

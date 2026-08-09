@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fitness Essentials - MM Fitness</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#690005",
+                      "on-primary-container": "#007128",
+                      "on-error-container": "#ffdad6",
+                      "surface-variant": "#313539",
+                      "on-tertiary-fixed-variant": "#3d4851",
+                      "tertiary-fixed-dim": "#bdc8d3",
+                      "primary-fixed": "#6bff83",
+                      "on-tertiary-container": "#58636d",
+                      "surface-bright": "#363a3d",
+                      "on-primary": "#003911",
+                      "on-secondary-fixed-variant": "#454747",
+                      "secondary-container": "#454747",
+                      "on-tertiary-fixed": "#121d25",
+                      "on-surface": "#e0e3e7",
+                      "primary": "#edffe8",
+                      "surface": "#101417",
+                      "tertiary-fixed": "#d9e4ef",
+                      "surface-container-lowest": "#0b0f12",
+                      "on-background": "#e0e3e7",
+                      "inverse-on-surface": "#2d3134",
+                      "secondary-fixed": "#e2e2e2",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "surface-dim": "#101417",
+                      "on-primary-fixed-variant": "#00531b",
+                      "inverse-primary": "#006e27",
+                      "outline": "#849581",
+                      "secondary": "#c6c6c7",
+                      "surface-container-high": "#262a2e",
+                      "error": "#ffb4ab",
+                      "surface-tint": "#00e55b",
+                      "on-surface-variant": "#b9ccb5",
+                      "on-tertiary": "#27323a",
+                      "surface-container-highest": "#313539",
+                      "surface-container-low": "#181c1f",
+                      "on-secondary": "#2f3131",
+                      "tertiary-container": "#d4dfeb",
+                      "inverse-surface": "#e0e3e7",
+                      "surface-container": "#1c2023",
+                      "background": "#101417",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "outline-variant": "#3b4b3a",
+                      "primary-container": "#00ff66",
+                      "on-primary-fixed": "#002107",
+                      "on-secondary-container": "#b4b5b5",
+                      "tertiary": "#f8faff",
+                      "error-container": "#93000a",
+                      "primary-fixed-dim": "#00e55b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "96px",
+                      "stack-sm": "8px",
+                      "container-max": "1280px",
+                      "margin-desktop": "48px",
+                      "unit": "8px",
+                      "margin-mobile": "16px",
+                      "stack-md": "16px",
+                      "stack-lg": "32px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-xl-mobile": [
+                              "Montserrat"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-xl": [
+                              "Montserrat"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-2xl": [
+                              "Montserrat"
+                      ],
+                      "headline-lg": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-xl-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-2xl": [
+                              "72px",
+                              {
+                                      "lineHeight": "80px",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0b0f12; /* surface-container-lowest */
+            color: #e0e3e7; /* on-surface */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .glass-card {
+            background: rgba(20, 26, 31, 0.6); /* surface-container with opacity */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Subtle entrance animations */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.6s ease-out forwards;
+        }
+        
+        /* Hide scrollbar for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-lg overflow-x-hidden">
+<!-- TopNavBar -->
+<header>
+<nav class="bg-surface/80 backdrop-blur-md fixed top-0 w-full border-b border-white/10 shadow-sm z-50">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
+<a class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary-container transition-colors" href="../index.html">MM Fitness</a>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="../index.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="about.html">About</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="services.html">Services</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="membership.html">Membership</a>
+<a aria-current="page" class="font-label-md text-label-md text-primary-container border-b-2 border-primary-container pb-1 hover:scale-105 active:scale-95 transition-all" href="shop.html">Essentials</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="contact.html">Contact</a>
+</div>
+<a href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]">Book A Session</a>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation" class="md:hidden text-on-surface">
+<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+</header>
+
+<!-- Mobile SideNav Drawer -->
+<div aria-label="Mobile Navigation" aria-modal="true" class="fixed inset-y-0 left-0 z-50 flex flex-col bg-surface-container-high h-full w-64 shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out" id="mobileMenu" role="dialog">
+<div class="p-6 border-b border-surface-container-highest">
+<div class="flex justify-between items-center">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary-container">MM Fitness</h2>
+<p class="font-body-md text-body-md text-on-surface mt-1">Modern Athletic Minimalism</p>
+</div>
+<button id="closeMenuBtn" class="text-on-surface hover:text-primary-container transition-colors" aria-label="Close menu">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+</div>
+<nav class="flex flex-col flex-grow p-4 gap-2">
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="../index.html">
+<span aria-hidden="true" class="material-symbols-outlined">home</span> Home
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="about.html">
+<span aria-hidden="true" class="material-symbols-outlined">info</span> About
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="services.html">
+<span aria-hidden="true" class="material-symbols-outlined">fitness_center</span> Services
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="membership.html">
+<span aria-hidden="true" class="material-symbols-outlined">card_membership</span> Membership
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="booking.html">
+<span aria-hidden="true" class="material-symbols-outlined">event_available</span> Book a Session
+            </a>
+<a aria-current="page" class="flex items-center gap-4 p-3 font-body-md text-body-md bg-primary-container text-background rounded font-bold" href="shop.html">
+<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span> Fitness Essentials
+            </a>
+<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="contact.html">
+<span aria-hidden="true" class="material-symbols-outlined">contact_support</span> Contact
+            </a>
+</nav>
+<div class="p-6 border-t border-surface-container-highest">
+<a class="w-full flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 mb-4 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]" href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer">Book A Session</a>
+<div class="flex gap-4 text-on-surface">
+<a href="tel:+2347048050420" aria-label="Call Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">call</a>
+<a href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Chat with Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">chat</a>
+</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-40" data-alt="A cinematic, high-end photography shot of premium gym gear, supplements, and accessories neatly arranged on a dark slate surface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAao2RQ2sXtpk-OVfmkeEv2Xf7gr31fOqvTLIXGfH_0xOxEH1wK9ybkPQt--DiuSTLKGkNoiS8TNvrfZc80-0ZpHUTzRrQLZtcrPSI2lz6AODsQ9Xj5pVy0zR9dymsJUIaQwMg_bedYka9t767weVzJNBl6MDI9qJxWY7HjERXE7AWQZhMCpiJf8h7SfZZJ6bqAgeN84K7J_qh5pN12Q-vx60kkbEUTBHwe9wj6uFczRYuZk3s7rxkWgQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mt-12 animate-fade-in-up">
+<h1 class="font-display-xl-mobile md:font-display-2xl text-display-xl-mobile md:text-display-2xl text-primary mb-6 max-w-4xl mx-auto tracking-tight">
+                Everything You Need To Support Your Fitness Journey.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                Premium supplements, hydration solutions, and quality accessories curated for MM Fitness members. Elevate your performance with gear you can trust.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="bg-primary-container text-on-primary-fixed font-label-md text-label-md py-4 px-8 rounded-full hover-lift flex items-center gap-2 w-full sm:w-auto justify-center shadow-[0_0_20px_rgba(0,255,102,0.3)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    Chat on WhatsApp
+                </button>
+<button class="bg-transparent border border-white/20 text-primary font-label-md text-label-md py-4 px-8 rounded-full hover:bg-primary-container hover:text-on-primary-fixed hover:border-transparent transition-all duration-300 w-full sm:w-auto justify-center">
+                    Visit the Gym
+                </button>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-12 text-center">
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-4">Featured Essentials</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Top-rated products trusted by our members and coaches to maximize performance and recovery.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<div class="glass-card rounded-xl p-4 flex flex-col hover-lift group border border-surface-variant hover:border-primary/50 transition-all">
+<div class="relative h-48 mb-4 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Premium Whey Protein" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtbLG8PlnT1MEiNd35CS4LuaPmPYuG_9Gy4tlPRa1V0mPN4poZUN0n8HUZ6jY4ZuWi2ietPFU39Chw9tXEYaZkCofWfs9NCLpvSvRxWESa8fb29Krlkuul2MZErcOvLTepRXS7QhVdoXZ4Yx6KI0dzKHMjLqto-fcxg4PMsmH9cJxTK40q5uqhulGPOed6VNysrvrP8MiQA0LZipy44D-Lg6d0OIC3-7E9XkNVTWPkHMxkdDFhY2Yq3g"/>
+<span class="absolute top-2 left-2 bg-primary-container text-on-primary-fixed text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Supplements</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-2">Premium Whey Protein</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-4 flex-grow">Fast-absorbing isolate for optimal post-workout muscle recovery and growth.</p>
+<button class="w-full bg-surface-container-high text-primary hover:bg-primary-container hover:text-on-primary-fixed py-2 rounded-lg font-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+            WhatsApp Enquiry
+        </button>
+</div>
+<!-- Product Card 2 -->
+<div class="glass-card rounded-xl p-4 flex flex-col hover-lift group border border-surface-variant hover:border-primary/50 transition-all">
+<div class="relative h-48 mb-4 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Pre-Workout Formula" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlb8D7zoorh66YxBHOqFp2LdjNzcEIJX2PXH8wpowz4VUiovETIAAkE-XDkrGReC8Qw0Z193VCeJ5BFjlQYJjlvP85oUIRKo2-QGDpry-DgwxNiVdZigqcpOeq9ML-mPw0sOq-_OPRsS1_oBYo08mRR1pa1pYG_jLat4Md0LT6CYovzxQa48VMbneOM2ZuQWKoa2U6St1T_-jVzA9jtdp4EVIzinXmkMxkwl1nngIB5vU2_1KDN126IA"/>
+<span class="absolute top-2 left-2 bg-primary-container text-on-primary-fixed text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Energy</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-2">Explosive Pre-Workout</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-4 flex-grow">Enhance focus, energy, and endurance for your toughest training sessions.</p>
+<button class="w-full bg-surface-container-high text-primary hover:bg-primary-container hover:text-on-primary-fixed py-2 rounded-lg font-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+            WhatsApp Enquiry
+        </button>
+</div>
+<!-- Product Card 3 -->
+<div class="glass-card rounded-xl p-4 flex flex-col hover-lift group border border-surface-variant hover:border-primary/50 transition-all">
+<div class="relative h-48 mb-4 rounded-lg overflow-hidden bg-surface-container">
+<img alt="MM Fitness Shaker" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ4r0dzWI7ITPtQuEX8tJBgYnSO5F7jg63UjGilhw_-Mg-yT2Pxf7aF6Ez3pV_xqvLbIZSp2i86u0fZ2cCM_Z_lwJeIj149n2WrRaSrV2inG2o7qkwPB90vvV6cYS6IvSM_6p6TMyMediGsOZMxxDuf0IKmtIo3_J-xGZ-x6Goz0L6IfyjbhUAdM4TakpsNoX0WRgZz8KL6h_40RC_wgguOjH7QrSgbTcLTGYTl7R5fx1yDT8-_pPbwg"/>
+<span class="absolute top-2 left-2 bg-primary-container text-on-primary-fixed text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Accessories</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-2">Pro Shaker Bottle</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-4 flex-grow">Leak-proof 700ml shaker with blending ball for perfectly smooth supplements.</p>
+<button class="w-full bg-surface-container-high text-primary hover:bg-primary-container hover:text-on-primary-fixed py-2 rounded-lg font-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+            WhatsApp Enquiry
+        </button>
+</div>
+<!-- Product Card 4 -->
+<div class="glass-card rounded-xl p-4 flex flex-col hover-lift group border border-surface-variant hover:border-primary/50 transition-all">
+<div class="relative h-48 mb-4 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Lifting Straps" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyMt7C8Gca4jkVs6QbpHQ-jevZrmcoNuetZKcoRMogPxcMdOJrwwLpSZYD4Q3bA07CuXVjT8MREUGpvNuBZy6OibRa5zGyr78QQIERsPDpw6Vv5WgJkF17WEVJDCMw-Uzu8NQzWO52ds7JJDRlRI3fnV4CS67Xjy_xgRZbeaz_uImXhzRGeWIGhO-YKj41mTZbmBgjWV4sytlJDCXmtAGeiN8FAeMRFtkntvgRtesR67BAGT7egJaM0g"/>
+<span class="absolute top-2 left-2 bg-primary-container text-on-primary-fixed text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Gear</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-2">Heavy Duty Lifting Straps</h3>
+<p class="font-body-md text-sm text-on-surface-variant mb-4 flex-grow">Improve grip strength and lift heavier safely with our durable padded straps.</p>
+<button class="w-full bg-surface-container-high text-primary hover:bg-primary-container hover:text-on-primary-fixed py-2 rounded-lg font-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+            WhatsApp Enquiry
+        </button>
+</div>
+</div>
+</section><section class="py-section-gap bg-surface-container-low border-y border-white/5">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12 text-center">
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-4">Frequently Asked Questions</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Everything you need to know about getting your gear at MM Fitness.</p>
+</div>
+<div class="max-w-3xl mx-auto space-y-4">
+<!-- FAQ Item 1 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Do you deliver?</h4>
+<p class="font-body-md text-on-surface-variant">Currently, we operate on an in-gym pickup model. You can enquire via WhatsApp, and once confirmed, your product will be ready for collection at the MM Fitness reception.</p>
+</div>
+<!-- FAQ Item 2 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Can I reserve products?</h4>
+<p class="font-body-md text-on-surface-variant">Yes! Message us on WhatsApp to check availability, and we can reserve items for you to pick up during your next visit.</p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Can non-members purchase?</h4>
+<p class="font-body-md text-on-surface-variant">Absolutely. While we curate our essentials for our training community, our gym shop is open to everyone.</p>
+</div>
+<!-- FAQ Item 4 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">How do I enquire?</h4>
+<p class="font-body-md text-on-surface-variant">Simply click the 'WhatsApp Enquiry' button on any product card or highlight to start a chat with our team.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop By Category -->
+<section class="py-section-gap bg-surface-container border-y border-white/5">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12 text-center">
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-4">Explore Categories</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Find exactly what you need to compliment your training style.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Category 1 -->
+<div class="relative h-64 rounded-xl overflow-hidden group cursor-pointer hover-lift">
+<img alt="Supplements" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh22usjA_tOLXA5XRKmTdl37wI8gR7N-6VQ6f1dzTe7j5k2HKFXzL-rPbghwM781O_JA07wu6JLenRQrOq8Rrh0wszvzij9UjnDyD8COuxFOVw9D5US6POXsafNMypjFJgQA-QCeMNPsPg2u7BgYoBhN0ulcDQb5bm2tvCyM8-_yfSs2p9R2coL3tyOmwF1jRMMRAEg4ODcuuOMRts6vWdRxfIOP7HZW_TUeLN2cWm1znRWi7TituSzw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/50 to-transparent"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<h3 class="font-headline-md text-headline-lg text-primary font-bold mb-1">Supplements</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-4">Vitamins, BCAAs, and daily health support.</p>
+<span class="text-primary font-label-md flex items-center gap-1 group-hover:gap-2 transition-all">Browse Category <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+</div>
+</div>
+<!-- Category 2 -->
+<div class="relative h-64 rounded-xl overflow-hidden group cursor-pointer hover-lift">
+<img alt="Protein" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFE5JY6ACPmc9dUtkeqqyQj5TJUWPQZLBkp9OWkR27eeZRVmr5lNFP8jP0mOf67GiS3-cQr500D39x80gnTY2eKg_a0M6xU6ObpLUu-Qv9z-eR2qlrDeSQnYSrINu_-P7gGyo9LrOHVpi95VAzBmIrFlAWh4_dlUkI9KXmrSqZkYwHaTbK8KZaJzB8Ls-aE3zLSv9FTWGaCa95l43Eh0czrkR4x3mAgdi0voZNFc8ujX47db_kMSC9SQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/50 to-transparent"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<h3 class="font-headline-md text-headline-lg text-primary font-bold mb-1">Protein &amp; Recovery</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-4">Whey, mass gainers, and post-workout fuel.</p>
+<span class="text-primary font-label-md flex items-center gap-1 group-hover:gap-2 transition-all">Browse Category <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+</div>
+</div>
+<!-- Category 3 -->
+<div class="relative h-64 rounded-xl overflow-hidden group cursor-pointer hover-lift">
+<img alt="Hydration" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkeUBvIdKSSgbbguRqfC3TTkmkz6B9z34S8cLUKXcT9RjpCUnGPB-TpTG5x4JSFo9d9tv6yJxmLh2X8fHSHpQRABcQVx1X0zRNTOs1GaZCb_HkZ_xi_0YCY1Es5jgXHtwlQm_peR5I8CO5gNcikz2bfQe8QXuGJCTbkZEfvjDgE7XimrLG-RiP3b6t2X59pRJ9hY_SNDfZCRlXbkeMnr3WM9tGI9Vth_zpiZBaUn-JCXZgbz6VJ41eew"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/50 to-transparent"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<h3 class="font-headline-md text-headline-lg text-primary font-bold mb-1">Hydration</h3>
+<p class="font-body-md text-on-surface-variant text-sm mb-4">Electrolytes, water bottles, and shakers.</p>
+<span class="text-primary font-label-md flex items-center gap-1 group-hover:gap-2 transition-all">Browse Category <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Buy From Us -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-6">Why Get Your Gear at MM Fitness?</h2>
+<p class="font-body-lg text-on-surface-variant mb-8">We don't just sell products; we curate solutions that support the exact training regimens our coaches prescribe.</p>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div>
+<h4 class="font-headline-md text-lg text-on-surface font-bold">Carefully Selected Products</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Every item is vetted for quality and effectiveness.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<div>
+<h4 class="font-headline-md text-lg text-on-surface font-bold">Convenient In-Gym Pickup</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Grab what you need right before or after your workout.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">forum</span>
+</div>
+<div>
+<h4 class="font-headline-md text-lg text-on-surface font-bold">Expert Recommendations</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Ask our staff which products align with your specific goals.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative h-[500px] rounded-2xl overflow-hidden glass-card">
+<img alt="Gym environment" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsgIeFoUyPGBupRWk-lPLlGzhbUlXvd96cXFlP9FNlMKp71Mk-bNkEEibhjUUGonky13pfHcqBoXKvL9VbT4bOp9q76fWoCb5lS8eGRLZEOhNsr0pD7WrKVkWfEDFexD8KqoJ6eRPheWMGJg-1YNd56xhl_eXLd2xTSJbunQEzAwYVI6218s_MSBtQnd9yiCNLnxtioH4bJikf8pdswv0r6fFPzCKSBa_b9dO_4tSq5JnTqd3zZJZCeg"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-surface-container-lowest to-transparent"></div>
+</div>
+</div>
+</section><section class="py-section-gap bg-surface-container-low border-y border-white/5">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12 text-center">
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-4">Frequently Asked Questions</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Everything you need to know about getting your gear at MM Fitness.</p>
+</div>
+<div class="max-w-3xl mx-auto space-y-4">
+<!-- FAQ Item 1 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Do you deliver?</h4>
+<p class="font-body-md text-on-surface-variant">Currently, we operate on an in-gym pickup model. You can enquire via WhatsApp, and once confirmed, your product will be ready for collection at the MM Fitness reception.</p>
+</div>
+<!-- FAQ Item 2 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Can I reserve products?</h4>
+<p class="font-body-md text-on-surface-variant">Yes! Message us on WhatsApp to check availability, and we can reserve items for you to pick up during your next visit.</p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Can non-members purchase?</h4>
+<p class="font-body-md text-on-surface-variant">Absolutely. While we curate our essentials for our training community, our gym shop is open to everyone.</p>
+</div>
+<!-- FAQ Item 4 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">How do I enquire?</h4>
+<p class="font-body-md text-on-surface-variant">Simply click the 'WhatsApp Enquiry' button on any product card or highlight to start a chat with our team.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Shopping Process -->
+<section class="py-section-gap bg-surface-container border-y border-white/5">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-12">How To Order</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+<!-- Line connecting steps (desktop) -->
+<div class="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-surface-variant z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-primary flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+<span class="material-symbols-outlined text-primary text-[28px]">search</span>
+</div>
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">1. Choose Product</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Browse our selection online.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-primary flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+<span class="material-symbols-outlined text-primary text-[28px]">chat</span>
+</div>
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">2. WhatsApp Enquiry</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Message us to check availability.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-primary flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+<span class="material-symbols-outlined text-primary text-[28px]">check_circle</span>
+</div>
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">3. Confirmation</h4>
+<p class="font-body-md text-on-surface-variant text-sm">We'll reserve it for you.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border-2 border-primary flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(0,255,102,0.2)]">
+<span class="material-symbols-outlined text-primary text-[28px]">storefront</span>
+</div>
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">4. Collect at Gym</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Pick up and pay at reception.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-12 text-center">
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-4">Product Highlights</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">A closer look at the essentials our athletes rely on for peak performance.</p>
+</div>
+<div class="space-y-24">
+<!-- Highlight 1: Image Left, Text Right -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="relative h-[400px] rounded-2xl overflow-hidden glass-card">
+<img alt="Premium Whey Protein" class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtbLG8PlnT1MEiNd35CS4LuaPmPYuG_9Gy4tlPRa1V0mPN4poZUN0n8HUZ6jY4ZuWi2ietPFU39Chw9tXEYaZkCofWfs9NCLpvSvRxWESa8fb29Krlkuul2MZErcOvLTepRXS7QhVdoXZ4Yx6KI0dzKHMjLqto-fcxg4PMsmH9cJxTK40q5uqhulGPOed6VNysrvrP8MiQA0LZipy44D-Lg6d0OIC3-7E9XkNVTWPkHMxkdDFhY2Yq3g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="space-y-6">
+<span class="text-primary font-label-md uppercase tracking-wider">Post-Workout Nutrition</span>
+<h3 class="font-display-xl text-headline-lg font-bold text-on-surface">Premium Whey Protein</h3>
+<p class="font-body-lg text-on-surface-variant">
+          Engineered for rapid absorption, our isolate formula provides the essential amino acids needed to support muscle recovery immediately following intense training sessions. It is an ideal choice for athletes looking to maintain a high-protein diet with a clean, easily digestible source.
+        </p>
+<button class="bg-primary-container text-on-primary-fixed font-label-md text-label-md py-4 px-8 rounded-full hover-lift flex items-center gap-2 shadow-[0_0_20px_rgba(0,255,102,0.3)]">
+<span class="material-symbols-outlined">chat</span>
+          WhatsApp Enquiry
+        </button>
+</div>
+</div>
+<!-- Highlight 2: Text Left, Image Right -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1 space-y-6">
+<span class="text-primary font-label-md uppercase tracking-wider">Strength &amp; Support</span>
+<h3 class="font-display-xl text-headline-lg font-bold text-on-surface">Heavy Duty Lifting Straps</h3>
+<p class="font-body-lg text-on-surface-variant">
+          Designed for heavy compound movements like deadlifts and rows, these straps provide superior grip support, allowing you to focus entirely on the target muscle group without grip fatigue. Featuring durable padding for comfort during your heaviest sets.
+        </p>
+<button class="bg-primary-container text-on-primary-fixed font-label-md text-label-md py-4 px-8 rounded-full hover-lift flex items-center gap-2 shadow-[0_0_20px_rgba(0,255,102,0.3)]">
+<span class="material-symbols-outlined">chat</span>
+          WhatsApp Enquiry
+        </button>
+</div>
+<div class="order-1 lg:order-2 relative h-[400px] rounded-2xl overflow-hidden glass-card">
+<img alt="Lifting Straps" class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyMt7C8Gca4jkVs6QbpHQ-jevZrmcoNuetZKcoRMogPxcMdOJrwwLpSZYD4Q3bA07CuXVjT8MREUGpvNuBZy6OibRa5zGyr78QQIERsPDpw6Vv5WgJkF17WEVJDCMw-Uzu8NQzWO52ds7JJDRlRI3fnV4CS67Xjy_xgRZbeaz_uImXhzRGeWIGhO-YKj41mTZbmBgjWV4sytlJDCXmtAGeiN8FAeMRFtkntvgRtesR67BAGT7egJaM0g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+</div>
+</div>
+</section><section class="py-section-gap bg-surface-container-low border-y border-white/5">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12 text-center">
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-4">Frequently Asked Questions</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Everything you need to know about getting your gear at MM Fitness.</p>
+</div>
+<div class="max-w-3xl mx-auto space-y-4">
+<!-- FAQ Item 1 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Do you deliver?</h4>
+<p class="font-body-md text-on-surface-variant">Currently, we operate on an in-gym pickup model. You can enquire via WhatsApp, and once confirmed, your product will be ready for collection at the MM Fitness reception.</p>
+</div>
+<!-- FAQ Item 2 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Can I reserve products?</h4>
+<p class="font-body-md text-on-surface-variant">Yes! Message us on WhatsApp to check availability, and we can reserve items for you to pick up during your next visit.</p>
+</div>
+<!-- FAQ Item 3 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">Can non-members purchase?</h4>
+<p class="font-body-md text-on-surface-variant">Absolutely. While we curate our essentials for our training community, our gym shop is open to everyone.</p>
+</div>
+<!-- FAQ Item 4 -->
+<div class="glass-card rounded-xl p-6 border border-surface-variant">
+<h4 class="font-headline-md text-lg text-on-surface font-bold mb-2">How do I enquire?</h4>
+<p class="font-body-md text-on-surface-variant">Simply click the 'WhatsApp Enquiry' button on any product card or highlight to start a chat with our team.</p>
+</div>
+</div>
+</div>
+</section><section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+<div class="glass-card rounded-3xl p-12 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5"></div>
+<div class="relative z-10">
+<h2 class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-6">Need Help Choosing The Right Product?</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">Our coaches are ready to help you select the exact supplements and gear to match your training goals. Send us a message or speak to us at the front desk.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="bg-primary-container text-on-primary-fixed font-label-md text-label-md py-4 px-8 rounded-full hover-lift flex items-center gap-2 w-full sm:w-auto justify-center shadow-[0_0_20px_rgba(0,255,102,0.3)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    Chat on WhatsApp
+                </button>
+<button class="bg-surface-container-highest border border-surface-variant text-on-surface font-label-md text-label-md py-4 px-8 rounded-full hover:border-primary hover:text-primary transition-all duration-300 w-full sm:w-auto justify-center hover-lift">
+                    Visit MM Fitness
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center py-3 px-4 bg-surface-container-highest border-t border-primary/20 shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface active:bg-surface-bright p-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined mb-1">call</span>
+<span class="font-label-md text-label-md text-[10px]">Call Us</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:bg-surface-bright p-2 rounded-lg transition-all scale-95" href="#">
+<span class="material-symbols-outlined mb-1">chat</span>
+<span class="font-label-md text-label-md text-[10px]">WhatsApp</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-lowest border-t border-surface-variant pb-24 md:pb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<span class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary">MM Fitness</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                    Empowering the community through accessible, high-quality fitness solutions.
+                </p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-wider mb-2">Explore</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max" href="#">Programs</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max" href="#">Membership</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max" href="#">Facilities</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-wider mb-2">Connect</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max" href="#">Reviews</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max" href="#">Location</a>
+<a class="font-body-md text-body-md text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max font-bold" href="#">Shop Essentials</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-md text-label-md text-primary uppercase tracking-wider mb-2">Legal</h4>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-surface-variant px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 MM Fitness Dopemu. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Mobile menu toggle
+  const menuBtn = document.querySelector('button[aria-controls="mobileMenu"]');
+  const closeMenuBtn = document.getElementById('closeMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  if(menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.remove('-translate-x-full');
+      });
+  }
+  if(closeMenuBtn && mobileMenu) {
+      closeMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.add('-translate-x-full');
+      });
+  }
+  if(mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+              mobileMenu.classList.add('-translate-x-full');
+          });
+      });
+  }
+});
+</script>
+  <script src="../assets/js/site-links.js"></script>
+</body></html>
