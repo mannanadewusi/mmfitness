@@ -1,929 +1,1935 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="dark scroll-smooth" lang="en">
-<head>
-<meta charset="utf-8" />
-<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-<title>MM Fitness - Membership Plans</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect" />
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-<script>
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "on-secondary-fixed-variant": "#454747",
-        "surface-container-lowest": "#0b0f12",
-        "surface-tint": "#00e55b",
-        "error-container": "#93000a",
-        "surface-container": "#1c2023",
-        "on-secondary-fixed": "#1a1c1c",
-        "on-primary-fixed": "#002107",
-        "on-background": "#e0e3e7",
-        "inverse-surface": "#e0e3e7",
-        "secondary-container": "#454747",
-        "on-secondary-container": "#b4b5b5",
-        "tertiary-container": "#d4dfeb",
-        "surface-variant": "#313539",
-        "surface-container-high": "#262a2e",
-        "on-error": "#690005",
-        "surface-dim": "#101417",
-        "primary-fixed": "#6bff83",
-        "on-surface": "#e0e3e7",
-        "secondary": "#c6c6c7",
-        "inverse-primary": "#006e27",
-        "primary-fixed-dim": "#00e55b",
-        "surface-bright": "#363a3d",
-        "on-tertiary-container": "#58636d",
-        "on-primary-container": "#007128",
-        "on-secondary": "#2f3131",
-        "secondary-fixed-dim": "#c6c6c7",
-        "error": "#ffb4ab",
-        "on-primary-fixed-variant": "#00531b",
-        "primary-container": "#00ff66",
-        "inverse-on-surface": "#2d3134",
-        "tertiary": "#f8faff",
-        "on-primary": "#003911",
-        "on-tertiary": "#27323a",
-        "tertiary-fixed-dim": "#bdc8d3",
-        "background": "#101417",
-        "surface": "#101417",
-        "secondary-fixed": "#e2e2e2",
-        "on-tertiary-fixed": "#121d25",
-        "outline": "#849581",
-        "primary": "#edffe8",
-        "on-surface-variant": "#b9ccb5",
-        "surface-container-low": "#181c1f",
-        "on-tertiary-fixed-variant": "#3d4851",
-        "tertiary-fixed": "#d9e4ef",
-        "on-error-container": "#ffdad6",
-        "outline-variant": "#3b4b3a",
-        "surface-container-highest": "#313539"
-      },
-      borderRadius: {
-        DEFAULT: "0.5rem",
-        lg: "0.5rem",
-        xl: "0.5rem",
-        full: "9999px"
-      },
-      spacing: {
-        "stack-lg": "32px",
-        "stack-md": "16px",
-        "container-max": "1280px",
-        "stack-sm": "8px",
-        "margin-mobile": "16px",
-        "gutter": "24px",
-        "section-gap": "96px",
-        "unit": "8px",
-        "margin-desktop": "48px"
-      },
-      fontFamily: {
-        "body-md": ["Montserrat"],
-        "body-lg": ["Montserrat"],
-        "headline-lg": ["Montserrat"],
-        "headline-md": ["Montserrat"],
-        "display-xl-mobile": ["Montserrat"],
-        "display-xl": ["Montserrat"],
-        "label-md": ["Montserrat"],
-        "display-2xl": ["Montserrat"]
-      },
-      fontSize: {
-        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
-        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
-        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "700" }],
-        "display-xl-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
-        "display-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
-        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
-        "display-2xl": ["72px", { lineHeight: "80px", letterSpacing: "-0.04em", fontWeight: "800" }]
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MM Fitness - Membership Plans</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#454747",
+              "surface-container-lowest": "#0b0f12",
+              "surface-tint": "#00e55b",
+              "error-container": "#93000a",
+              "surface-container": "#1c2023",
+              "on-secondary-fixed": "#1a1c1c",
+              "on-primary-fixed": "#002107",
+              "on-background": "#e0e3e7",
+              "inverse-surface": "#e0e3e7",
+              "secondary-container": "#454747",
+              "on-secondary-container": "#b4b5b5",
+              "tertiary-container": "#d4dfeb",
+              "surface-variant": "#313539",
+              "surface-container-high": "#262a2e",
+              "on-error": "#690005",
+              "surface-dim": "#101417",
+              "primary-fixed": "#6bff83",
+              "on-surface": "#e0e3e7",
+              secondary: "#c6c6c7",
+              "inverse-primary": "#006e27",
+              "primary-fixed-dim": "#00e55b",
+              "surface-bright": "#363a3d",
+              "on-tertiary-container": "#58636d",
+              "on-primary-container": "#007128",
+              "on-secondary": "#2f3131",
+              "secondary-fixed-dim": "#c6c6c7",
+              error: "#ffb4ab",
+              "on-primary-fixed-variant": "#00531b",
+              "primary-container": "#00ff66",
+              "inverse-on-surface": "#2d3134",
+              tertiary: "#f8faff",
+              "on-primary": "#003911",
+              "on-tertiary": "#27323a",
+              "tertiary-fixed-dim": "#bdc8d3",
+              background: "#101417",
+              surface: "#101417",
+              "secondary-fixed": "#e2e2e2",
+              "on-tertiary-fixed": "#121d25",
+              outline: "#849581",
+              primary: "#edffe8",
+              "on-surface-variant": "#b9ccb5",
+              "surface-container-low": "#181c1f",
+              "on-tertiary-fixed-variant": "#3d4851",
+              "tertiary-fixed": "#d9e4ef",
+              "on-error-container": "#ffdad6",
+              "outline-variant": "#3b4b3a",
+              "surface-container-highest": "#313539",
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.5rem",
+              xl: "0.5rem",
+              full: "9999px",
+            },
+            spacing: {
+              "stack-lg": "32px",
+              "stack-md": "16px",
+              "container-max": "1280px",
+              "stack-sm": "8px",
+              "margin-mobile": "16px",
+              gutter: "24px",
+              "section-gap": "96px",
+              unit: "8px",
+              "margin-desktop": "48px",
+            },
+            fontFamily: {
+              "body-md": ["Montserrat"],
+              "body-lg": ["Montserrat"],
+              "headline-lg": ["Montserrat"],
+              "headline-md": ["Montserrat"],
+              "display-xl-mobile": ["Montserrat"],
+              "display-xl": ["Montserrat"],
+              "label-md": ["Montserrat"],
+              "display-2xl": ["Montserrat"],
+            },
+            fontSize: {
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "700" },
+              ],
+              "display-xl-mobile": [
+                "36px",
+                {
+                  lineHeight: "44px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "display-xl": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-2xl": [
+                "72px",
+                {
+                  lineHeight: "80px",
+                  letterSpacing: "-0.04em",
+                  fontWeight: "800",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
       }
-    }
-  }
-};
-</script>
-<style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  .icon-filled { font-variation-settings: 'FILL' 1; }
-  @media (prefers-reduced-motion: no-preference) {
-    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1); }
-    .reveal-up.active { opacity: 1; transform: translateY(0); }
-    .stagger-1 { transition-delay: 100ms; }
-    .stagger-2 { transition-delay: 200ms; }
-    .stagger-3 { transition-delay: 300ms; }
-  }
-  .timeline-line { width: 2px; background: linear-gradient(to bottom, #00ff66 0%, rgba(0,255,102,0.1) 100%); }
-  .btn-shimmer { position: relative; overflow: hidden; }
-  .btn-shimmer::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-    transform: skewX(-20deg);
-    transition: all 0.5s;
-  }
-  .btn-shimmer:hover::after { left: 150%; transition: all 0.7s ease-in-out; }
-  details > summary::-webkit-details-marker { display: none; }
-  details[open] summary ~ * { animation: slideDown 0.3s ease-in-out; }
-  @keyframes slideDown { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
-</style>
-</head>
-<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
-<!-- TopNavBar -->
-<header>
-<nav class="bg-surface/80 backdrop-blur-md fixed top-0 w-full border-b border-white/10 shadow-sm z-50">
-<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
-<a class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary-container transition-colors" href="../index.html">MM Fitness</a>
-<div class="hidden md:flex gap-gutter items-center">
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="../index.html">Home</a>
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="about.html">About</a>
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="services.html">Services</a>
-<a aria-current="page" class="font-label-md text-label-md text-primary-container border-b-2 border-primary-container pb-1 hover:scale-105 active:scale-95 transition-all" href="membership.html">Membership</a>
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="shop.html">Essentials</a>
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="contact.html">Contact</a>
-</div>
-<a href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]">Book A Session</a>
-<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation" class="md:hidden text-on-surface">
-<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
-</button>
-</div>
-</nav>
-</header>
+      .icon-filled {
+        font-variation-settings: "FILL" 1;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .reveal-up {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+        }
+        .reveal-up.active {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .stagger-1 {
+          transition-delay: 100ms;
+        }
+        .stagger-2 {
+          transition-delay: 200ms;
+        }
+        .stagger-3 {
+          transition-delay: 300ms;
+        }
+      }
+      .timeline-line {
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          #00ff66 0%,
+          rgba(0, 255, 102, 0.1) 100%
+        );
+      }
+      .btn-shimmer {
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-shimmer::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transform: skewX(-20deg);
+        transition: all 0.5s;
+      }
+      .btn-shimmer:hover::after {
+        left: 150%;
+        transition: all 0.7s ease-in-out;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+      details[open] summary ~ * {
+        animation: slideDown 0.3s ease-in-out;
+      }
+      @keyframes slideDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- TopNavBar -->
+    <header>
+      <nav
+        class="bg-surface/80 backdrop-blur-md fixed top-0 w-full border-b border-white/10 shadow-sm z-50"
+      >
+        <div
+          class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile"
+        >
+          <a
+            class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary-container transition-colors"
+            href="../index.html"
+            >MM Fitness</a
+          >
+          <div class="hidden md:flex gap-gutter items-center">
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="../index.html"
+              >Home</a
+            >
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="about.html"
+              >About</a
+            >
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="services.html"
+              >Services</a
+            >
+            <a
+              aria-current="page"
+              class="font-label-md text-label-md text-primary-container border-b-2 border-primary-container pb-1 hover:scale-105 active:scale-95 transition-all"
+              href="membership.html"
+              >Membership</a
+            >
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="shop.html"
+              >Essentials</a
+            >
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="contact.html"
+              >Contact</a
+            >
+          </div>
+          <a
+            href="https://cal.com/mannanx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden md:inline-flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]"
+            >Book A Session</a
+          >
+          <button
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            class="md:hidden text-on-surface"
+          >
+            <span
+              aria-hidden="true"
+              class="material-symbols-outlined"
+              style="font-variation-settings: &quot;FILL&quot; 0"
+              >menu</span
+            >
+          </button>
+        </div>
+      </nav>
+    </header>
 
-<!-- Mobile SideNav Drawer -->
-<div aria-label="Mobile Navigation" aria-modal="true" class="fixed inset-y-0 left-0 z-50 flex flex-col bg-surface-container-high h-full w-64 shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out" id="mobileMenu" role="dialog">
-<div class="p-6 border-b border-surface-container-highest">
-<div class="flex justify-between items-center">
-<div>
-<h2 class="font-headline-md text-headline-md font-bold text-primary-container">MM Fitness</h2>
-<p class="font-body-md text-body-md text-on-surface mt-1">Modern Athletic Minimalism</p>
-</div>
-<button id="closeMenuBtn" class="text-on-surface hover:text-primary-container transition-colors" aria-label="Close menu">
-<span class="material-symbols-outlined text-3xl">close</span>
-</button>
-</div>
-</div>
-<nav class="flex flex-col flex-grow p-4 gap-2">
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="../index.html">
-<span aria-hidden="true" class="material-symbols-outlined">home</span> Home
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="about.html">
-<span aria-hidden="true" class="material-symbols-outlined">info</span> About
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="services.html">
-<span aria-hidden="true" class="material-symbols-outlined">fitness_center</span> Services
-            </a>
-<a aria-current="page" class="flex items-center gap-4 p-3 font-body-md text-body-md bg-primary-container text-background rounded font-bold" href="membership.html">
-<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">card_membership</span> Membership
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="booking.html">
-<span aria-hidden="true" class="material-symbols-outlined">event_available</span> Book a Session
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="shop.html">
-<span aria-hidden="true" class="material-symbols-outlined">shopping_bag</span> Fitness Essentials
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="contact.html">
-<span aria-hidden="true" class="material-symbols-outlined">contact_support</span> Contact
-            </a>
-</nav>
-<div class="p-6 border-t border-surface-container-highest">
-<a class="w-full flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 mb-4 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]" href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer">Book A Session</a>
-<div class="flex gap-4 text-on-surface">
-<a href="tel:+2347048050420" aria-label="Call Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">call</a>
-<a href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Chat with Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">chat</a>
-</div>
-</div>
-</div>
-
-<header class="relative pt-[120px] pb-section-gap min-h-[820px] flex items-center">
-  <div class="absolute inset-0 z-0">
-    <div class="bg-cover bg-center w-full h-full opacity-30" style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuC26QoF2KnCu8FVkdf-pY8ESA49Bq2yjiwZDynI9-4GQNKABukmMyRJeRrT-IeOQiHVKwNv9QhKIpdadi9OvBA6B9VUj4_74tLM9CnsPAyXGX9gnnJrGS1j-eu5zJMN65UEm0GaeJiA7n2EY5tY1h8UI5B7Cz9BQ53BWr0s0Cw-TQ55WM59fKOgfmPUNJ5OCUs8JsHvZSmzqDH0l4BmjjLq09IJcYinkSoxcWaQ43fYLBuV1dyIHNmtqw");'></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
-  </div>
-  <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full text-center">
-    <div class="max-w-3xl mx-auto reveal-up active">
-      <h1 class="text-display-xl-mobile md:text-display-2xl font-display-xl-mobile md:font-display-2xl mb-stack-md text-on-surface drop-shadow-lg">
-        Membership Plans Designed Around Your <span class="text-primary-container">Fitness Goals.</span>
-      </h1>
-      <p class="text-body-lg font-body-lg text-on-surface-variant mb-stack-lg max-w-2xl mx-auto">
-        Whether you're just getting started or committed to long-term transformation, choose the membership that fits your lifestyle.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-stack-md justify-center">
-        <a class="btn-shimmer bg-primary-container text-[#000000] px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:scale-[1.02] transition-transform duration-300 active:scale-95 shadow-[0_0_20px_rgba(0,255,102,0.2)] inline-flex items-center justify-center" href="booking.html">Join MM Fitness</a>
-        <a class="btn-shimmer border border-white/20 bg-transparent text-on-surface px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-primary-container hover:text-[#000000] hover:border-primary-container transition-all duration-300 active:scale-95 inline-flex items-center justify-center" href="booking.html">Book A Session</a>
+    <!-- Mobile SideNav Drawer -->
+    <div
+      aria-label="Mobile Navigation"
+      aria-modal="true"
+      class="fixed inset-y-3 left-3 z-50 flex flex-col bg-surface-container-high h-[calc(100vh-1.5rem)] w-[min(20rem,calc(100vw-1.5rem))] rounded-3xl shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out border border-white/10 overflow-y-auto"
+      id="mobileMenu"
+      role="dialog"
+    >
+      <div class="p-6 border-b border-surface-container-highest">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2
+              class="font-headline-md text-headline-md font-bold text-primary-container"
+            >
+              MM Fitness
+            </h2>
+          </div>
+          <button
+            id="closeMenuBtn"
+            class="text-on-surface hover:text-primary-container transition-colors"
+            aria-label="Close menu"
+          >
+            <span class="material-symbols-outlined text-3xl">close</span>
+          </button>
+        </div>
+      </div>
+      <nav class="flex flex-col flex-grow p-4 gap-2">
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="../index.html"
+        >
+          Home
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="about.html"
+        >
+          About
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="services.html"
+        >
+          Services
+        </a>
+        <a
+          aria-current="page"
+          class="flex items-center gap-4 p-3 font-body-md text-body-md bg-primary-container text-background rounded font-bold"
+          href="membership.html"
+        >
+          Membership
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="booking.html"
+        >
+          Book a Session
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="shop.html"
+        >
+          Fitness Essentials
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="contact.html"
+        >
+          Contact
+        </a>
+      </nav>
+      <div class="p-6 border-t border-surface-container-highest">
+        <a
+          class="w-full flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 mb-4 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]"
+          href="https://cal.com/mannanx"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Book A Session</a
+        >
       </div>
     </div>
-  </div>
-</header>
 
-<section class="py-section-gap relative bg-surface/80 backdrop-blur-sm">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="text-center mb-stack-lg reveal-up active">
-      <h2 class="text-display-xl-mobile md:text-display-xl font-display-xl-mobile md:font-display-xl mb-stack-sm">Membership Plans</h2>
-      <p class="text-body-lg font-body-lg text-on-surface-variant">Clear pricing, clear value, and a straightforward path to joining.</p>
-    </div>
+    <header
+      class="relative pt-[120px] pb-section-gap min-h-[820px] flex items-center"
+    >
+      <div class="absolute inset-0 z-0">
+        <div
+          class="bg-cover bg-center w-full h-full opacity-30"
+          style="background-image: url(&quot;../assets/hero.jpeg&quot;)"
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"
+        ></div>
+      </div>
+      <div
+        class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full text-center"
+      >
+        <div class="max-w-3xl mx-auto reveal-up active">
+          <h1
+            class="text-display-xl-mobile md:text-display-2xl font-display-xl-mobile md:font-display-2xl mb-stack-md text-on-surface drop-shadow-lg"
+          >
+            Membership Plans Designed Around Your
+            <span class="text-primary-container">Fitness Goals.</span>
+          </h1>
+          <p
+            class="text-body-lg font-body-lg text-on-surface-variant mb-stack-lg max-w-2xl mx-auto"
+          >
+            Whether you're just getting started or committed to long-term
+            transformation, choose the membership that fits your lifestyle.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-stack-md justify-center">
+            <a
+              class="btn-shimmer bg-primary-container text-[#000000] px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:scale-[1.02] transition-transform duration-300 active:scale-95 shadow-[0_0_20px_rgba(0,255,102,0.2)] inline-flex items-center justify-center"
+              href="booking.html"
+              >Join MM Fitness</a
+            >
+            <a
+              class="btn-shimmer border border-white/20 bg-transparent text-on-surface px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-primary-container hover:text-[#000000] hover:border-primary-container transition-all duration-300 active:scale-95 inline-flex items-center justify-center"
+              href="booking.html"
+              >Book A Session</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
-      <article class="bg-surface-container rounded-lg p-6 border border-white/10 hover:scale-[1.02] hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(0,255,102,0.12)] transition-all duration-300 reveal-up active flex flex-col">
-        <div class="flex items-start justify-between gap-4 mb-4">
-          <div>
-            <h3 class="text-headline-md font-headline-md mb-2">Daily</h3>
-            <p class="text-on-surface-variant text-body-md">Best for a single visit or first-time trial.</p>
-          </div>
-          <span class="text-label-md uppercase tracking-wider text-primary-container">Flexible</span>
+    <section class="py-section-gap relative bg-surface/80 backdrop-blur-sm">
+      <div
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
+      >
+        <div class="text-center mb-stack-lg reveal-up active">
+          <h2
+            class="text-display-xl-mobile md:text-display-xl font-display-xl-mobile md:font-display-xl mb-stack-sm"
+          >
+            Membership Plans
+          </h2>
+          <p class="text-body-lg font-body-lg text-on-surface-variant">
+            Clear pricing, clear value, and a straightforward path to joining.
+          </p>
         </div>
-        <div class="mb-6">
-          <div class="text-display-xl font-display-xl">&#8358;8,000</div>
-          <p class="text-on-surface-variant text-body-md">First day total</p>
-        </div>
-        <div class="space-y-4 flex-grow">
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">What's included</p>
-            <ul class="space-y-2 text-body-md text-on-surface-variant">
-              <li>First registration: &#8358;5,000</li>
-              <li>Daily session: &#8358;3,000</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">Ideal for</p>
-            <p class="text-body-md text-on-surface-variant">Visitors, trial users, and anyone training for the day.</p>
-          </div>
-        </div>
-        <a class="btn-shimmer mt-6 w-full border border-white/20 bg-transparent text-on-surface py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center" href="booking.html">Join This Plan</a>
-      </article>
 
-      <article class="bg-surface-container rounded-lg p-6 border border-white/10 hover:scale-[1.02] hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(0,255,102,0.12)] transition-all duration-300 reveal-up stagger-1 active flex flex-col">
-        <div class="flex items-start justify-between gap-4 mb-4">
-          <div>
-            <h3 class="text-headline-md font-headline-md mb-2">Weekly</h3>
-            <p class="text-on-surface-variant text-body-md">Ideal if you want a short, structured commitment.</p>
-          </div>
-          <span class="text-label-md uppercase tracking-wider text-primary-container">Popular</span>
-        </div>
-        <div class="mb-6">
-          <div class="text-display-xl font-display-xl">&#8358;13,000</div>
-          <p class="text-on-surface-variant text-body-md">First week total</p>
-        </div>
-        <div class="space-y-4 flex-grow">
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">What's included</p>
-            <ul class="space-y-2 text-body-md text-on-surface-variant">
-              <li>Registration: &#8358;5,000</li>
-              <li>Weekly subscription: &#8358;8,000</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">Ideal for</p>
-            <p class="text-body-md text-on-surface-variant">Short stays, routine resets, and guests in town.</p>
-          </div>
-        </div>
-        <a class="btn-shimmer mt-6 w-full border border-white/20 bg-transparent text-on-surface py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center" href="booking.html">Join This Plan</a>
-      </article>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+          <article
+            class="bg-surface-container rounded-lg p-6 border border-white/10 hover:scale-[1.02] hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(0,255,102,0.12)] transition-all duration-300 reveal-up active flex flex-col"
+          >
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="text-headline-md font-headline-md mb-2">Daily</h3>
+                <p class="text-on-surface-variant text-body-md">
+                  Best for a single visit or first-time trial.
+                </p>
+              </div>
+              <span
+                class="text-label-md uppercase tracking-wider text-primary-container"
+                >Flexible</span
+              >
+            </div>
+            <div class="mb-6">
+              <div class="text-display-xl font-display-xl">&#8358;8,000</div>
+              <p class="text-on-surface-variant text-body-md">
+                First day total
+              </p>
+            </div>
+            <div class="space-y-4 flex-grow">
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  What's included
+                </p>
+                <ul class="space-y-2 text-body-md text-on-surface-variant">
+                  <li>First registration: &#8358;5,000</li>
+                  <li>Daily session: &#8358;3,000</li>
+                </ul>
+              </div>
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  Ideal for
+                </p>
+                <p class="text-body-md text-on-surface-variant">
+                  Visitors, trial users, and anyone training for the day.
+                </p>
+              </div>
+            </div>
+            <a
+              class="btn-shimmer mt-6 w-full border border-white/20 bg-transparent text-on-surface py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center"
+              href="booking.html"
+              >Join This Plan</a
+            >
+          </article>
 
-      <article class="bg-surface-container rounded-lg p-6 border border-white/10 hover:scale-[1.02] hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(0,255,102,0.12)] transition-all duration-300 reveal-up stagger-2 active flex flex-col">
-        <div class="flex items-start justify-between gap-4 mb-4">
-          <div>
-            <h3 class="text-headline-md font-headline-md mb-2">Monthly</h3>
-            <p class="text-on-surface-variant text-body-md">Best for consistent training with room to grow.</p>
-          </div>
-          <span class="text-label-md uppercase tracking-wider text-primary-container">Core</span>
-        </div>
-        <div class="mb-6">
-          <div class="text-display-xl font-display-xl">&#8358;33,000</div>
-          <p class="text-on-surface-variant text-body-md">First registration</p>
-        </div>
-        <div class="space-y-4 flex-grow">
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">What's included</p>
-            <ul class="space-y-2 text-body-md text-on-surface-variant">
-              <li>Renewal: &#8358;25,000</li>
-              <li>Optional personal trainer: +&#8358;10,000</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">Ideal for</p>
-            <p class="text-body-md text-on-surface-variant">Members building a steady routine and visible progress.</p>
-          </div>
-        </div>
-        <a class="btn-shimmer mt-6 w-full border border-white/20 bg-transparent text-on-surface py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center" href="booking.html">Join This Plan</a>
-      </article>
+          <article
+            class="bg-surface-container rounded-lg p-6 border border-white/10 hover:scale-[1.02] hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(0,255,102,0.12)] transition-all duration-300 reveal-up stagger-1 active flex flex-col"
+          >
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="text-headline-md font-headline-md mb-2">Weekly</h3>
+                <p class="text-on-surface-variant text-body-md">
+                  Ideal if you want a short, structured commitment.
+                </p>
+              </div>
+              <span
+                class="text-label-md uppercase tracking-wider text-primary-container"
+                >Popular</span
+              >
+            </div>
+            <div class="mb-6">
+              <div class="text-display-xl font-display-xl">&#8358;13,000</div>
+              <p class="text-on-surface-variant text-body-md">
+                First week total
+              </p>
+            </div>
+            <div class="space-y-4 flex-grow">
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  What's included
+                </p>
+                <ul class="space-y-2 text-body-md text-on-surface-variant">
+                  <li>Registration: &#8358;5,000</li>
+                  <li>Weekly subscription: &#8358;8,000</li>
+                </ul>
+              </div>
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  Ideal for
+                </p>
+                <p class="text-body-md text-on-surface-variant">
+                  Short stays, routine resets, and guests in town.
+                </p>
+              </div>
+            </div>
+            <a
+              class="btn-shimmer mt-6 w-full border border-white/20 bg-transparent text-on-surface py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center"
+              href="booking.html"
+              >Join This Plan</a
+            >
+          </article>
 
-      <article class="bg-surface-container rounded-lg p-6 border border-white/10 hover:scale-[1.02] hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(0,255,102,0.12)] transition-all duration-300 reveal-up stagger-3 active flex flex-col">
-        <div class="flex items-start justify-between gap-4 mb-4">
-          <div>
-            <h3 class="text-headline-md font-headline-md mb-2">Three Months</h3>
-            <p class="text-on-surface-variant text-body-md">A stronger commitment for deeper momentum.</p>
-          </div>
-          <span class="text-label-md uppercase tracking-wider text-primary-container">Value</span>
-        </div>
-        <div class="mb-6">
-          <div class="text-display-xl font-display-xl">&#8358;75,000</div>
-          <p class="text-on-surface-variant text-body-md">First registration</p>
-        </div>
-        <div class="space-y-4 flex-grow">
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">What's included</p>
-            <ul class="space-y-2 text-body-md text-on-surface-variant">
-              <li>Renewal: &#8358;68,000</li>
-              <li>Longer commitment with better consistency</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">Ideal for</p>
-            <p class="text-body-md text-on-surface-variant">Members ready to stay focused across a full training cycle.</p>
-          </div>
-        </div>
-        <a class="btn-shimmer mt-6 w-full border border-white/20 bg-transparent text-on-surface py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center" href="booking.html">Join This Plan</a>
-      </article>
+          <article
+            class="bg-surface-container rounded-lg p-6 border border-white/10 hover:scale-[1.02] hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(0,255,102,0.12)] transition-all duration-300 reveal-up stagger-2 active flex flex-col"
+          >
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="text-headline-md font-headline-md mb-2">Monthly</h3>
+                <p class="text-on-surface-variant text-body-md">
+                  Best for consistent training with room to grow.
+                </p>
+              </div>
+              <span
+                class="text-label-md uppercase tracking-wider text-primary-container"
+                >Core</span
+              >
+            </div>
+            <div class="mb-6">
+              <div class="text-display-xl font-display-xl">&#8358;33,000</div>
+              <p class="text-on-surface-variant text-body-md">
+                First registration
+              </p>
+            </div>
+            <div class="space-y-4 flex-grow">
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  What's included
+                </p>
+                <ul class="space-y-2 text-body-md text-on-surface-variant">
+                  <li>Renewal: &#8358;25,000</li>
+                  <li>Optional personal trainer: +&#8358;10,000</li>
+                </ul>
+              </div>
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  Ideal for
+                </p>
+                <p class="text-body-md text-on-surface-variant">
+                  Members building a steady routine and visible progress.
+                </p>
+              </div>
+            </div>
+            <a
+              class="btn-shimmer mt-6 w-full border border-white/20 bg-transparent text-on-surface py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center"
+              href="booking.html"
+              >Join This Plan</a
+            >
+          </article>
 
-      <article class="bg-surface-container-high rounded-lg p-6 border-2 border-primary-container relative hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(0,255,102,0.2)] transition-all duration-300 reveal-up active flex flex-col shadow-[0_8px_30px_rgba(0,255,102,0.08)]">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-container text-[#000000] px-4 py-1 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold">Best Value</div>
-        <div class="flex items-start justify-between gap-4 mb-4">
-          <div>
-            <h3 class="text-headline-md font-headline-md mb-2 text-primary-container">Six Months</h3>
-            <p class="text-on-surface-variant text-body-md">The strongest value for committed members.</p>
-          </div>
-          <span class="text-label-md uppercase tracking-wider text-primary-container">Featured</span>
-        </div>
-        <div class="mb-6">
-          <div class="text-display-xl font-display-xl">&#8358;145,000</div>
-          <p class="text-on-surface-variant text-body-md">First registration</p>
-        </div>
-        <div class="bg-primary-container/10 border border-primary-container/30 rounded-lg p-3 mb-6 flex items-start gap-3">
-          <span class="material-symbols-outlined text-primary-container icon-filled">event_available</span>
-          <div>
-            <p class="text-label-md font-label-md text-primary-container">Bonus</p>
-            <p class="text-body-md text-on-surface-variant">One month free included with this plan.</p>
-          </div>
-        </div>
-        <div class="space-y-4 flex-grow">
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">What's included</p>
-            <ul class="space-y-2 text-body-md text-on-surface-variant">
-              <li>Renewal: &#8358;135,000</li>
-              <li>Longest commitment with the best overall value</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">Ideal for</p>
-            <p class="text-body-md text-on-surface-variant">Anyone ready to stay consistent and transform for longer.</p>
-          </div>
-        </div>
-        <a class="btn-shimmer mt-6 w-full bg-primary-container text-[#000000] py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:scale-[1.02] active:scale-95 transition-transform duration-300 inline-flex items-center justify-center shadow-[0_0_15px_rgba(0,255,102,0.25)]" href="booking.html">Join This Plan</a>
-      </article>
+          <article
+            class="bg-surface-container rounded-lg p-6 border border-white/10 hover:scale-[1.02] hover:border-primary-container/30 hover:shadow-[0_0_30px_rgba(0,255,102,0.12)] transition-all duration-300 reveal-up stagger-3 active flex flex-col"
+          >
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="text-headline-md font-headline-md mb-2">
+                  Three Months
+                </h3>
+                <p class="text-on-surface-variant text-body-md">
+                  A stronger commitment for deeper momentum.
+                </p>
+              </div>
+              <span
+                class="text-label-md uppercase tracking-wider text-primary-container"
+                >Value</span
+              >
+            </div>
+            <div class="mb-6">
+              <div class="text-display-xl font-display-xl">&#8358;75,000</div>
+              <p class="text-on-surface-variant text-body-md">
+                First registration
+              </p>
+            </div>
+            <div class="space-y-4 flex-grow">
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  What's included
+                </p>
+                <ul class="space-y-2 text-body-md text-on-surface-variant">
+                  <li>Renewal: &#8358;68,000</li>
+                  <li>Longer commitment with better consistency</li>
+                </ul>
+              </div>
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  Ideal for
+                </p>
+                <p class="text-body-md text-on-surface-variant">
+                  Members ready to stay focused across a full training cycle.
+                </p>
+              </div>
+            </div>
+            <a
+              class="btn-shimmer mt-6 w-full border border-white/20 bg-transparent text-on-surface py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center"
+              href="booking.html"
+              >Join This Plan</a
+            >
+          </article>
 
-      <article class="bg-surface-container rounded-lg p-6 border border-primary-container/40 hover:scale-[1.02] hover:border-primary-container hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] transition-all duration-300 reveal-up stagger-4 active flex flex-col relative">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface-container-high border border-primary-container text-primary-container px-4 py-1 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold whitespace-nowrap">Flexible Access</div>
-        <div class="flex items-start justify-between gap-4 mb-4 mt-2">
-          <div>
-            <h3 class="text-headline-md font-headline-md mb-2 text-primary-container">30-Visit Flex Pass</h3>
-            <p class="text-on-surface-variant text-body-md">30 visits. No monthly expiry.</p>
-          </div>
-          <span class="text-label-md uppercase tracking-wider text-primary-container">Flex</span>
-        </div>
-        <div class="mb-6">
-          <div class="text-display-xl font-display-xl">&#8358;50,000</div>
-          <p class="text-on-surface-variant text-body-md">First-time total</p>
-        </div>
-        <div class="space-y-4 flex-grow">
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">What's included</p>
-            <ul class="space-y-2 text-body-md text-on-surface-variant">
-              <li>Renewal: &#8358;45,000</li>
-              <li>First registration: &#8358;5,000</li>
-              <li>30 gym visits / check-ins</li>
-              <li>No calendar expiry</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-label-md uppercase tracking-wider text-primary-container mb-2">Ideal for</p>
-            <p class="text-body-md text-on-surface-variant">Travelers, busy professionals, irregular schedules, and training at your own pace.</p>
-          </div>
-        </div>
-        <a class="btn-shimmer mt-6 w-full border border-primary-container bg-transparent text-primary-container py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-primary-container hover:text-background hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center" href="booking.html">Choose This Plan</a>
-      </article>
-    </div>
-  </div>
-</section>
+          <article
+            class="bg-surface-container-high rounded-lg p-6 border-2 border-primary-container relative hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(0,255,102,0.2)] transition-all duration-300 reveal-up active flex flex-col shadow-[0_8px_30px_rgba(0,255,102,0.08)]"
+          >
+            <div
+              class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-container text-[#000000] px-4 py-1 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold"
+            >
+              Best Value
+            </div>
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h3
+                  class="text-headline-md font-headline-md mb-2 text-primary-container"
+                >
+                  Six Months
+                </h3>
+                <p class="text-on-surface-variant text-body-md">
+                  The strongest value for committed members.
+                </p>
+              </div>
+              <span
+                class="text-label-md uppercase tracking-wider text-primary-container"
+                >Featured</span
+              >
+            </div>
+            <div class="mb-6">
+              <div class="text-display-xl font-display-xl">&#8358;145,000</div>
+              <p class="text-on-surface-variant text-body-md">
+                First registration
+              </p>
+            </div>
+            <div
+              class="bg-primary-container/10 border border-primary-container/30 rounded-lg p-3 mb-6 flex items-start gap-3"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container icon-filled"
+                >event_available</span
+              >
+              <div>
+                <p class="text-label-md font-label-md text-primary-container">
+                  Bonus
+                </p>
+                <p class="text-body-md text-on-surface-variant">
+                  One month free included with this plan.
+                </p>
+              </div>
+            </div>
+            <div class="space-y-4 flex-grow">
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  What's included
+                </p>
+                <ul class="space-y-2 text-body-md text-on-surface-variant">
+                  <li>Renewal: &#8358;135,000</li>
+                  <li>Longest commitment with the best overall value</li>
+                </ul>
+              </div>
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  Ideal for
+                </p>
+                <p class="text-body-md text-on-surface-variant">
+                  Anyone ready to stay consistent and transform for longer.
+                </p>
+              </div>
+            </div>
+            <a
+              class="btn-shimmer mt-6 w-full bg-primary-container text-[#000000] py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:scale-[1.02] active:scale-95 transition-transform duration-300 inline-flex items-center justify-center shadow-[0_0_15px_rgba(0,255,102,0.25)]"
+              href="booking.html"
+              >Join This Plan</a
+            >
+          </article>
 
-<section class="py-section-gap bg-surface-container-low/80 backdrop-blur-sm relative overflow-hidden">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="flex flex-col lg:flex-row items-center gap-gutter">
-      <div class="lg:w-1/2 reveal-up active">
-        <h2 class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-4 text-on-surface">Optional <span class="text-primary-container">Personal Trainer</span> Support</h2>
-        <p class="text-body-lg font-body-lg text-on-surface-variant mb-6">
-          Professional one-on-one coaching is completely optional and available for an additional <span class="text-primary-fixed font-bold">&#8358;10,000</span>. It is designed to help you train with clarity, accountability, and confidence.
+          <article
+            class="bg-surface-container rounded-lg p-6 border border-primary-container/40 hover:scale-[1.02] hover:border-primary-container hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] transition-all duration-300 reveal-up stagger-4 active flex flex-col relative"
+          >
+            <div
+              class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface-container-high border border-primary-container text-primary-container px-4 py-1 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold whitespace-nowrap"
+            >
+              Flexible Access
+            </div>
+            <div class="flex items-start justify-between gap-4 mb-4 mt-2">
+              <div>
+                <h3
+                  class="text-headline-md font-headline-md mb-2 text-primary-container"
+                >
+                  30-Visit Flex Pass
+                </h3>
+                <p class="text-on-surface-variant text-body-md">
+                  30 visits. No monthly expiry.
+                </p>
+              </div>
+              <span
+                class="text-label-md uppercase tracking-wider text-primary-container"
+                >Flex</span
+              >
+            </div>
+            <div class="mb-6">
+              <div class="text-display-xl font-display-xl">&#8358;50,000</div>
+              <p class="text-on-surface-variant text-body-md">
+                First-time total
+              </p>
+            </div>
+            <div class="space-y-4 flex-grow">
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  What's included
+                </p>
+                <ul class="space-y-2 text-body-md text-on-surface-variant">
+                  <li>Renewal: &#8358;45,000</li>
+                  <li>First registration: &#8358;5,000</li>
+                  <li>30 gym visits / check-ins</li>
+                  <li>No calendar expiry</li>
+                </ul>
+              </div>
+              <div>
+                <p
+                  class="text-label-md uppercase tracking-wider text-primary-container mb-2"
+                >
+                  Ideal for
+                </p>
+                <p class="text-body-md text-on-surface-variant">
+                  Travelers, busy professionals, irregular schedules, and
+                  training at your own pace.
+                </p>
+              </div>
+            </div>
+            <a
+              class="btn-shimmer mt-6 w-full border border-primary-container bg-transparent text-primary-container py-3 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-primary-container hover:text-background hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center"
+              href="booking.html"
+              >Choose This Plan</a
+            >
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-section-gap bg-surface-container-low/80 backdrop-blur-sm relative overflow-hidden"
+    >
+      <div
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
+      >
+        <div class="flex flex-col lg:flex-row items-center gap-gutter">
+          <div class="lg:w-1/2 reveal-up active">
+            <h2
+              class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-4 text-on-surface"
+            >
+              Optional
+              <span class="text-primary-container">Personal Trainer</span>
+              Support
+            </h2>
+            <p class="text-body-lg font-body-lg text-on-surface-variant mb-6">
+              Professional one-on-one coaching is completely optional and
+              available for an additional
+              <span class="text-primary-fixed font-bold">&#8358;10,000</span>.
+              It is designed to help you train with clarity, accountability, and
+              confidence.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div class="flex items-start gap-3">
+                <span
+                  class="material-symbols-outlined text-primary-container text-2xl"
+                  >track_changes</span
+                >
+                <div>
+                  <h4 class="font-bold text-on-surface">Accountability</h4>
+                  <p class="text-body-md text-on-surface-variant">
+                    Stay consistent with expert follow-through.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span
+                  class="material-symbols-outlined text-primary-container text-2xl"
+                  >fitness_center</span
+                >
+                <div>
+                  <h4 class="font-bold text-on-surface">
+                    Personalized Workout Plan
+                  </h4>
+                  <p class="text-body-md text-on-surface-variant">
+                    Training built around your goals and pace.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span
+                  class="material-symbols-outlined text-primary-container text-2xl"
+                  >timer</span
+                >
+                <div>
+                  <h4 class="font-bold text-on-surface">Technique Guidance</h4>
+                  <p class="text-body-md text-on-surface-variant">
+                    Learn safer form and better movement habits.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <span
+                  class="material-symbols-outlined text-primary-container text-2xl"
+                  >trending_up</span
+                >
+                <div>
+                  <h4 class="font-bold text-on-surface">Progress Tracking</h4>
+                  <p class="text-body-md text-on-surface-variant">
+                    Monitor progress and adjust as you improve.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <a
+              class="btn-shimmer bg-primary-container text-[#000000] px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:scale-[1.02] transition-transform duration-300 active:scale-95 shadow-[0_0_20px_rgba(0,255,102,0.2)] inline-flex items-center justify-center"
+              href="booking.html"
+              >Book A Session</a
+            >
+          </div>
+          <div
+            class="lg:w-1/2 reveal-up stagger-1 w-full h-[400px] lg:h-[500px] rounded-lg overflow-hidden relative active"
+          >
+            <div
+              class="bg-cover bg-center w-full h-full"
+              style="
+                background-image: url(&quot;../assets/hero.jpeg&quot;);
+              "
+            ></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-surface-container-low/80 to-transparent lg:hidden"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap relative bg-surface/60 backdrop-blur-md">
+      <div
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
+      >
+        <div class="text-center mb-stack-lg reveal-up active">
+          <h2
+            class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-stack-sm"
+          >
+            Compare Memberships
+          </h2>
+          <p class="text-body-lg font-body-lg text-on-surface-variant">
+            A quick view of commitment, savings, and the best fit for your
+            goals.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter">
+          <!-- Card 1: Short-Term -->
+          <div
+            class="bg-surface-container/60 backdrop-blur-md p-6 rounded-lg border border-white/10 flex flex-col hover:border-primary-container/50 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] transition-all duration-300 reveal-up stagger-1 active"
+          >
+            <div class="mb-6">
+              <div
+                class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-4"
+              >
+                <span
+                  class="material-symbols-outlined text-primary-container text-3xl"
+                  >directions_run</span
+                >
+              </div>
+              <h3 class="text-headline-md font-headline-md">Short-Term</h3>
+              <p class="text-sm text-on-surface-variant">
+                Daily &amp; Weekly Plans
+              </p>
+            </div>
+            <div class="space-y-4 flex-grow text-sm">
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Access Type
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Gym access (daily/weekly)
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Validity
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Time-based (1 day / 7 days)
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Price
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  &#8358;3,000 / &#8358;8,000
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Registration
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  &#8358;5,000 first registration
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Ideal For
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Visitors, guests, and trial users
+                </p>
+              </div>
+              <div class="pt-1">
+                <p
+                  class="text-body-md text-on-surface-variant flex items-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-error text-lg"
+                    >close</span
+                  >
+                  Trainer Option: Not included
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Mid-Term -->
+          <div
+            class="bg-surface-container/60 backdrop-blur-md p-6 rounded-lg border border-white/10 flex flex-col hover:border-primary-container/50 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] transition-all duration-300 reveal-up stagger-2 active"
+          >
+            <div class="mb-6">
+              <div
+                class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-4"
+              >
+                <span
+                  class="material-symbols-outlined text-primary-container text-3xl"
+                  >calendar_month</span
+                >
+              </div>
+              <h3 class="text-headline-md font-headline-md">Mid-Term</h3>
+              <p class="text-sm text-on-surface-variant">
+                Monthly &amp; 3-Month
+              </p>
+            </div>
+            <div class="space-y-4 flex-grow text-sm">
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Access Type
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Gym access (monthly/quarterly)
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Validity
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Time-based (30 days / 90 days)
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Price
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  &#8358;25,000 / &#8358;68,000 renewal
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Registration
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  &#8358;8,000 / &#8358;7,000 first reg
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Ideal For
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Locals and routine builders
+                </p>
+              </div>
+              <div class="pt-1">
+                <p class="text-body-md text-on-surface flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-lg icon-filled"
+                    >check_circle</span
+                  >
+                  Trainer Option: Optional (+&#8358;10,000)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Long-Term -->
+          <div
+            class="bg-surface-container-high/80 backdrop-blur-lg p-6 rounded-lg border-2 border-primary-container relative flex flex-col reveal-up stagger-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(0,255,102,0.25)] transition-all duration-300 shadow-[0_0_30px_rgba(0,255,102,0.15)] active"
+          >
+            <div
+              class="absolute top-0 right-6 -translate-y-1/2 bg-primary-container text-[#000000] px-3 py-0.5 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold shadow-lg"
+            >
+              Best Value
+            </div>
+            <div class="mb-6">
+              <div
+                class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center mb-4"
+              >
+                <span class="material-symbols-outlined text-[#000000] text-3xl"
+                  >workspace_premium</span
+                >
+              </div>
+              <h3
+                class="text-headline-md font-headline-md text-primary-container"
+              >
+                Long-Term
+              </h3>
+              <p class="text-sm text-on-surface-variant">6-Month Plan</p>
+            </div>
+            <div class="space-y-4 flex-grow text-sm">
+              <div class="pb-2 border-b border-white/10">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Access Type
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Gym access (semi-annual)
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/10">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Validity
+                </p>
+                <p
+                  class="text-body-md text-on-surface font-bold text-primary-fixed"
+                >
+                  180 days + 1 Month FREE
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/10">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Price
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  &#8358;135,000 renewal
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/10">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Registration
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  &#8358;10,000 first registration
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/10">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Ideal For
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Committed members seeking best deal
+                </p>
+              </div>
+              <div class="pt-1">
+                <p class="text-body-md text-on-surface flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-lg icon-filled"
+                    >check_circle</span
+                  >
+                  Trainer Option: Optional (+&#8358;10,000)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Flexible Access -->
+          <div
+            class="bg-surface-container/60 backdrop-blur-md p-6 rounded-lg border border-primary-container/40 flex flex-col hover:border-primary-container hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] transition-all duration-300 reveal-up stagger-4 active relative"
+          >
+            <div
+              class="absolute top-0 right-6 -translate-y-1/2 bg-surface-container-high border border-primary-container text-primary-container px-3 py-0.5 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold shadow-lg whitespace-nowrap"
+            >
+              Flexible
+            </div>
+            <div class="mb-6">
+              <div
+                class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-4"
+              >
+                <span
+                  class="material-symbols-outlined text-primary-container text-3xl"
+                  >sync</span
+                >
+              </div>
+              <h3
+                class="text-headline-md font-headline-md text-primary-container"
+              >
+                Flexible Access
+              </h3>
+              <p class="text-sm text-on-surface-variant">30-Visit Flex Pass</p>
+            </div>
+            <div class="space-y-4 flex-grow text-sm">
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Access Type
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Gym access
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Validity
+                </p>
+                <p
+                  class="text-body-md text-on-surface font-bold text-primary-fixed"
+                >
+                  30 completed visits
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Price
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  &#8358;45,000
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Registration
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  &#8358;5,000 first registration
+                </p>
+              </div>
+              <div class="pb-2 border-b border-white/5">
+                <p
+                  class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5"
+                >
+                  Ideal For
+                </p>
+                <p class="text-body-md text-on-surface font-medium">
+                  Travelers, busy professionals, irregular schedules
+                </p>
+              </div>
+              <div class="pt-1">
+                <p class="text-body-md text-on-surface flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-lg icon-filled"
+                    >check_circle</span
+                  >
+                  Trainer: Optional, where applicable
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-section-gap bg-surface-container-low/80 backdrop-blur-sm"
+    >
+      <div
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
+      >
+        <div class="text-center mb-stack-lg reveal-up active">
+          <h2
+            class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-stack-sm"
+          >
+            Why Become A Member
+          </h2>
+          <p class="text-body-lg font-body-lg text-on-surface-variant">
+            The benefits that make joining feel worth it from day one.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+          <div
+            class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up active"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container text-3xl"
+                >bolt</span
+              >
+            </div>
+            <h3 class="text-headline-md font-headline-md text-xl mb-3">
+              Unlimited Motivation
+            </h3>
+            <p class="text-on-surface-variant text-body-md">
+              A high-energy space that keeps you moving and consistent.
+            </p>
+          </div>
+          <div
+            class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up stagger-1 active"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container text-3xl"
+                >fitness_center</span
+              >
+            </div>
+            <h3 class="text-headline-md font-headline-md text-xl mb-3">
+              Modern Equipment
+            </h3>
+            <p class="text-on-surface-variant text-body-md">
+              Modern tools and machines for every style of training.
+            </p>
+          </div>
+          <div
+            class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up stagger-2 active"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container text-3xl"
+                >groups</span
+              >
+            </div>
+            <h3 class="text-headline-md font-headline-md text-xl mb-3">
+              Friendly Community
+            </h3>
+            <p class="text-on-surface-variant text-body-md">
+              A welcoming gym culture that helps you stay accountable.
+            </p>
+          </div>
+          <div
+            class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up active"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container text-3xl"
+                >school</span
+              >
+            </div>
+            <h3 class="text-headline-md font-headline-md text-xl mb-3">
+              Professional Coaches
+            </h3>
+            <p class="text-on-surface-variant text-body-md">
+              Guidance that helps you train safely and effectively.
+            </p>
+          </div>
+          <div
+            class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up stagger-1 active"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container text-3xl"
+                >calendar_today</span
+              >
+            </div>
+            <h3 class="text-headline-md font-headline-md text-xl mb-3">
+              Flexible Membership
+            </h3>
+            <p class="text-on-surface-variant text-body-md">
+              Options that adapt to your budget and schedule.
+            </p>
+          </div>
+          <div
+            class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up stagger-2 active"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container text-3xl"
+                >monitoring</span
+              >
+            </div>
+            <h3 class="text-headline-md font-headline-md text-xl mb-3">
+              Progress Tracking
+            </h3>
+            <p class="text-on-surface-variant text-body-md">
+              See your improvement and stay motivated over time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section-gap relative bg-surface/60 backdrop-blur-md">
+      <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="text-center mb-stack-lg reveal-up active">
+          <h2
+            class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-stack-sm"
+          >
+            Member Journey
+          </h2>
+          <p class="text-body-lg font-body-lg text-on-surface-variant">
+            A simple, reassuring path from choosing a plan to seeing results.
+          </p>
+        </div>
+        <div class="relative pl-8 md:pl-0">
+          <div
+            class="absolute left-8 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 timeline-line"
+          ></div>
+          <div class="space-y-12">
+            <div
+              class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active"
+            >
+              <div
+                class="md:w-5/12 order-2 md:order-1 md:text-right pr-0 md:pr-8 mt-4 md:mt-0"
+              >
+                <h4 class="text-headline-md font-headline-md text-xl mb-2">
+                  Choose Plan
+                </h4>
+                <p class="text-on-surface-variant">
+                  Pick the membership that matches your goals, schedule, and
+                  budget.
+                </p>
+              </div>
+              <div
+                class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 order-1 md:order-2"
+              >
+                <span class="text-primary-container font-bold text-sm">1</span>
+              </div>
+              <div class="md:w-5/12 order-3 pl-8 md:pl-8 hidden md:block"></div>
+            </div>
+            <div
+              class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active"
+            >
+              <div class="md:w-5/12 order-3 pl-0 md:pl-8 mt-4 md:mt-0">
+                <h4 class="text-headline-md font-headline-md text-xl mb-2">
+                  Register
+                </h4>
+                <p class="text-on-surface-variant">
+                  Complete your registration and confirm your membership
+                  details.
+                </p>
+              </div>
+              <div
+                class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 order-1 md:order-2"
+              >
+                <span class="text-primary-container font-bold text-sm">2</span>
+              </div>
+              <div class="md:w-5/12 order-2 md:order-1 hidden md:block"></div>
+            </div>
+            <div
+              class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active"
+            >
+              <div
+                class="md:w-5/12 order-2 md:order-1 md:text-right pr-0 md:pr-8 mt-4 md:mt-0"
+              >
+                <h4 class="text-headline-md font-headline-md text-xl mb-2">
+                  Meet Coach
+                </h4>
+                <p class="text-on-surface-variant">
+                  If you choose personal training, meet your coach and set your
+                  starting point.
+                </p>
+              </div>
+              <div
+                class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 order-1 md:order-2"
+              >
+                <span class="text-primary-container font-bold text-sm">3</span>
+              </div>
+              <div class="md:w-5/12 order-3 pl-8 md:pl-8 hidden md:block"></div>
+            </div>
+            <div
+              class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active"
+            >
+              <div class="md:w-5/12 order-3 pl-0 md:pl-8 mt-4 md:mt-0">
+                <h4
+                  class="text-headline-md font-headline-md text-xl mb-2 text-primary-container"
+                >
+                  Start Training
+                </h4>
+                <p class="text-on-surface-variant">
+                  Get moving, build consistency, and track your progress week by
+                  week.
+                </p>
+              </div>
+              <div
+                class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_15px_rgba(0,255,102,0.5)]"
+              >
+                <span class="material-symbols-outlined text-[#000000] text-sm"
+                  >check</span
+                >
+              </div>
+              <div class="md:w-5/12 order-2 md:order-1 hidden md:block"></div>
+            </div>
+            <div
+              class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active"
+            >
+              <div
+                class="md:w-5/12 order-2 md:order-1 md:text-right pr-0 md:pr-8 mt-4 md:mt-0"
+              >
+                <h4 class="text-headline-md font-headline-md text-xl mb-2">
+                  Achieve Results
+                </h4>
+                <p class="text-on-surface-variant">
+                  See the transformation, hit your targets, and set new goals.
+                </p>
+              </div>
+              <div
+                class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 order-1 md:order-2"
+              >
+                <span class="text-primary-container font-bold text-sm">4</span>
+              </div>
+              <div class="md:w-5/12 order-3 pl-8 md:pl-8 hidden md:block"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-section-gap relative bg-surface/40 backdrop-blur-sm border-t border-white/5"
+    >
+      <div
+        class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
+      >
+        <div
+          class="bg-surface-container/40 border border-primary-container/20 rounded-lg p-6 md:p-8 reveal-up active"
+        >
+          <div class="text-center mb-8">
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/10 text-primary-container text-xs font-bold uppercase tracking-wider mb-2"
+              >Usage Guide</span
+            >
+            <h3
+              class="text-headline-md font-headline-md text-2xl text-on-surface"
+            >
+              30-Visit Flex Pass: How It Works
+            </h3>
+            <p
+              class="text-body-md text-on-surface-variant max-w-2xl mx-auto mt-2"
+            >
+              Get 30 gym visits and use them at your own pace. Your schedule
+              changes; your membership doesn't have to.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 relative"
+          >
+            <!-- Step 1 -->
+            <div
+              class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3"
+              >
+                1
+              </div>
+              <h4 class="font-bold text-on-surface text-sm mb-1">Register</h4>
+              <p class="text-xs text-on-surface-variant">
+                Sign up online or at the reception desk.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div
+              class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3"
+              >
+                2
+              </div>
+              <h4 class="font-bold text-on-surface text-sm mb-1">
+                Receive Pass
+              </h4>
+              <p class="text-xs text-on-surface-variant">
+                Get your physical 30-visit signature card.
+              </p>
+            </div>
+
+            <!-- Step-3 -->
+            <div
+              class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3"
+              >
+                3
+              </div>
+              <h4 class="font-bold text-on-surface text-sm mb-1">
+                Flexible Visits
+              </h4>
+              <p class="text-xs text-on-surface-variant">
+                Visit the gym whenever your schedule allows.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div
+              class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3"
+              >
+                4
+              </div>
+              <h4 class="font-bold text-on-surface text-sm mb-1">Check-in</h4>
+              <p class="text-xs text-on-surface-variant">
+                Each visit is recorded as one signature/check-in.
+              </p>
+            </div>
+
+            <!-- Step 5 -->
+            <div
+              class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3"
+              >
+                5
+              </div>
+              <h4 class="font-bold text-on-surface text-sm mb-1">
+                Track Progress
+              </h4>
+              <p class="text-xs text-on-surface-variant">
+                Your card tracks remaining visits: e.g., 1/30, 2/30...
+              </p>
+            </div>
+
+            <!-- Step 6 -->
+            <div
+              class="flex flex-col items-center text-center p-4 bg-surface-container-high border-2 border-primary-container rounded-lg transition-all duration-300 relative shadow-[0_0_15px_rgba(0,255,102,0.1)]"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-primary-container text-background flex items-center justify-center font-bold mb-3"
+              >
+                <span class="material-symbols-outlined text-sm font-bold"
+                  >check</span
+                >
+              </div>
+              <h4 class="font-bold text-primary-container text-sm mb-1">
+                30th Visit
+              </h4>
+              <p class="text-xs text-on-surface-variant">
+                Complete your 30th check-in to finish the pass.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-section-gap bg-surface-container-low/80 backdrop-blur-sm"
+    >
+      <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="text-center mb-stack-lg reveal-up active">
+          <h2
+            class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-stack-sm"
+          >
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div class="space-y-4">
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              Which plan is best for beginners?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              Monthly is the most beginner-friendly option for most people
+              because it balances structure, flexibility, and value. If you want
+              extra guidance, you can add the optional personal trainer.
+            </p>
+          </details>
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-1 active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              Can I upgrade later?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              Yes. You can move from Daily or Weekly into a Monthly or longer
+              plan whenever you're ready.
+            </p>
+          </details>
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-2 active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              Can I add personal training?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              Yes. Personal training is optional and costs an additional
+              &#8358;10,000.
+            </p>
+          </details>
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-3 active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              What happens after registration?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              You can start training right away, meet a coach if you choose the
+              PT add-on, and begin tracking your progress from your first
+              session.
+            </p>
+          </details>
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              Does the 30-Visit Flex Pass expire?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              No. Unlike monthly memberships, the 30-Visit Flex Pass is based on
+              visits rather than calendar time. It remains active until you
+              complete all 30 visits.
+            </p>
+          </details>
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-1 active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              Who is the 30-Visit Flex Pass for?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              It is ideal for travelers, busy professionals, and anyone whose
+              schedule makes a monthly gym membership difficult.
+            </p>
+          </details>
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-2 active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              How are my visits tracked?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              Each gym visit is recorded as one signature/check-in. Your
+              membership is completed when you reach your 30th visit.
+            </p>
+          </details>
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-3 active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              Can I use the visits whenever I want?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              Yes. The plan is designed for flexible schedules, so you can use
+              your 30 visits without a monthly expiry.
+            </p>
+          </details>
+          <details
+            class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up active"
+          >
+            <summary
+              class="font-bold text-lg list-none flex justify-between items-center"
+            >
+              How much is the 30-Visit Flex Pass?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <p class="text-on-surface-variant mt-4 text-body-md">
+              The plan is &#8358;45,000, plus a &#8358;5,000 registration fee
+              for first-time registration.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-section-gap relative overflow-hidden bg-surface/60 backdrop-blur-md"
+    >
+      <div class="absolute inset-0 bg-primary-container/5"></div>
+      <div
+        class="max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10 reveal-up active"
+      >
+        <h2
+          class="text-display-xl-mobile md:text-display-xl font-display-xl-mobile md:font-display-xl mb-6"
+        >
+          Choose Your Membership Today.
+        </h2>
+        <p class="text-body-lg text-on-surface-variant mb-8">
+          Join MM Fitness now or book a session if you'd like help choosing the
+          right plan.
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-          <div class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-primary-container text-2xl">track_changes</span>
-            <div>
-              <h4 class="font-bold text-on-surface">Accountability</h4>
-              <p class="text-body-md text-on-surface-variant">Stay consistent with expert follow-through.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-primary-container text-2xl">fitness_center</span>
-            <div>
-              <h4 class="font-bold text-on-surface">Personalized Workout Plan</h4>
-              <p class="text-body-md text-on-surface-variant">Training built around your goals and pace.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-primary-container text-2xl">timer</span>
-            <div>
-              <h4 class="font-bold text-on-surface">Technique Guidance</h4>
-              <p class="text-body-md text-on-surface-variant">Learn safer form and better movement habits.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="material-symbols-outlined text-primary-container text-2xl">trending_up</span>
-            <div>
-              <h4 class="font-bold text-on-surface">Progress Tracking</h4>
-              <p class="text-body-md text-on-surface-variant">Monitor progress and adjust as you improve.</p>
-            </div>
-          </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            class="btn-shimmer bg-primary-container text-[#000000] px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:scale-[1.02] transition-transform duration-300 active:scale-95 shadow-[0_0_20px_rgba(0,255,102,0.2)] inline-flex items-center justify-center"
+            href="booking.html"
+            >Join MM Fitness</a
+          >
+          <a
+            class="btn-shimmer border border-white/20 bg-transparent text-on-surface px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center"
+            href="booking.html"
+            >Book A Session</a
+          >
         </div>
-        <a class="btn-shimmer bg-primary-container text-[#000000] px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:scale-[1.02] transition-transform duration-300 active:scale-95 shadow-[0_0_20px_rgba(0,255,102,0.2)] inline-flex items-center justify-center" href="booking.html">Book A Session</a>
       </div>
-      <div class="lg:w-1/2 reveal-up stagger-1 w-full h-[400px] lg:h-[500px] rounded-lg overflow-hidden relative active">
-        <div class="bg-cover bg-center w-full h-full" style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEHmrDZA5SGP7XOfL8izJvtv8sPXck5NRDwHVboVcxuuwEbokhO7X2AVT4GmJ0hWUKP9fMksGtlV9Uv5-XnLkFBaLw4OLZIxoeEykW4vuTYG-iCIvewiPiC_uf3eZmJM-yIcuOr5cmZc-cNJIx7Vmj16OcG0PtNcE8XsG8l8MBI6orR7q858DyqLajMdZ2PO7_SrumIJmlCDNt6koC7tMq2mDzU66LBeatHzP4-KBn0QdwyBfLMHhqTQ");'></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-surface-container-low/80 to-transparent lg:hidden"></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="py-section-gap relative bg-surface/60 backdrop-blur-md">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="text-center mb-stack-lg reveal-up active">
-      <h2 class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-stack-sm">Compare Memberships</h2>
-      <p class="text-body-lg font-body-lg text-on-surface-variant">A quick view of commitment, savings, and the best fit for your goals.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter">
-      <!-- Card 1: Short-Term -->
-      <div class="bg-surface-container/60 backdrop-blur-md p-6 rounded-lg border border-white/10 flex flex-col hover:border-primary-container/50 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] transition-all duration-300 reveal-up stagger-1 active">
-        <div class="mb-6">
-          <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-primary-container text-3xl">directions_run</span>
-          </div>
-          <h3 class="text-headline-md font-headline-md">Short-Term</h3>
-          <p class="text-sm text-on-surface-variant">Daily &amp; Weekly Plans</p>
+    <footer
+      class="bg-surface-container-lowest/90 backdrop-blur-md border-t border-white/5 w-full py-stack-lg relative z-10"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto"
+      >
+        <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+          <span
+            class="text-headline-md font-headline-md font-bold text-primary-fixed"
+            >MM Fitness</span
+          >
+          <p class="text-body-md font-body-md text-primary">
+            &copy; 2024 MM Fitness. Built for the community.
+          </p>
         </div>
-        <div class="space-y-4 flex-grow text-sm">
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Access Type</p>
-            <p class="text-body-md text-on-surface font-medium">Gym access (daily/weekly)</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Validity</p>
-            <p class="text-body-md text-on-surface font-medium">Time-based (1 day / 7 days)</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Price</p>
-            <p class="text-body-md text-on-surface font-medium">&#8358;3,000 / &#8358;8,000</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Registration</p>
-            <p class="text-body-md text-on-surface font-medium">&#8358;5,000 first registration</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Ideal For</p>
-            <p class="text-body-md text-on-surface font-medium">Visitors, guests, and trial users</p>
-          </div>
-          <div class="pt-1">
-            <p class="text-body-md text-on-surface-variant flex items-center gap-2">
-              <span class="material-symbols-outlined text-error text-lg">close</span>
-              Trainer Option: Not included
-            </p>
-          </div>
+        <div
+          class="col-span-1 md:col-span-3 flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center text-body-md font-body-md"
+        >
+          <a
+            class="text-on-surface-variant hover:text-on-surface opacity-80 hover:opacity-100 transition-opacity hover:text-primary-fixed transition-colors duration-200"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-on-surface opacity-80 hover:opacity-100 transition-opacity hover:text-primary-fixed transition-colors duration-200"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-on-surface opacity-80 hover:opacity-100 transition-opacity hover:text-primary-fixed transition-colors duration-200"
+            href="#"
+            >Careers</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-on-surface opacity-80 hover:opacity-100 transition-opacity hover:text-primary-fixed transition-colors duration-200"
+            href="contact.html"
+            >Contact Us</a
+          >
         </div>
       </div>
+    </footer>
 
-      <!-- Card 2: Mid-Term -->
-      <div class="bg-surface-container/60 backdrop-blur-md p-6 rounded-lg border border-white/10 flex flex-col hover:border-primary-container/50 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] transition-all duration-300 reveal-up stagger-2 active">
-        <div class="mb-6">
-          <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-primary-container text-3xl">calendar_month</span>
-          </div>
-          <h3 class="text-headline-md font-headline-md">Mid-Term</h3>
-          <p class="text-sm text-on-surface-variant">Monthly &amp; 3-Month</p>
-        </div>
-        <div class="space-y-4 flex-grow text-sm">
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Access Type</p>
-            <p class="text-body-md text-on-surface font-medium">Gym access (monthly/quarterly)</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Validity</p>
-            <p class="text-body-md text-on-surface font-medium">Time-based (30 days / 90 days)</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Price</p>
-            <p class="text-body-md text-on-surface font-medium">&#8358;25,000 / &#8358;68,000 renewal</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Registration</p>
-            <p class="text-body-md text-on-surface font-medium">&#8358;8,000 / &#8358;7,000 first reg</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Ideal For</p>
-            <p class="text-body-md text-on-surface font-medium">Locals and routine builders</p>
-          </div>
-          <div class="pt-1">
-            <p class="text-body-md text-on-surface flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-lg icon-filled">check_circle</span>
-              Trainer Option: Optional (+&#8358;10,000)
-            </p>
-          </div>
-        </div>
-      </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Mobile menu toggle
+        const menuBtn = document.querySelector(
+          'button[aria-controls="mobileMenu"]',
+        );
+        const closeMenuBtn = document.getElementById("closeMenuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
 
-      <!-- Card 3: Long-Term -->
-      <div class="bg-surface-container-high/80 backdrop-blur-lg p-6 rounded-lg border-2 border-primary-container relative flex flex-col reveal-up stagger-3 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(0,255,102,0.25)] transition-all duration-300 shadow-[0_0_30px_rgba(0,255,102,0.15)] active">
-        <div class="absolute top-0 right-6 -translate-y-1/2 bg-primary-container text-[#000000] px-3 py-0.5 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold shadow-lg">
-          Best Value
-        </div>
-        <div class="mb-6">
-          <div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-[#000000] text-3xl">workspace_premium</span>
-          </div>
-          <h3 class="text-headline-md font-headline-md text-primary-container">Long-Term</h3>
-          <p class="text-sm text-on-surface-variant">6-Month Plan</p>
-        </div>
-        <div class="space-y-4 flex-grow text-sm">
-          <div class="pb-2 border-b border-white/10">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Access Type</p>
-            <p class="text-body-md text-on-surface font-medium">Gym access (semi-annual)</p>
-          </div>
-          <div class="pb-2 border-b border-white/10">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Validity</p>
-            <p class="text-body-md text-on-surface font-bold text-primary-fixed">180 days + 1 Month FREE</p>
-          </div>
-          <div class="pb-2 border-b border-white/10">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Price</p>
-            <p class="text-body-md text-on-surface font-medium">&#8358;135,000 renewal</p>
-          </div>
-          <div class="pb-2 border-b border-white/10">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Registration</p>
-            <p class="text-body-md text-on-surface font-medium">&#8358;10,000 first registration</p>
-          </div>
-          <div class="pb-2 border-b border-white/10">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Ideal For</p>
-            <p class="text-body-md text-on-surface font-medium">Committed members seeking best deal</p>
-          </div>
-          <div class="pt-1">
-            <p class="text-body-md text-on-surface flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-lg icon-filled">check_circle</span>
-              Trainer Option: Optional (+&#8358;10,000)
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4: Flexible Access -->
-      <div class="bg-surface-container/60 backdrop-blur-md p-6 rounded-lg border border-primary-container/40 flex flex-col hover:border-primary-container hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] transition-all duration-300 reveal-up stagger-4 active relative">
-        <div class="absolute top-0 right-6 -translate-y-1/2 bg-surface-container-high border border-primary-container text-primary-container px-3 py-0.5 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold shadow-lg whitespace-nowrap">
-          Flexible
-        </div>
-        <div class="mb-6">
-          <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-primary-container text-3xl">sync</span>
-          </div>
-          <h3 class="text-headline-md font-headline-md text-primary-container">Flexible Access</h3>
-          <p class="text-sm text-on-surface-variant">30-Visit Flex Pass</p>
-        </div>
-        <div class="space-y-4 flex-grow text-sm">
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Access Type</p>
-            <p class="text-body-md text-on-surface font-medium">Gym access</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Validity</p>
-            <p class="text-body-md text-on-surface font-bold text-primary-fixed">30 completed visits</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Price</p>
-            <p class="text-body-md text-on-surface font-medium">&#8358;45,000</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Registration</p>
-            <p class="text-body-md text-on-surface font-medium">&#8358;5,000 first registration</p>
-          </div>
-          <div class="pb-2 border-b border-white/5">
-            <p class="text-xs uppercase tracking-wider text-primary-container font-semibold mb-0.5">Ideal For</p>
-            <p class="text-body-md text-on-surface font-medium">Travelers, busy professionals, irregular schedules</p>
-          </div>
-          <div class="pt-1">
-            <p class="text-body-md text-on-surface flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary-container text-lg icon-filled">check_circle</span>
-              Trainer: Optional, where applicable
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-section-gap bg-surface-container-low/80 backdrop-blur-sm">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="text-center mb-stack-lg reveal-up active">
-      <h2 class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-stack-sm">Why Become A Member</h2>
-      <p class="text-body-lg font-body-lg text-on-surface-variant">The benefits that make joining feel worth it from day one.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-      <div class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up active">
-        <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-primary-container text-3xl">bolt</span></div>
-        <h3 class="text-headline-md font-headline-md text-xl mb-3">Unlimited Motivation</h3>
-        <p class="text-on-surface-variant text-body-md">A high-energy space that keeps you moving and consistent.</p>
-      </div>
-      <div class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up stagger-1 active">
-        <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-primary-container text-3xl">fitness_center</span></div>
-        <h3 class="text-headline-md font-headline-md text-xl mb-3">Modern Equipment</h3>
-        <p class="text-on-surface-variant text-body-md">Modern tools and machines for every style of training.</p>
-      </div>
-      <div class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up stagger-2 active">
-        <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-primary-container text-3xl">groups</span></div>
-        <h3 class="text-headline-md font-headline-md text-xl mb-3">Friendly Community</h3>
-        <p class="text-on-surface-variant text-body-md">A welcoming gym culture that helps you stay accountable.</p>
-      </div>
-      <div class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up active">
-        <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-primary-container text-3xl">school</span></div>
-        <h3 class="text-headline-md font-headline-md text-xl mb-3">Professional Coaches</h3>
-        <p class="text-on-surface-variant text-body-md">Guidance that helps you train safely and effectively.</p>
-      </div>
-      <div class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up stagger-1 active">
-        <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-primary-container text-3xl">calendar_today</span></div>
-        <h3 class="text-headline-md font-headline-md text-xl mb-3">Flexible Membership</h3>
-        <p class="text-on-surface-variant text-body-md">Options that adapt to your budget and schedule.</p>
-      </div>
-      <div class="bg-surface-container/80 p-8 rounded-lg border border-white/5 hover:border-primary-container/30 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,102,0.1)] transition-all duration-300 reveal-up stagger-2 active">
-        <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mb-6"><span class="material-symbols-outlined text-primary-container text-3xl">monitoring</span></div>
-        <h3 class="text-headline-md font-headline-md text-xl mb-3">Progress Tracking</h3>
-        <p class="text-on-surface-variant text-body-md">See your improvement and stay motivated over time.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-section-gap relative bg-surface/60 backdrop-blur-md">
-  <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="text-center mb-stack-lg reveal-up active">
-      <h2 class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-stack-sm">Member Journey</h2>
-      <p class="text-body-lg font-body-lg text-on-surface-variant">A simple, reassuring path from choosing a plan to seeing results.</p>
-    </div>
-    <div class="relative pl-8 md:pl-0">
-      <div class="absolute left-8 md:left-1/2 top-0 bottom-0 md:-translate-x-1/2 timeline-line"></div>
-      <div class="space-y-12">
-        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active">
-          <div class="md:w-5/12 order-2 md:order-1 md:text-right pr-0 md:pr-8 mt-4 md:mt-0">
-            <h4 class="text-headline-md font-headline-md text-xl mb-2">Choose Plan</h4>
-            <p class="text-on-surface-variant">Pick the membership that matches your goals, schedule, and budget.</p>
-          </div>
-          <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 order-1 md:order-2"><span class="text-primary-container font-bold text-sm">1</span></div>
-          <div class="md:w-5/12 order-3 pl-8 md:pl-8 hidden md:block"></div>
-        </div>
-        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active">
-          <div class="md:w-5/12 order-3 pl-0 md:pl-8 mt-4 md:mt-0">
-            <h4 class="text-headline-md font-headline-md text-xl mb-2">Register</h4>
-            <p class="text-on-surface-variant">Complete your registration and confirm your membership details.</p>
-          </div>
-          <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 order-1 md:order-2"><span class="text-primary-container font-bold text-sm">2</span></div>
-          <div class="md:w-5/12 order-2 md:order-1 hidden md:block"></div>
-        </div>
-        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active">
-          <div class="md:w-5/12 order-2 md:order-1 md:text-right pr-0 md:pr-8 mt-4 md:mt-0">
-            <h4 class="text-headline-md font-headline-md text-xl mb-2">Meet Coach</h4>
-            <p class="text-on-surface-variant">If you choose personal training, meet your coach and set your starting point.</p>
-          </div>
-          <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 order-1 md:order-2"><span class="text-primary-container font-bold text-sm">3</span></div>
-          <div class="md:w-5/12 order-3 pl-8 md:pl-8 hidden md:block"></div>
-        </div>
-        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active">
-          <div class="md:w-5/12 order-3 pl-0 md:pl-8 mt-4 md:mt-0">
-            <h4 class="text-headline-md font-headline-md text-xl mb-2 text-primary-container">Start Training</h4>
-            <p class="text-on-surface-variant">Get moving, build consistency, and track your progress week by week.</p>
-          </div>
-          <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_15px_rgba(0,255,102,0.5)]">
-            <span class="material-symbols-outlined text-[#000000] text-sm">check</span>
-          </div>
-          <div class="md:w-5/12 order-2 md:order-1 hidden md:block"></div>
-        </div>
-        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between reveal-up active">
-          <div class="md:w-5/12 order-2 md:order-1 md:text-right pr-0 md:pr-8 mt-4 md:mt-0">
-            <h4 class="text-headline-md font-headline-md text-xl mb-2">Achieve Results</h4>
-            <p class="text-on-surface-variant">See the transformation, hit your targets, and set new goals.</p>
-          </div>
-          <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-surface border-2 border-primary-container flex items-center justify-center z-10 order-1 md:order-2"><span class="text-primary-container font-bold text-sm">4</span></div>
-          <div class="md:w-5/12 order-3 pl-8 md:pl-8 hidden md:block"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-section-gap relative bg-surface/40 backdrop-blur-sm border-t border-white/5">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="bg-surface-container/40 border border-primary-container/20 rounded-lg p-6 md:p-8 reveal-up active">
-      <div class="text-center mb-8">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/10 text-primary-container text-xs font-bold uppercase tracking-wider mb-2">Usage Guide</span>
-        <h3 class="text-headline-md font-headline-md text-2xl text-on-surface">30-Visit Flex Pass: How It Works</h3>
-        <p class="text-body-md text-on-surface-variant max-w-2xl mx-auto mt-2">Get 30 gym visits and use them at your own pace. Your schedule changes; your membership doesn't have to.</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 relative">
-        <!-- Step 1 -->
-        <div class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300">
-          <div class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3">1</div>
-          <h4 class="font-bold text-on-surface text-sm mb-1">Register</h4>
-          <p class="text-xs text-on-surface-variant">Sign up online or at the reception desk.</p>
-        </div>
-        
-        <!-- Step 2 -->
-        <div class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300">
-          <div class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3">2</div>
-          <h4 class="font-bold text-on-surface text-sm mb-1">Receive Pass</h4>
-          <p class="text-xs text-on-surface-variant">Get your physical 30-visit signature card.</p>
-        </div>
-        
-        <!-- Step-3 -->
-        <div class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300">
-          <div class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3">3</div>
-          <h4 class="font-bold text-on-surface text-sm mb-1">Flexible Visits</h4>
-          <p class="text-xs text-on-surface-variant">Visit the gym whenever your schedule allows.</p>
-        </div>
-        
-        <!-- Step 4 -->
-        <div class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300">
-          <div class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3">4</div>
-          <h4 class="font-bold text-on-surface text-sm mb-1">Check-in</h4>
-          <p class="text-xs text-on-surface-variant">Each visit is recorded as one signature/check-in.</p>
-        </div>
-        
-        <!-- Step 5 -->
-        <div class="flex flex-col items-center text-center p-4 bg-surface-container-low/60 rounded-lg border border-white/5 hover:border-primary-container/20 transition-all duration-300">
-          <div class="w-10 h-10 rounded-full bg-primary-container/10 text-primary-container flex items-center justify-center font-bold mb-3">5</div>
-          <h4 class="font-bold text-on-surface text-sm mb-1">Track Progress</h4>
-          <p class="text-xs text-on-surface-variant">Your card tracks remaining visits: e.g., 1/30, 2/30...</p>
-        </div>
-        
-        <!-- Step 6 -->
-        <div class="flex flex-col items-center text-center p-4 bg-surface-container-high border-2 border-primary-container rounded-lg transition-all duration-300 relative shadow-[0_0_15px_rgba(0,255,102,0.1)]">
-          <div class="w-10 h-10 rounded-full bg-primary-container text-background flex items-center justify-center font-bold mb-3">
-            <span class="material-symbols-outlined text-sm font-bold">check</span>
-          </div>
-          <h4 class="font-bold text-primary-container text-sm mb-1">30th Visit</h4>
-          <p class="text-xs text-on-surface-variant">Complete your 30th check-in to finish the pass.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-section-gap bg-surface-container-low/80 backdrop-blur-sm">
-  <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
-    <div class="text-center mb-stack-lg reveal-up active">
-      <h2 class="text-display-xl-mobile md:text-headline-lg font-headline-lg mb-stack-sm">Frequently Asked Questions</h2>
-    </div>
-    <div class="space-y-4">
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          Which plan is best for beginners?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">Monthly is the most beginner-friendly option for most people because it balances structure, flexibility, and value. If you want extra guidance, you can add the optional personal trainer.</p>
-      </details>
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-1 active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          Can I upgrade later?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">Yes. You can move from Daily or Weekly into a Monthly or longer plan whenever you're ready.</p>
-      </details>
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-2 active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          Can I add personal training?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">Yes. Personal training is optional and costs an additional &#8358;10,000.</p>
-      </details>
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-3 active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          What happens after registration?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">You can start training right away, meet a coach if you choose the PT add-on, and begin tracking your progress from your first session.</p>
-      </details>
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          Does the 30-Visit Flex Pass expire?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">No. Unlike monthly memberships, the 30-Visit Flex Pass is based on visits rather than calendar time. It remains active until you complete all 30 visits.</p>
-      </details>
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-1 active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          Who is the 30-Visit Flex Pass for?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">It is ideal for travelers, busy professionals, and anyone whose schedule makes a monthly gym membership difficult.</p>
-      </details>
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-2 active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          How are my visits tracked?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">Each gym visit is recorded as one signature/check-in. Your membership is completed when you reach your 30th visit.</p>
-      </details>
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up stagger-3 active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          Can I use the visits whenever I want?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">Yes. The plan is designed for flexible schedules, so you can use your 30 visits without a monthly expiry.</p>
-      </details>
-      <details class="bg-surface/80 border border-white/10 rounded-lg p-4 group cursor-pointer reveal-up active">
-        <summary class="font-bold text-lg list-none flex justify-between items-center">
-          How much is the 30-Visit Flex Pass?
-          <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <p class="text-on-surface-variant mt-4 text-body-md">The plan is &#8358;45,000, plus a &#8358;5,000 registration fee for first-time registration.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="py-section-gap relative overflow-hidden bg-surface/60 backdrop-blur-md">
-  <div class="absolute inset-0 bg-primary-container/5"></div>
-  <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10 reveal-up active">
-    <h2 class="text-display-xl-mobile md:text-display-xl font-display-xl-mobile md:font-display-xl mb-6">Choose Your Membership Today.</h2>
-    <p class="text-body-lg text-on-surface-variant mb-8">Join MM Fitness now or book a session if you'd like help choosing the right plan.</p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a class="btn-shimmer bg-primary-container text-[#000000] px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:scale-[1.02] transition-transform duration-300 active:scale-95 shadow-[0_0_20px_rgba(0,255,102,0.2)] inline-flex items-center justify-center" href="booking.html">Join MM Fitness</a>
-      <a class="btn-shimmer border border-white/20 bg-transparent text-on-surface px-8 py-4 rounded-full text-label-md font-label-md uppercase tracking-wider font-bold hover:bg-white/10 hover:scale-[1.02] active:scale-95 transition-all duration-300 inline-flex items-center justify-center" href="booking.html">Book A Session</a>
-    </div>
-  </div>
-</section>
-
-<footer class="bg-surface-container-lowest/90 backdrop-blur-md border-t border-white/5 w-full py-stack-lg relative z-10">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
-    <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
-      <span class="text-headline-md font-headline-md font-bold text-primary-fixed">MM Fitness</span>
-      <p class="text-body-md font-body-md text-primary">&copy; 2024 MM Fitness. Built for the community.</p>
-    </div>
-    <div class="col-span-1 md:col-span-3 flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center text-body-md font-body-md">
-      <a class="text-on-surface-variant hover:text-on-surface opacity-80 hover:opacity-100 transition-opacity hover:text-primary-fixed transition-colors duration-200" href="#">Privacy Policy</a>
-      <a class="text-on-surface-variant hover:text-on-surface opacity-80 hover:opacity-100 transition-opacity hover:text-primary-fixed transition-colors duration-200" href="#">Terms of Service</a>
-      <a class="text-on-surface-variant hover:text-on-surface opacity-80 hover:opacity-100 transition-opacity hover:text-primary-fixed transition-colors duration-200" href="#">Careers</a>
-      <a class="text-on-surface-variant hover:text-on-surface opacity-80 hover:opacity-100 transition-opacity hover:text-primary-fixed transition-colors duration-200" href="contact.html">Contact Us</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Mobile menu toggle
-  const menuBtn = document.querySelector('button[aria-controls="mobileMenu"]');
-  const closeMenuBtn = document.getElementById('closeMenuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  
-  if(menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-          mobileMenu.classList.remove('-translate-x-full');
-      });
-  }
-  if(closeMenuBtn && mobileMenu) {
-      closeMenuBtn.addEventListener('click', () => {
-          mobileMenu.classList.add('-translate-x-full');
-      });
-  }
-  if(mobileMenu) {
-      mobileMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-              mobileMenu.classList.add('-translate-x-full');
+        if (menuBtn && mobileMenu) {
+          menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("-translate-x-full");
           });
+        }
+        if (closeMenuBtn && mobileMenu) {
+          closeMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.add("-translate-x-full");
+          });
+        }
+        if (mobileMenu) {
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("-translate-x-full");
+            });
+          });
+        }
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              obs.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document
+          .querySelectorAll(".reveal-up")
+          .forEach((el) => observer.observe(el));
       });
-  }
-
-  const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll(".reveal-up").forEach((el) => observer.observe(el));
-});
-</script>
-<script src="../assets/js/site-links.js"></script>
-</body>
+    </script>
+    <script src="../assets/js/site-links.js"></script>
+  </body>
 </html>

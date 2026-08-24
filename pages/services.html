@@ -1,38 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="dark scroll-smooth" lang="en" style=""><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Services - MM Fitness</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- WebGL Shader Component -->
-<script type="module">
-    class WebGLShader extends HTMLElement {
+<html class="dark scroll-smooth" lang="en" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Services - MM Fitness</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- WebGL Shader Component -->
+    <script type="module">
+      class WebGLShader extends HTMLElement {
         constructor() {
-            super();
-            this.attachShadow({ mode: 'open' });
-            this.canvas = document.createElement('canvas');
-            this.shadowRoot.appendChild(this.canvas);
-            
-            // Set styles
-            const style = document.createElement('style');
-            style.textContent = `
+          super();
+          this.attachShadow({ mode: "open" });
+          this.canvas = document.createElement("canvas");
+          this.shadowRoot.appendChild(this.canvas);
+
+          // Set styles
+          const style = document.createElement("style");
+          style.textContent = `
                 :host { display: block; width: 100%; height: 100%; }
                 canvas { width: 100%; height: 100%; display: block; pointer-events: none; }
             `;
-            this.shadowRoot.appendChild(style);
+          this.shadowRoot.appendChild(style);
         }
 
         async connectedCallback() {
-            const src = this.getAttribute('src');
-            if (!src) return;
+          const src = this.getAttribute("src");
+          if (!src) return;
 
-            // Simple polyfill for DataStore fetch
-            let shaderSource = '';
-            if (src.includes('DATA:ANIMATION:ANIMATION_33') || src.includes('DATA:SCREEN:SCREEN_20')) {
-                shaderSource = `
+          // Simple polyfill for DataStore fetch
+          let shaderSource = "";
+          if (
+            src.includes("DATA:ANIMATION:ANIMATION_33") ||
+            src.includes("DATA:SCREEN:SCREEN_20")
+          ) {
+            shaderSource = `
 precision highp float;
 uniform float u_time;
 uniform vec2 u_resolution;
@@ -69,17 +79,17 @@ void main() {
     
     gl_FragColor = vec4(finalColor, 1.0);
 }`;
-            }
+          }
 
-            this.initWebGL(shaderSource);
+          this.initWebGL(shaderSource);
         }
 
         initWebGL(fragmentShaderSource) {
-            const gl = this.canvas.getContext('webgl');
-            if (!gl) return;
+          const gl = this.canvas.getContext("webgl");
+          if (!gl) return;
 
-            // Vertex Shader
-            const vsSource = `
+          // Vertex Shader
+          const vsSource = `
                 attribute vec2 position;
                 varying vec2 v_texCoord;
                 void main() {
@@ -88,1017 +98,2534 @@ void main() {
                 }
             `;
 
-            const vertexShader = gl.createShader(gl.VERTEX_SHADER);
-            gl.shaderSource(vertexShader, vsSource);
-            gl.compileShader(vertexShader);
+          const vertexShader = gl.createShader(gl.VERTEX_SHADER);
+          gl.shaderSource(vertexShader, vsSource);
+          gl.compileShader(vertexShader);
 
-            const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-            gl.shaderSource(fragmentShader, fragmentShaderSource);
-            gl.compileShader(fragmentShader);
+          const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+          gl.shaderSource(fragmentShader, fragmentShaderSource);
+          gl.compileShader(fragmentShader);
 
-            const program = gl.createProgram();
-            gl.attachShader(program, vertexShader);
-            gl.attachShader(program, fragmentShader);
-            gl.linkProgram(program);
-            gl.useProgram(program);
+          const program = gl.createProgram();
+          gl.attachShader(program, vertexShader);
+          gl.attachShader(program, fragmentShader);
+          gl.linkProgram(program);
+          gl.useProgram(program);
 
-            // Buffer
-            const buffer = gl.createBuffer();
-            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+          // Buffer
+          const buffer = gl.createBuffer();
+          gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+          gl.bufferData(
+            gl.ARRAY_BUFFER,
+            new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+            gl.STATIC_DRAW,
+          );
 
-            const positionLocation = gl.getAttribLocation(program, "position");
-            gl.enableVertexAttribArray(positionLocation);
-            gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+          const positionLocation = gl.getAttribLocation(program, "position");
+          gl.enableVertexAttribArray(positionLocation);
+          gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
-            // Uniforms
-            const timeLocation = gl.getUniformLocation(program, "u_time");
-            const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
-            const mouseLocation = gl.getUniformLocation(program, "u_mouse");
+          // Uniforms
+          const timeLocation = gl.getUniformLocation(program, "u_time");
+          const resolutionLocation = gl.getUniformLocation(
+            program,
+            "u_resolution",
+          );
+          const mouseLocation = gl.getUniformLocation(program, "u_mouse");
 
-            let mouseX = 0, mouseY = 0;
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = window.innerHeight - e.clientY; // Flip Y for WebGL
-            });
+          let mouseX = 0,
+            mouseY = 0;
+          document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = window.innerHeight - e.clientY; // Flip Y for WebGL
+          });
 
-            const resize = () => {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
-                gl.viewport(0, 0, this.canvas.width, this.canvas.height);
-                gl.uniform2f(resolutionLocation, this.canvas.width, this.canvas.height);
-            };
-            window.addEventListener('resize', resize);
-            resize();
+          const resize = () => {
+            this.canvas.width = window.innerWidth;
+            this.canvas.height = window.innerHeight;
+            gl.viewport(0, 0, this.canvas.width, this.canvas.height);
+            gl.uniform2f(
+              resolutionLocation,
+              this.canvas.width,
+              this.canvas.height,
+            );
+          };
+          window.addEventListener("resize", resize);
+          resize();
 
-            const render = (time) => {
-                gl.uniform1f(timeLocation, time * 0.001);
-                gl.uniform2f(mouseLocation, mouseX, mouseY);
-                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-                requestAnimationFrame(render);
-            };
+          const render = (time) => {
+            gl.uniform1f(timeLocation, time * 0.001);
+            gl.uniform2f(mouseLocation, mouseX, mouseY);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
             requestAnimationFrame(render);
+          };
+          requestAnimationFrame(render);
         }
-    }
-    customElements.define('webgl-shader', WebGLShader);
-</script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "surface-tint": "#00e55b",
-                        "outline-variant": "#3b4b3a",
-                        "tertiary-fixed-dim": "#bdc8d3",
-                        "primary-container": "#00ff66",
-                        "on-primary-fixed-variant": "#00531b",
-                        "secondary-container": "#454747",
-                        "surface-container-low": "#181c1f",
-                        "on-secondary-fixed-variant": "#454747",
-                        "surface": "#101417",
-                        "primary-fixed": "#6bff83",
-                        "on-secondary-container": "#b4b5b5",
-                        "inverse-on-surface": "#2d3134",
-                        "primary": "#edffe8",
-                        "outline": "#849581",
-                        "secondary-fixed": "#e2e2e2",
-                        "on-surface": "#e0e3e7",
-                        "on-background": "#e0e3e7",
-                        "on-error": "#690005",
-                        "on-surface-variant": "#b9ccb5",
-                        "on-tertiary": "#27323a",
-                        "surface-bright": "#363a3d",
-                        "on-tertiary-fixed": "#121d25",
-                        "on-error-container": "#ffdad6",
-                        "surface-container-high": "#262a2e",
-                        "on-secondary": "#2f3131",
-                        "surface-container-lowest": "#0b0f12",
-                        "surface-container": "#1c2023",
-                        "on-primary-container": "#007128",
-                        "on-tertiary-container": "#58636d",
-                        "tertiary": "#f8faff",
-                        "tertiary-container": "#d4dfeb",
-                        "background": "#101417",
-                        "inverse-primary": "#006e27",
-                        "surface-dim": "#101417",
-                        "error": "#ffb4ab",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "secondary": "#c6c6c7",
-                        "secondary-fixed-dim": "#c6c6c7",
-                        "surface-variant": "#313539",
-                        "on-primary": "#003911",
-                        "tertiary-fixed": "#d9e4ef",
-                        "primary-fixed-dim": "#00e55b",
-                        "inverse-surface": "#e0e3e7",
-                        "surface-container-highest": "#313539",
-                        "on-primary-fixed": "#002107",
-                        "on-tertiary-fixed-variant": "#3d4851",
-                        "error-container": "#93000a"
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    spacing: {
-                        "stack-lg": "32px",
-                        "margin-mobile": "16px",
-                        "stack-md": "16px",
-                        "stack-sm": "8px",
-                        "section-gap": "96px",
-                        "gutter": "24px",
-                        "container-max": "1280px",
-                        "margin-desktop": "48px",
-                        "unit": "8px"
-                    },
-                    fontFamily: {
-                        "display-2xl": ["Montserrat"],
-                        "display-xl-mobile": ["Montserrat"],
-                        "body-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "label-md": ["Inter"],
-                        "headline-lg": ["Montserrat"],
-                        "headline-md": ["Montserrat"],
-                        "display-xl": ["Montserrat"]
-                    },
-                    fontSize: {
-                        "display-2xl": ["72px", { lineHeight: "80px", letterSpacing: "-0.04em", fontWeight: "800" }],
-                        "display-xl-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
-                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
-                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
-                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
-                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "700" }],
-                        "display-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }]
-                    },
-                    animation: {
-                        'shimmer': 'shimmer 2s linear infinite',
-                        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        shimmer: {
-                            '0%': { backgroundPosition: '200% 0' },
-                            '100%': { backgroundPosition: '-200% 0' },
-                        },
-                        'pulse-glow': {
-                            '0%, 100%': { opacity: 1, boxShadow: '0 0 10px rgba(0,255,102,0.8)' },
-                            '50%': { opacity: .5, boxShadow: '0 0 20px rgba(0,255,102,1)' },
-                        }
-                    }
-                }
-            }
-        }
+      }
+      customElements.define("webgl-shader", WebGLShader);
     </script>
-<style>
-        @media (prefers-reduced-motion: no-preference) {
-            .fade-up {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            }
-            .fade-up.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#00e55b",
+              "outline-variant": "#3b4b3a",
+              "tertiary-fixed-dim": "#bdc8d3",
+              "primary-container": "#00ff66",
+              "on-primary-fixed-variant": "#00531b",
+              "secondary-container": "#454747",
+              "surface-container-low": "#181c1f",
+              "on-secondary-fixed-variant": "#454747",
+              surface: "#101417",
+              "primary-fixed": "#6bff83",
+              "on-secondary-container": "#b4b5b5",
+              "inverse-on-surface": "#2d3134",
+              primary: "#edffe8",
+              outline: "#849581",
+              "secondary-fixed": "#e2e2e2",
+              "on-surface": "#e0e3e7",
+              "on-background": "#e0e3e7",
+              "on-error": "#690005",
+              "on-surface-variant": "#b9ccb5",
+              "on-tertiary": "#27323a",
+              "surface-bright": "#363a3d",
+              "on-tertiary-fixed": "#121d25",
+              "on-error-container": "#ffdad6",
+              "surface-container-high": "#262a2e",
+              "on-secondary": "#2f3131",
+              "surface-container-lowest": "#0b0f12",
+              "surface-container": "#1c2023",
+              "on-primary-container": "#007128",
+              "on-tertiary-container": "#58636d",
+              tertiary: "#f8faff",
+              "tertiary-container": "#d4dfeb",
+              background: "#101417",
+              "inverse-primary": "#006e27",
+              "surface-dim": "#101417",
+              error: "#ffb4ab",
+              "on-secondary-fixed": "#1a1c1c",
+              secondary: "#c6c6c7",
+              "secondary-fixed-dim": "#c6c6c7",
+              "surface-variant": "#313539",
+              "on-primary": "#003911",
+              "tertiary-fixed": "#d9e4ef",
+              "primary-fixed-dim": "#00e55b",
+              "inverse-surface": "#e0e3e7",
+              "surface-container-highest": "#313539",
+              "on-primary-fixed": "#002107",
+              "on-tertiary-fixed-variant": "#3d4851",
+              "error-container": "#93000a",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "stack-lg": "32px",
+              "margin-mobile": "16px",
+              "stack-md": "16px",
+              "stack-sm": "8px",
+              "section-gap": "96px",
+              gutter: "24px",
+              "container-max": "1280px",
+              "margin-desktop": "48px",
+              unit: "8px",
+            },
+            fontFamily: {
+              "display-2xl": ["Montserrat"],
+              "display-xl-mobile": ["Montserrat"],
+              "body-md": ["Inter"],
+              "body-lg": ["Inter"],
+              "label-md": ["Inter"],
+              "headline-lg": ["Montserrat"],
+              "headline-md": ["Montserrat"],
+              "display-xl": ["Montserrat"],
+            },
+            fontSize: {
+              "display-2xl": [
+                "72px",
+                {
+                  lineHeight: "80px",
+                  letterSpacing: "-0.04em",
+                  fontWeight: "800",
+                },
+              ],
+              "display-xl-mobile": [
+                "36px",
+                {
+                  lineHeight: "44px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "700" },
+              ],
+              "display-xl": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+            },
+            animation: {
+              shimmer: "shimmer 2s linear infinite",
+              "pulse-glow":
+                "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+            keyframes: {
+              shimmer: {
+                "0%": { backgroundPosition: "200% 0" },
+                "100%": { backgroundPosition: "-200% 0" },
+              },
+              "pulse-glow": {
+                "0%, 100%": {
+                  opacity: 1,
+                  boxShadow: "0 0 10px rgba(0,255,102,0.8)",
+                },
+                "50%": {
+                  opacity: 0.5,
+                  boxShadow: "0 0 20px rgba(0,255,102,1)",
+                },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        .fade-up {
+          opacity: 0;
+          transform: translateY(30px);
+          transition:
+            opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+            transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        @media (prefers-reduced-motion: reduce) {
-            .fade-up {
-                opacity: 1;
-                transform: none;
-                transition: none;
-            }
+        .fade-up.visible {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        .glass-panel {
-            background: rgba(20, 26, 31, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fade-up {
+          opacity: 1;
+          transform: none;
+          transition: none;
         }
-        .text-gradient {
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(to right, #00ff66, #ffffff);
-        }
-        
-        /* Interactive Micro-interactions */
-        .hover-glow {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .hover-glow:hover {
-            transform: scale(1.02);
-            border-color: #00ff66;
-            box-shadow: 0 0 30px rgba(0, 255, 102, 0.15), inset 0 0 20px rgba(0, 255, 102, 0.05);
-        }
-        
-        .btn-interactive {
-            transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-        }
-        .btn-interactive:active {
-            transform: scale(0.98);
-        }
-        
-        .btn-shimmer {
-            background: linear-gradient(90deg, #00ff66 0%, #a3ffbd 50%, #00ff66 100%);
-            background-size: 200% auto;
-        }
-        .btn-shimmer:hover {
-            animation: shimmer 1.5s linear infinite;
-        }
+      }
 
+      .glass-panel {
+        background: rgba(20, 26, 31, 0.4);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(to right, #00ff66, #ffffff);
+      }
+
+      /* Interactive Micro-interactions */
+      .hover-glow {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .hover-glow:hover {
+        transform: scale(1.02);
+        border-color: #00ff66;
+        box-shadow:
+          0 0 30px rgba(0, 255, 102, 0.15),
+          inset 0 0 20px rgba(0, 255, 102, 0.05);
+      }
+
+      .btn-interactive {
+        transition:
+          transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.3s ease;
+      }
+      .btn-interactive:active {
+        transform: scale(0.98);
+      }
+
+      .btn-shimmer {
+        background: linear-gradient(
+          90deg,
+          #00ff66 0%,
+          #a3ffbd 50%,
+          #00ff66 100%
+        );
+        background-size: 200% auto;
+      }
+      .btn-shimmer:hover {
+        animation: shimmer 1.5s linear infinite;
+      }
+
+      .timeline-line::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          #00ff66 0%,
+          rgba(0, 255, 102, 0.1) 100%
+        );
+        z-index: 0;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .timeline-line.visible::before {
+        transform: scaleY(1);
+      }
+
+      @media (min-width: 768px) {
         .timeline-line::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #00ff66 0%, rgba(0, 255, 102, 0.1) 100%);
-            z-index: 0;
-            transform-origin: top;
-            transform: scaleY(0);
-            transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+          left: 50%;
+          transform-origin: top;
         }
-        .timeline-line.visible::before {
-            transform: scaleY(1);
-        }
-        
-        @media (min-width: 768px) {
-            .timeline-line::before {
-                left: 50%;
-                transform-origin: top;
-            }
-        }
+      }
     </style>
-</head>
-<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-black">
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-black"
+  >
+    <!-- TopNavBar -->
+    <header>
+      <nav
+        class="bg-surface/80 backdrop-blur-md fixed top-0 w-full border-b border-white/10 shadow-sm z-50"
+      >
+        <div
+          class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile"
+        >
+          <a
+            class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary-container transition-colors"
+            href="../index.html"
+            >MM Fitness</a
+          >
+          <div class="hidden md:flex gap-gutter items-center">
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="../index.html"
+              >Home</a
+            >
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="about.html"
+              >About</a
+            >
+            <a
+              aria-current="page"
+              class="font-label-md text-label-md text-primary-container border-b-2 border-primary-container pb-1 hover:scale-105 active:scale-95 transition-all"
+              href="services.html"
+              >Services</a
+            >
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="membership.html"
+              >Membership</a
+            >
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="shop.html"
+              >Essentials</a
+            >
+            <a
+              class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all"
+              href="contact.html"
+              >Contact</a
+            >
+          </div>
+          <a
+            href="https://cal.com/mannanx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hidden md:inline-flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]"
+            >Book A Session</a
+          >
+          <button
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            class="md:hidden text-on-surface"
+          >
+            <span
+              aria-hidden="true"
+              class="material-symbols-outlined"
+              style="font-variation-settings: &quot;FILL&quot; 0"
+              >menu</span
+            >
+          </button>
+        </div>
+      </nav>
+    </header>
 
-<!-- TopNavBar -->
-<header>
-<nav class="bg-surface/80 backdrop-blur-md fixed top-0 w-full border-b border-white/10 shadow-sm z-50">
-<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto md:px-margin-desktop px-margin-mobile">
-<a class="font-headline-md text-headline-md font-bold text-on-surface hover:text-primary-container transition-colors" href="../index.html">MM Fitness</a>
-<div class="hidden md:flex gap-gutter items-center">
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="../index.html">Home</a>
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="about.html">About</a>
-<a aria-current="page" class="font-label-md text-label-md text-primary-container border-b-2 border-primary-container pb-1 hover:scale-105 active:scale-95 transition-all" href="services.html">Services</a>
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="membership.html">Membership</a>
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="shop.html">Essentials</a>
-<a class="font-label-md text-label-md text-on-surface hover:text-primary-container transition-colors duration-200 hover:scale-105 active:scale-95 transition-all" href="contact.html">Contact</a>
-</div>
-<a href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]">Book A Session</a>
-<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation" class="md:hidden text-on-surface">
-<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
-</button>
-</div>
-</nav>
-</header>
+    <!-- Mobile SideNav Drawer -->
+    <div
+      aria-label="Mobile Navigation"
+      aria-modal="true"
+      class="fixed inset-y-3 left-3 z-50 flex flex-col bg-surface-container-high h-[calc(100vh-1.5rem)] w-[min(20rem,calc(100vw-1.5rem))] rounded-3xl shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out border border-white/10 overflow-y-auto"
+      id="mobileMenu"
+      role="dialog"
+    >
+      <div class="p-6 border-b border-surface-container-highest">
+        <div class="flex justify-between items-center">
+          <div>
+            <h2
+              class="font-headline-md text-headline-md font-bold text-primary-container"
+            >
+              MM Fitness
+            </h2>
+          </div>
+          <button
+            id="closeMenuBtn"
+            class="text-on-surface hover:text-primary-container transition-colors"
+            aria-label="Close menu"
+          >
+            <span class="material-symbols-outlined text-3xl">close</span>
+          </button>
+        </div>
+      </div>
+      <nav class="flex flex-col flex-grow p-4 gap-2">
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="../index.html"
+        >
+          Home
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="about.html"
+        >
+          About
+        </a>
+        <a
+          aria-current="page"
+          class="flex items-center gap-4 p-3 font-body-md text-body-md bg-primary-container text-background rounded font-bold"
+          href="services.html"
+        >
+          Services
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="membership.html"
+        >
+          Membership
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="booking.html"
+        >
+          Book a Session
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="shop.html"
+        >
+          Fitness Essentials
+        </a>
+        <a
+          class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
+          href="contact.html"
+        >
+          Contact
+        </a>
+      </nav>
+      <div class="p-6 border-t border-surface-container-highest">
+        <a
+          class="w-full flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 mb-4 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]"
+          href="https://cal.com/mannanx"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Book A Session</a
+        >
+      </div>
+    </div>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden"
+      >
+        <div class="absolute inset-0 z-0">
+          <div
+            class="w-full h-full bg-cover bg-center"
+            data-alt="A cinematic, wide-angle shot of a premium, modern gym environment at dawn. Dark, moody atmosphere with dramatic lighting highlighting professional fitness equipment and a highly motivated athlete in mid-workout. Electric green ambient light accents the sleek, industrial architecture. The aesthetic is high-end, powerful, and aspirational."
+            style="background-image: url(&quot;../assets/hero.jpeg&quot;)"
+          ></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60"
+          ></div>
+          <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+        </div>
+        <div
+          class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto fade-up"
+        >
+          <h1
+            class="font-display-xl-mobile md:font-display-2xl text-display-xl-mobile md:text-display-2xl text-white mb-stack-md text-gradient leading-tight drop-shadow-2xl"
+          >
+            Fitness Programmes Designed Around Your Goals.
+          </h1>
+          <p
+            class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl mx-auto"
+          >
+            Whether you're beginning your fitness journey, losing weight,
+            building muscle, or improving overall health, MM Fitness has a
+            programme designed to help you succeed.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              class="w-full sm:w-auto px-8 py-4 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,255,102,0.4)]"
+              href="booking.html"
+            >
+              Book A Session
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </a>
+            <a
+              class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/30 backdrop-blur-sm text-white font-label-md rounded-full btn-interactive hover:bg-white/10 hover:border-white transition-all duration-300 flex items-center justify-center gap-2"
+              href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chat On WhatsApp
+              <span class="material-symbols-outlined text-sm">chat</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- Service Grid -->
+      <section
+        class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10 -mt-20"
+        id="service-grid"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+          <div
+            class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                alt="Gym Membership"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="../assets/gym_membership.jpeg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"
+              >
+                <span class="material-symbols-outlined">fitness_center</span>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white"
+              >
+                Flexible
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors"
+              >
+                Gym Membership
+              </h3>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Full access to our premium gym in Dopemu, Lagos for consistent
+                independent training.
+              </p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Who it's for:</span>
+                    Members who want flexible access and self-directed workouts.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Benefits:</span> Modern
+                    equipment, gym floor access, and community support.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >schedule</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Duration:</span> 1 Hour
+                  </p>
+                </div>
+              </div>
+              <a
+                href="javascript:void(0)"
+                data-cal-link="mannanx/gym-membership"
+                data-cal-namespace="gym-membership"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                class="w-full py-3 border border-primary-container/50 text-primary-container font-label-md rounded-full btn-interactive hover:bg-primary-container hover:text-black transition-colors flex items-center justify-center gap-2"
+                >Book This Service
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
 
-<!-- Mobile SideNav Drawer -->
-<div aria-label="Mobile Navigation" aria-modal="true" class="fixed inset-y-0 left-0 z-50 flex flex-col bg-surface-container-high h-full w-64 shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out" id="mobileMenu" role="dialog">
-<div class="p-6 border-b border-surface-container-highest">
-<div class="flex justify-between items-center">
-<div>
-<h2 class="font-headline-md text-headline-md font-bold text-primary-container">MM Fitness</h2>
-<p class="font-body-md text-body-md text-on-surface mt-1">Modern Athletic Minimalism</p>
-</div>
-<button id="closeMenuBtn" class="text-on-surface hover:text-primary-container transition-colors" aria-label="Close menu">
-<span class="material-symbols-outlined text-3xl">close</span>
-</button>
-</div>
-</div>
-<nav class="flex flex-col flex-grow p-4 gap-2">
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="../index.html">
-<span aria-hidden="true" class="material-symbols-outlined">home</span> Home
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="about.html">
-<span aria-hidden="true" class="material-symbols-outlined">info</span> About
-            </a>
-<a aria-current="page" class="flex items-center gap-4 p-3 font-body-md text-body-md bg-primary-container text-background rounded font-bold" href="services.html">
-<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fitness_center</span> Services
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="membership.html">
-<span aria-hidden="true" class="material-symbols-outlined">card_membership</span> Membership
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="booking.html">
-<span aria-hidden="true" class="material-symbols-outlined">event_available</span> Book a Session
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="shop.html">
-<span aria-hidden="true" class="material-symbols-outlined">shopping_bag</span> Fitness Essentials
-            </a>
-<a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="contact.html">
-<span aria-hidden="true" class="material-symbols-outlined">contact_support</span> Contact
-            </a>
-</nav>
-<div class="p-6 border-t border-surface-container-highest">
-<a class="w-full flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 mb-4 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]" href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer">Book A Session</a>
-<div class="flex gap-4 text-on-surface">
-<a href="tel:+2347048050420" aria-label="Call Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">call</a>
-<a href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Chat with Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">chat</a>
-</div>
-</div>
-</div>
-<main>
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
-<div class="absolute inset-0 z-0">
-<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, wide-angle shot of a premium, modern gym environment at dawn. Dark, moody atmosphere with dramatic lighting highlighting professional fitness equipment and a highly motivated athlete in mid-workout. Electric green ambient light accents the sleek, industrial architecture. The aesthetic is high-end, powerful, and aspirational." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9WSgFONzysTGpkTpGIfspEYhhKlgMlKaI7Jy4nQGXSqGrO1-BnFb8w7VzTSt0wVgIk7XXnuvR-uVqmuFu5a7ViTeT11hPRCSA_6_TEfy51EEYBgi5sE20ATlRZXsD-tDiLA_YwZ9ijpNsxhnpVawzeytfoO6XNY7TY-0ZVKxh8zC0ml0j2ScEQuzuzr_4OQqXjHgOTcCZpAENtwhw-s5_c6lSdZC-WEAQs5Ef-2kXfYknh8cgRPbh7Q");'></div>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60"></div>
-<div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
-</div>
-<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto fade-up">
-<h1 class="font-display-xl-mobile md:font-display-2xl text-display-xl-mobile md:text-display-2xl text-white mb-stack-md text-gradient leading-tight drop-shadow-2xl">
-                    Fitness Programmes Designed Around Your Goals.
-                </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl mx-auto">
-                    Whether you're beginning your fitness journey, losing weight, building muscle, or improving overall health, MM Fitness has a programme designed to help you succeed.
+          <div
+            class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group"
+            style="transition-delay: 100ms"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                alt="Personal Training"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="../assets/personal_training.jpeg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"
+              >
+                <span class="material-symbols-outlined">model_training</span>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white"
+              >
+                1 Hour or 1 Hour 30 Minutes
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors"
+              >
+                Personal Training
+              </h3>
+              <p class="text-on-surface-variant text-sm mb-4">
+                One-to-one coaching built around your goals, form, pace, and
+                accountability.
+              </p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Who it's for:</span>
+                    Beginners, goal-driven clients, and anyone who wants focused
+                    support.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Benefits:</span>
+                    Technique correction, faster progress, and structured
+                    coaching.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >schedule</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Duration:</span> 1 Hour
+                    or 1 Hour 30 Minutes
+                  </p>
+                </div>
+              </div>
+              <a
+                href="javascript:void(0)"
+                data-cal-link="mannanx/personal-training"
+                data-cal-namespace="personal-training"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                class="w-full py-3 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2"
+                >Book This Service
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+
+          <div
+            class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group"
+            style="transition-delay: 200ms"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                alt="Group Classes"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="../assets/group_classes.jpeg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"
+              >
+                <span class="material-symbols-outlined">groups</span>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white"
+              >
+                1 Hour
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors"
+              >
+                Group Classes
+              </h3>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Motivating, coach-led classes that keep you accountable and make
+                training feel fun.
+              </p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Who it's for:</span>
+                    Clients who enjoy energy, structure, and community.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Benefits:</span> Shared
+                    momentum, variety, and improved consistency.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >schedule</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Duration:</span> 1 Hour
+                  </p>
+                </div>
+              </div>
+              <a
+                href="javascript:void(0)"
+                data-cal-link="mannanx/group-classes"
+                data-cal-namespace="group-classes"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                class="w-full py-3 border border-primary-container/50 text-primary-container font-label-md rounded-full btn-interactive hover:bg-primary-container hover:text-black transition-colors flex items-center justify-center gap-2"
+                >Book This Service
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+
+          <div
+            class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                alt="HIIT"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="../assets/hiit.jpeg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"
+              >
+                <span class="material-symbols-outlined">bolt</span>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white"
+              >
+                1 Hour
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors"
+              >
+                HIIT
+              </h3>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Fast-paced, high-intensity intervals that build conditioning and
+                burn calories efficiently.
+              </p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Who it's for:</span> Busy
+                    people who want efficient training and fat-loss support.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Benefits:</span> Improved
+                    endurance, calorie burn, and conditioning.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >schedule</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Duration:</span> 1 Hour
+                  </p>
+                </div>
+              </div>
+              <a
+                href="javascript:void(0)"
+                data-cal-link="mannanx/hiit-session"
+                data-cal-namespace="hiit-session"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                class="w-full py-3 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2"
+                >Book This Service
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+
+          <div
+            class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group"
+            style="transition-delay: 100ms"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                alt="Weight Loss Coaching"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="../assets/weight_loss_coaching.jpg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"
+              >
+                <span class="material-symbols-outlined">monitor_weight</span>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white"
+              >
+                1 Hour
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors"
+              >
+                Weight Loss Coaching
+              </h3>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Structured coaching that combines exercise support and
+                accountability to help you lose weight sustainably.
+              </p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Who it's for:</span>
+                    Clients focused on fat loss, habit change, and healthier
+                    routines.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Benefits:</span>
+                    Guidance, accountability, and realistic progress tracking.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >schedule</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Duration:</span> 1 Hour
+                  </p>
+                </div>
+              </div>
+              <a
+                href="javascript:void(0)"
+                data-cal-link="mannanx/weight-loss-coaching"
+                data-cal-namespace="weight-loss-coaching"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                class="w-full py-3 border border-primary-container/50 text-primary-container font-label-md rounded-full btn-interactive hover:bg-primary-container hover:text-black transition-colors flex items-center justify-center gap-2"
+                >Book This Service
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+
+          <div
+            class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group"
+            style="transition-delay: 200ms"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                alt="General Fitness"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="../assets/gallery1.jpeg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"
+              >
+                <span class="material-symbols-outlined">favorite</span>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white"
+              >
+                1 Hour
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors"
+              >
+                General Fitness
+              </h3>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Well-rounded fitness support for healthier movement, energy, and
+                everyday confidence.
+              </p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Who it's for:</span>
+                    Anyone who wants a balanced, sustainable routine.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Benefits:</span> Better
+                    mobility, fitness, and long-term consistency.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >schedule</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Duration:</span> 1 Hour
+                  </p>
+                </div>
+              </div>
+              <a
+                href="javascript:void(0)"
+                data-cal-link="mannanx/general-body-fitness"
+                data-cal-namespace="general-body-fitness"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                class="w-full py-3 border border-primary-container/50 text-primary-container font-label-md rounded-full btn-interactive hover:bg-primary-container hover:text-black transition-colors flex items-center justify-center gap-2"
+                >Book This Service
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+
+          <div
+            class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group"
+          >
+            <div class="h-48 overflow-hidden relative">
+              <img
+                alt="Bodybuilding"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                src="../assets/general_fitness.jpeg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"
+              >
+                <span class="material-symbols-outlined">fitness_center</span>
+              </div>
+              <div
+                class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white"
+              >
+                1 Hour 30 Minutes
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors"
+              >
+                Bodybuilding
+              </h3>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Muscle-focused training for clients who want size, shape, and
+                stronger overall development.
+              </p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Who it's for:</span>
+                    Lifters, physique-focused clients, and serious strength
+                    builders.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >check_circle</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Benefits:</span>
+                    Progressive overload, muscle gain, and form refinement.
+                  </p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span
+                    class="material-symbols-outlined text-primary-container text-sm mt-1"
+                    >schedule</span
+                  >
+                  <p class="text-sm text-on-background">
+                    <span class="font-bold text-white">Duration:</span> 1 Hour
+                    30 Minutes
+                  </p>
+                </div>
+              </div>
+              <a
+                href="javascript:void(0)"
+                data-cal-link="mannanx/bodybuilding-coaching"
+                data-cal-namespace="bodybuilding-coaching"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                class="w-full py-3 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2"
+                >Book This Service
+                <span class="material-symbols-outlined text-sm"
+                  >arrow_forward</span
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="py-section-gap bg-surface/40 backdrop-blur-md border-t border-white/5"
+        id="service-details"
+      >
+        <div
+          class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+        >
+          <div class="text-center mb-16 fade-up">
+            <h2 class="font-display-xl text-display-xl text-white mb-4">
+              Service Details
+            </h2>
+            <p class="text-on-surface-variant max-w-2xl mx-auto">
+              Choose the programme that fits your goals, then train with a coach
+              who helps you stay consistent and confident.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <details
+              class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 0ms"
+            >
+              <summary
+                class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"
+              >
+                <div>
+                  <h3 class="text-white font-bold text-lg">Gym Membership</h3>
+                  <p class="text-on-surface-variant text-sm mt-1">
+                    Open to see who it suits, what it delivers, and how often to
+                    train.
+                  </p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3">
+                <p>
+                  <span class="text-white font-semibold">Designed for:</span>
+                  members who want access and flexibility.
                 </p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-<a class="w-full sm:w-auto px-8 py-4 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,255,102,0.4)]" href="booking.html">
-                        Book A Session
-                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-<a class="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/30 backdrop-blur-sm text-white font-label-md rounded-full btn-interactive hover:bg-white/10 hover:border-white transition-all duration-300 flex items-center justify-center gap-2" href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer">
-                        Chat On WhatsApp
-                        <span class="material-symbols-outlined text-sm">chat</span>
-</a>
-</div>
-</div>
-</section>
-<!-- Service Grid -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10 -mt-20" id="service-grid">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-<div class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group">
-<div class="h-48 overflow-hidden relative">
-<img alt="Gym Membership" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO09jtGGYkQt6OhZr79NsF2jsmLbj_1xQyCbWDW65E5TI7j2uOD_6804a7RPR-nbJeq09Uw-75Xqa2Ss7qfbQ3U50TXjV8qy2zWU_xI7fOG-odQznb__Uy7Ed64slvAzY5XRo5g39RM4TgisRjyeS5iPogfcAD5aTCAqI_YzlgnKFE29EUa00FLXDzl3H1ZQ2Q0mWUog9ceF49x6l6fZuJjF3iucLBqVJFfsXsDpuL76qwAuR60X9ugw"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"><span class="material-symbols-outlined">fitness_center</span></div>
-<div class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white">Flexible</div>
-</div>
-<div class="p-6">
-<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">Gym Membership</h3>
-<p class="text-on-surface-variant text-sm mb-4">Full access to our premium gym in Dopemu, Lagos for consistent independent training.</p>
-<div class="space-y-2 mb-6">
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Who it's for:</span> Members who want flexible access and self-directed workouts.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Benefits:</span> Modern equipment, gym floor access, and community support.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">schedule</span><p class="text-sm text-on-background"><span class="font-bold text-white">Duration:</span> 1 Hour</p></div>
-</div>
-<a href="javascript:void(0)" data-cal-link="mannanx/gym-membership" data-cal-namespace="gym-membership" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="w-full py-3 border border-primary-container/50 text-primary-container font-label-md rounded-full btn-interactive hover:bg-primary-container hover:text-black transition-colors flex items-center justify-center gap-2">Book This Service <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-</div>
-
-<div class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group" style="transition-delay: 100ms;">
-<div class="h-48 overflow-hidden relative">
-<img alt="Personal Training" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-gAVa3eSfTuVe-SStGWm5CA7kNd6cnUNDa6zL9Y6LX-lBkypJl4ZGvIeUr7gkm6rhGa7cotFhi9MDuu7xyysFZxRgIZAWlhKigoZPOvuTId82CyeIWz8tB8GSHni1s6Ld5GNrYlji3AkEBNMSC-l51llp5Vp2mMKDULMiHRBdsP0vYHL27aiM0jhWNpAY60B6m9UCDAtRuVN6pf-mGM6FOy8yOVmxb5Dc8P4amWmdyTZn2w82NFpEvA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"><span class="material-symbols-outlined">model_training</span></div>
-<div class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white">1 Hour or 1 Hour 30 Minutes</div>
-</div>
-<div class="p-6">
-<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">Personal Training</h3>
-<p class="text-on-surface-variant text-sm mb-4">One-to-one coaching built around your goals, form, pace, and accountability.</p>
-<div class="space-y-2 mb-6">
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Who it's for:</span> Beginners, goal-driven clients, and anyone who wants focused support.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Benefits:</span> Technique correction, faster progress, and structured coaching.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">schedule</span><p class="text-sm text-on-background"><span class="font-bold text-white">Duration:</span> 1 Hour or 1 Hour 30 Minutes</p></div>
-</div>
-<a href="javascript:void(0)" data-cal-link="mannanx/personal-training" data-cal-namespace="personal-training" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="w-full py-3 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2">Book This Service <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-</div>
-
-<div class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group" style="transition-delay: 200ms;">
-<div class="h-48 overflow-hidden relative">
-<img alt="Group Classes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOBmdfTtZzmMzrSHJb5ciWnto4Odqfg394aWtSCUEnGAzHUSvejjo7VGtjNqPZ5_BTCbFFY9RozaQSPHSve4UOdflb7jbl1R_rrYfu8TltduIVCVwq3em3p-cYLz-uOfY9MVcO_qdaT4Bsb_PL33rQwyyDXFqVN35DEgVZcWeMHJoskcnMREEUmS07t6SdIuTOSSbyevg5BScu4j44uCn-u_y3hHYEnyzULaQgnuGv8qDlV1IM2qr3Lg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"><span class="material-symbols-outlined">groups</span></div>
-<div class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white">1 Hour</div>
-</div>
-<div class="p-6">
-<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">Group Classes</h3>
-<p class="text-on-surface-variant text-sm mb-4">Motivating, coach-led classes that keep you accountable and make training feel fun.</p>
-<div class="space-y-2 mb-6">
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Who it's for:</span> Clients who enjoy energy, structure, and community.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Benefits:</span> Shared momentum, variety, and improved consistency.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">schedule</span><p class="text-sm text-on-background"><span class="font-bold text-white">Duration:</span> 1 Hour</p></div>
-</div>
-<a href="javascript:void(0)" data-cal-link="mannanx/group-classes" data-cal-namespace="group-classes" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="w-full py-3 border border-primary-container/50 text-primary-container font-label-md rounded-full btn-interactive hover:bg-primary-container hover:text-black transition-colors flex items-center justify-center gap-2">Book This Service <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-</div>
-
-<div class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group">
-<div class="h-48 overflow-hidden relative">
-<img alt="HIIT" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMncavdlHgjMBJVbEdHWH7_gPIcF5STuFFxb7yte6XYBynotrjxjsgZfHzF2mksVX5ek7HGIYfmSHxO8Q8kqSx9fl054PWHUGPl1INKPAgDBL6q4yFzhFZPNmmqt58-Araf1kgR9ZNBmEc6NeohS9WJkd0yFHVequtxiyfc6oyoAc9pfhIZE-xATFbNMJk4X61FIR4PpaAxBlB9n1NNsAkTH_jR8GtGRcyuOV6enWh21CZWkTYvnf3VQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"><span class="material-symbols-outlined">bolt</span></div>
-<div class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white">1 Hour</div>
-</div>
-<div class="p-6">
-<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">HIIT</h3>
-<p class="text-on-surface-variant text-sm mb-4">Fast-paced, high-intensity intervals that build conditioning and burn calories efficiently.</p>
-<div class="space-y-2 mb-6">
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Who it's for:</span> Busy people who want efficient training and fat-loss support.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Benefits:</span> Improved endurance, calorie burn, and conditioning.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">schedule</span><p class="text-sm text-on-background"><span class="font-bold text-white">Duration:</span> 1 Hour</p></div>
-</div>
-<a href="javascript:void(0)" data-cal-link="mannanx/hiit-session" data-cal-namespace="hiit-session" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="w-full py-3 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2">Book This Service <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-</div>
-
-<div class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group" style="transition-delay: 100ms;">
-<div class="h-48 overflow-hidden relative">
-<img alt="Weight Loss Coaching" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxm8dzAeJpA6kNtmS8x2SwLl7EYmpDHW47r4mttE6Lcv4EA3kwAzRIx4TDzyYwJBIUZCwncogDueNcn666mdvnufWFZQjNTYlT9pd8-CpvLsHdQ24jXFMdN7kA0-QtzsxuGCXlZmFMupTfxRk2VMciddMi2wePRY_FFw3-JOXdiUUmBUrcREKBZbu2SfesK5NlFzJw_uez51R9gjgerm4MhUA-kuMdkqnXRizbjrZkZWWVwF62Czby6w"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"><span class="material-symbols-outlined">monitor_weight</span></div>
-<div class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white">1 Hour</div>
-</div>
-<div class="p-6">
-<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">Weight Loss Coaching</h3>
-<p class="text-on-surface-variant text-sm mb-4">Structured coaching that combines exercise support and accountability to help you lose weight sustainably.</p>
-<div class="space-y-2 mb-6">
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Who it's for:</span> Clients focused on fat loss, habit change, and healthier routines.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Benefits:</span> Guidance, accountability, and realistic progress tracking.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">schedule</span><p class="text-sm text-on-background"><span class="font-bold text-white">Duration:</span> 1 Hour</p></div>
-</div>
-<a href="javascript:void(0)" data-cal-link="mannanx/weight-loss-coaching" data-cal-namespace="weight-loss-coaching" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="w-full py-3 border border-primary-container/50 text-primary-container font-label-md rounded-full btn-interactive hover:bg-primary-container hover:text-black transition-colors flex items-center justify-center gap-2">Book This Service <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-</div>
-
-<div class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group" style="transition-delay: 200ms;">
-<div class="h-48 overflow-hidden relative">
-<img alt="General Fitness" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoGKG9Yox4-I0jYSEF5u7yzHK9ApD40hOF0bqJR54_WDXW_TVHFCXCDkwWtrk1xPykWFO-qA8fYTiWeh3pszEgniLYp26z2LSWLy7yUdK2PYKA7LIb_HzXtYtzX5QLBm6fWIWakvkKn7R5zyyDP1ZwXioy4ocZoqPYk_lZ9A_TJHYjdDzcFYumT5irq4tWkawSmG962eVd5FZlVRkRMZRJ1_UVKD3A1ZPPzSxukQeFyY_YJOEF9wuo3A"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"><span class="material-symbols-outlined">favorite</span></div>
-<div class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white">1 Hour</div>
-</div>
-<div class="p-6">
-<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">General Fitness</h3>
-<p class="text-on-surface-variant text-sm mb-4">Well-rounded fitness support for healthier movement, energy, and everyday confidence.</p>
-<div class="space-y-2 mb-6">
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Who it's for:</span> Anyone who wants a balanced, sustainable routine.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Benefits:</span> Better mobility, fitness, and long-term consistency.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">schedule</span><p class="text-sm text-on-background"><span class="font-bold text-white">Duration:</span> 1 Hour</p></div>
-</div>
-<a href="javascript:void(0)" data-cal-link="mannanx/general-body-fitness" data-cal-namespace="general-body-fitness" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="w-full py-3 border border-primary-container/50 text-primary-container font-label-md rounded-full btn-interactive hover:bg-primary-container hover:text-black transition-colors flex items-center justify-center gap-2">Book This Service <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-</div>
-
-<div class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up group">
-<div class="h-48 overflow-hidden relative">
-<img alt="Bodybuilding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1L9nhPyx2_2ry_S96_wxjKiqnvyAIdRL79tFpyPRLAk3VxY9wUd8eKcVS9QPioG_kgeA16xF_XyjLwXam0yklKzpqG9Q3zpGAXKYbxJk7e5rp__8ZyhIv6aJ42BZ7N8qiPWyHCmPnMD7pHosnTTAkrdvNJxVM0N5u_e9rzaQrfCpXrnsZZkTKirdaZnAZwE63rQx-PQ8uO2gHZKZylIAz-Fo4Gt9XiM6FDgUxHIlWOvVfW17KZpUgkA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-<div class="absolute bottom-4 left-4 p-2 bg-primary-container/20 backdrop-blur-md rounded-lg text-primary-container"><span class="material-symbols-outlined">fitness_center</span></div>
-<div class="absolute top-4 right-4 bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-white">1 Hour 30 Minutes</div>
-</div>
-<div class="p-6">
-<h3 class="font-headline-md text-headline-md text-white mb-2 group-hover:text-primary-container transition-colors">Bodybuilding</h3>
-<p class="text-on-surface-variant text-sm mb-4">Muscle-focused training for clients who want size, shape, and stronger overall development.</p>
-<div class="space-y-2 mb-6">
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Who it's for:</span> Lifters, physique-focused clients, and serious strength builders.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">check_circle</span><p class="text-sm text-on-background"><span class="font-bold text-white">Benefits:</span> Progressive overload, muscle gain, and form refinement.</p></div>
-<div class="flex items-start gap-2"><span class="material-symbols-outlined text-primary-container text-sm mt-1">schedule</span><p class="text-sm text-on-background"><span class="font-bold text-white">Duration:</span> 1 Hour 30 Minutes</p></div>
-</div>
-<a href="javascript:void(0)" data-cal-link="mannanx/bodybuilding-coaching" data-cal-namespace="bodybuilding-coaching" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="w-full py-3 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2">Book This Service <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-</div>
-</div>
-</section>
-
-<section class="py-section-gap bg-surface/40 backdrop-blur-md border-t border-white/5" id="service-details">
-<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="text-center mb-16 fade-up">
-<h2 class="font-display-xl text-display-xl text-white mb-4">Service Details</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Choose the programme that fits your goals, then train with a coach who helps you stay consistent and confident.</p>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-<details class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up" style="transition-delay: 0ms;"><summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"><div><h3 class="text-white font-bold text-lg">Gym Membership</h3><p class="text-on-surface-variant text-sm mt-1">Open to see who it suits, what it delivers, and how often to train.</p></div><span class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3"><p><span class="text-white font-semibold">Designed for:</span> members who want access and flexibility.</p><p><span class="text-white font-semibold">Benefits:</span> full facility access, independence, and community.</p><p><span class="text-white font-semibold">Recommended frequency:</span> 3-6 times per week</p><p><span class="text-white font-semibold">Coach support:</span> available on request when you need direction.</p></div></details>
-<details class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up" style="transition-delay: 100ms;"><summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"><div><h3 class="text-white font-bold text-lg">Personal Training</h3><p class="text-on-surface-variant text-sm mt-1">Open to see who it suits, what it delivers, and how often to train.</p></div><span class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3"><p><span class="text-white font-semibold">Designed for:</span> clients who want close support and faster feedback.</p><p><span class="text-white font-semibold">Benefits:</span> better form, accountability, and tailored progress.</p><p><span class="text-white font-semibold">Recommended frequency:</span> 1-3 times per week</p><p><span class="text-white font-semibold">Coach support:</span> 1-on-1 guidance every session.</p></div></details>
-<details class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up" style="transition-delay: 200ms;"><summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"><div><h3 class="text-white font-bold text-lg">Group Classes</h3><p class="text-on-surface-variant text-sm mt-1">Open to see who it suits, what it delivers, and how often to train.</p></div><span class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3"><p><span class="text-white font-semibold">Designed for:</span> people who stay motivated in a group setting.</p><p><span class="text-white font-semibold">Benefits:</span> energy, variety, and consistency.</p><p><span class="text-white font-semibold">Recommended frequency:</span> 2-4 times per week</p><p><span class="text-white font-semibold">Coach support:</span> coach-led corrections and encouragement throughout.</p></div></details>
-<details class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up" style="transition-delay: 0ms;"><summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"><div><h3 class="text-white font-bold text-lg">HIIT</h3><p class="text-on-surface-variant text-sm mt-1">Open to see who it suits, what it delivers, and how often to train.</p></div><span class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3"><p><span class="text-white font-semibold">Designed for:</span> busy visitors who want intense, efficient sessions.</p><p><span class="text-white font-semibold">Benefits:</span> conditioning, calorie burn, and time efficiency.</p><p><span class="text-white font-semibold">Recommended frequency:</span> 2-3 times per week</p><p><span class="text-white font-semibold">Coach support:</span> high-energy coaching and pacing support.</p></div></details>
-<details class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up" style="transition-delay: 100ms;"><summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"><div><h3 class="text-white font-bold text-lg">Weight Loss Coaching</h3><p class="text-on-surface-variant text-sm mt-1">Open to see who it suits, what it delivers, and how often to train.</p></div><span class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3"><p><span class="text-white font-semibold">Designed for:</span> clients focused on fat loss and habit change.</p><p><span class="text-white font-semibold">Benefits:</span> structure, guidance, and sustainable progress.</p><p><span class="text-white font-semibold">Recommended frequency:</span> 2-4 times per week</p><p><span class="text-white font-semibold">Coach support:</span> regular check-ins and accountability.</p></div></details>
-<details class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up" style="transition-delay: 200ms;"><summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"><div><h3 class="text-white font-bold text-lg">General Fitness</h3><p class="text-on-surface-variant text-sm mt-1">Open to see who it suits, what it delivers, and how often to train.</p></div><span class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3"><p><span class="text-white font-semibold">Designed for:</span> anyone building a balanced fitness routine.</p><p><span class="text-white font-semibold">Benefits:</span> mobility, strength, and everyday wellness.</p><p><span class="text-white font-semibold">Recommended frequency:</span> 3-5 times per week</p><p><span class="text-white font-semibold">Coach support:</span> ongoing support for safe, steady progress.</p></div></details>
-<details class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up" style="transition-delay: 0ms;"><summary class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"><div><h3 class="text-white font-bold text-lg">Bodybuilding</h3><p class="text-on-surface-variant text-sm mt-1">Open to see who it suits, what it delivers, and how often to train.</p></div><span class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3"><p><span class="text-white font-semibold">Designed for:</span> clients focused on size, strength, and physique goals.</p><p><span class="text-white font-semibold">Benefits:</span> muscle gain, stronger lifts, and visual progress.</p><p><span class="text-white font-semibold">Recommended frequency:</span> 3-5 times per week</p><p><span class="text-white font-semibold">Coach support:</span> structured coaching for growth and technique.</p></div></details>
-</div>
-</div>
-</section>
-<!-- Why Train With Us -->
-<section class="py-section-gap bg-surface/50 backdrop-blur-md relative z-10 border-y border-white/5">
-<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="text-center mb-16 fade-up">
-<h2 class="font-display-xl text-display-xl text-white mb-4">Why Train With Us</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Experience the MM Fitness difference. We provide everything you need to reach your peak potential.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Professional Coaching -->
-<div class="p-6 rounded-2xl glass-panel hover-glow fade-up">
-<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined">sports_martial_arts</span>
-</div>
-<h3 class="text-white font-bold mb-2">Professional Coaching</h3>
-<p class="text-on-surface-variant text-sm">Certified professionals dedicated to your success.</p>
-</div>
-<!-- Progress Tracking -->
-<div class="p-6 rounded-2xl glass-panel hover-glow fade-up" style="transition-delay: 100ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container">
-<span class="material-symbols-outlined">monitoring</span>
-</div>
-<h3 class="text-white font-bold mb-2">Progress Tracking</h3>
-<p class="text-on-surface-variant text-sm">Monitor your gains with precision and data-driven insights.</p>
-</div>
-<!-- Friendly Community -->
-<div class="p-6 rounded-2xl glass-panel hover-glow fade-up" style="transition-delay: 200ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container">
-<span class="material-symbols-outlined">groups</span>
-</div>
-<h3 class="text-white font-bold mb-2">Friendly Community</h3>
-<p class="text-on-surface-variant text-sm">Join a supportive tribe that motivates you every single day.</p>
-</div>
-<!-- Flexible Membership -->
-<div class="p-6 rounded-2xl glass-panel hover-glow fade-up" style="transition-delay: 300ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container">
-<span class="material-symbols-outlined">event_available</span>
-</div>
-<h3 class="text-white font-bold mb-2">Flexible Membership</h3>
-<p class="text-on-surface-variant text-sm">Plans designed to fit your lifestyle with no hidden fees.</p>
-</div>
-<!-- Modern Equipment -->
-<div class="p-6 rounded-2xl glass-panel hover-glow fade-up" style="transition-delay: 400ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container">
-<span class="material-symbols-outlined">fitness_center</span>
-</div>
-<h3 class="text-white font-bold mb-2">Modern Equipment</h3>
-<p class="text-on-surface-variant text-sm">Access top-tier machines and elite-level strength gear.</p>
-</div>
-<!-- Motivating Environment -->
-<div class="p-6 rounded-2xl glass-panel hover-glow fade-up" style="transition-delay: 500ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container">
-<span class="material-symbols-outlined">bolt</span>
-</div>
-<h3 class="text-white font-bold mb-2">Motivating Environment</h3>
-<p class="text-on-surface-variant text-sm">A high-energy space crafted to push your limits.</p>
-</div></div>
-</div>
-</section>
-<!-- Training Process Timeline -->
-<section class="py-section-gap relative z-10 overflow-hidden">
-<div class="px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto relative z-10">
-<div class="text-center mb-16 fade-up">
-<h2 class="font-display-xl text-display-xl text-white mb-4">The Process</h2>
-</div>
-<div class="relative timeline-line space-y-12 pb-12" id="timelineContainer"><!-- Step 1 -->
-<div class="relative flex flex-col md:flex-row items-center fade-up">
-<div class="md:w-1/2 md:pr-12 md:text-right flex flex-col items-start md:items-end pl-12 md:pl-0 w-full">
-<h3 class="text-xl font-bold text-white mb-1">Choose Your Goal</h3>
-<p class="text-on-surface-variant text-sm">Define what success looks like for you.</p>
-</div>
-<div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"></div>
-<div class="md:w-1/2 md:pl-12 hidden md:block"></div>
-</div>
-<!-- Step 2 -->
-<div class="relative flex flex-col md:flex-row items-center fade-up" style="transition-delay: 100ms;">
-<div class="md:w-1/2 md:pr-12 hidden md:block"></div>
-<div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"></div>
-<div class="md:w-1/2 md:pl-12 flex flex-col items-start pl-12 md:pl-12 w-full">
-<h3 class="text-xl font-bold text-white mb-1">Meet A Coach</h3>
-<p class="text-on-surface-variant text-sm">Get paired with an expert who understands your needs.</p>
-</div>
-</div>
-<!-- Step 3 -->
-<div class="relative flex flex-col md:flex-row items-center fade-up" style="transition-delay: 200ms;">
-<div class="md:w-1/2 md:pr-12 md:text-right flex flex-col items-start md:items-end pl-12 md:pl-0 w-full">
-<h3 class="text-xl font-bold text-white mb-1">Choose Your Programme</h3>
-<p class="text-on-surface-variant text-sm">Select a plan tailored to your schedule and fitness level.</p>
-</div>
-<div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"></div>
-<div class="md:w-1/2 md:pl-12 hidden md:block"></div>
-</div>
-<!-- Step 4 -->
-<div class="relative flex flex-col md:flex-row items-center fade-up" style="transition-delay: 300ms;">
-<div class="md:w-1/2 md:pr-12 hidden md:block"></div>
-<div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"></div>
-<div class="md:w-1/2 md:pl-12 flex flex-col items-start pl-12 md:pl-12 w-full">
-<h3 class="text-xl font-bold text-white mb-1">Start Training</h3>
-<p class="text-on-surface-variant text-sm">Hit the floor with confidence and professional support.</p>
-</div>
-</div>
-<!-- Step 5 -->
-<div class="relative flex flex-col md:flex-row items-center fade-up" style="transition-delay: 400ms;">
-<div class="md:w-1/2 md:pr-12 md:text-right flex flex-col items-start md:items-end pl-12 md:pl-0 w-full">
-<h3 class="text-xl font-bold text-white mb-1">Track Progress</h3>
-<p class="text-on-surface-variant text-sm">Monitor your gains with our data-driven tracking tools.</p>
-</div>
-<div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"></div>
-<div class="md:w-1/2 md:pl-12 hidden md:block"></div>
-</div>
-<!-- Step 6 -->
-<div class="relative flex flex-col md:flex-row items-center fade-up" style="transition-delay: 500ms;">
-<div class="md:w-1/2 md:pr-12 hidden md:block"></div>
-<div class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"></div>
-<div class="md:w-1/2 md:pl-12 flex flex-col items-start pl-12 md:pl-12 w-full">
-<h3 class="text-xl font-bold text-white mb-1">Achieve Results</h3>
-<p class="text-on-surface-variant text-sm">Celebrate your transformation and set new milestones.</p>
-</div>
-</div></div>
-</div>
-</section>
-<!-- Booking CTA -->
-<section class="py-section-gap bg-surface/30 backdrop-blur-sm relative z-10">
-<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="text-center mb-16 fade-up">
-<h2 class="font-display-xl text-display-xl text-white mb-4">Which Programme Fits You?</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Use these visual comparison cards to quickly match your goal with the right training path.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Weight Loss -->
-<div class="glass-panel p-8 rounded-2xl hover-glow fade-up group">
-<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container">
-<span class="material-symbols-outlined">monitor_weight</span>
-</div>
-<h3 class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors">Weight Loss</h3>
-<ul class="space-y-3 mb-8">
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Sustainable Fat Loss
-                    </li>
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Nutritional Guidance
-                    </li>
-</ul>
-<div class="pt-4 border-t border-white/5">
-<span class="text-xs font-bold uppercase tracking-wider text-primary-container">Best For:</span>
-<p class="text-sm text-white mt-1">Beginners &amp; lifestyle changes</p>
-</div>
-</div>
-<!-- Strength -->
-<div class="glass-panel p-8 rounded-2xl hover-glow fade-up group" style="transition-delay: 100ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container">
-<span class="material-symbols-outlined">fitness_center</span>
-</div>
-<h3 class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors">Strength</h3>
-<ul class="space-y-3 mb-8">
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Compound Movements
-                    </li>
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Progressive Overload
-                    </li>
-</ul>
-<div class="pt-4 border-t border-white/5">
-<span class="text-xs font-bold uppercase tracking-wider text-primary-container">Best For:</span>
-<p class="text-sm text-white mt-1">Powerlifters &amp; athletes</p>
-</div>
-</div>
-<!-- General Fitness -->
-<div class="glass-panel p-8 rounded-2xl hover-glow fade-up group" style="transition-delay: 200ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container">
-<span class="material-symbols-outlined">favorite</span>
-</div>
-<h3 class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors">General Fitness</h3>
-<ul class="space-y-3 mb-8">
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Cardiovascular Health
-                    </li>
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Functional Mobility
-                    </li>
-</ul>
-<div class="pt-4 border-t border-white/5">
-<span class="text-xs font-bold uppercase tracking-wider text-primary-container">Best For:</span>
-<p class="text-sm text-white mt-1">Daily wellness &amp; longevity</p>
-</div>
-</div>
-<!-- Muscle Building -->
-<div class="glass-panel p-8 rounded-2xl hover-glow fade-up group">
-<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container">
-<span class="material-symbols-outlined">exercise</span>
-</div>
-<h3 class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors">Muscle Building</h3>
-<ul class="space-y-3 mb-8">
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Hypertrophy &amp; Form
-                    </li>
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Volume Training
-                    </li>
-</ul>
-<div class="pt-4 border-t border-white/5">
-<span class="text-xs font-bold uppercase tracking-wider text-primary-container">Best For:</span>
-<p class="text-sm text-white mt-1">Bodybuilders &amp; aesthetics</p>
-</div>
-</div>
-<!-- HIIT -->
-<div class="glass-panel p-8 rounded-2xl hover-glow fade-up group" style="transition-delay: 100ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container">
-<span class="material-symbols-outlined">bolt</span>
-</div>
-<h3 class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors">HIIT</h3>
-<ul class="space-y-3 mb-8">
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Calorie Burn &amp; Metabolism
-                    </li>
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        High Intensity Intervals
-                    </li>
-</ul>
-<div class="pt-4 border-t border-white/5">
-<span class="text-xs font-bold uppercase tracking-wider text-primary-container">Best For:</span>
-<p class="text-sm text-white mt-1">Busy schedules &amp; fat loss</p>
-</div>
-</div>
-<!-- Personal Training -->
-<div class="glass-panel p-8 rounded-2xl hover-glow fade-up group" style="transition-delay: 200ms;">
-<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container">
-<span class="material-symbols-outlined">person</span>
-</div>
-<h3 class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors">Personal Training</h3>
-<ul class="space-y-3 mb-8">
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        1-on-1 Custom Plans
-                    </li>
-<li class="flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-primary-container text-xs">check</span>
-                        Elite Accountability
-                    </li>
-</ul>
-<div class="pt-4 border-t border-white/5">
-<span class="text-xs font-bold uppercase tracking-wider text-primary-container">Best For:</span>
-<p class="text-sm text-white mt-1">Specific goals &amp; rehabilitation</p>
-</div>
-</div>
-</div>
-</div>
-</section><section class="py-section-gap relative z-10">
-<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="text-center mb-16 fade-up">
-<h2 class="font-display-xl text-display-xl text-white mb-4">Featured Gallery</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Show members training across strength work, cardio, HIIT, personal training, and group classes.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-<!-- Strength Training -->
-<div class="relative h-80 rounded-2xl overflow-hidden group fade-up">
-<img alt="Strength Training" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxm8dzAeJpA6kNtmS8x2SwLl7EYmpDHW47r4mttE6Lcv4EA3kwAzRIx4TDzyYwJBIUZCwncogDueNcn666mdvnufWFZQjNTYlT9pd8-CpvLsHdQ24jXFMdN7kA0-QtzsxuGCXlZmFMupTfxRk2VMciddMi2wePRY_FFw3-JOXdiUUmBUrcREKBZbu2SfesK5NlFzJw_uez51R9gjgerm4MhUA-kuMdkqnXRizbjrZkZWWVwF62Czby6w"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl">
-<span class="text-white font-bold text-xl drop-shadow-md">Strength Training</span>
-</div>
-</div>
-<!-- Cardio Zone -->
-<div class="relative h-80 rounded-2xl overflow-hidden group fade-up" style="transition-delay: 100ms;">
-<img alt="Cardio Zone" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ILN__L4h8yqv9B-K1CEh0Yy2p6nq2WqMxu8DsRt4fBYKnUp2YBXP--Xjr9wO8ebSA-53giCqazepwn9Q65h1lEhCQFoY6WcvJQVWfld3kK-8JjMupJ9Poud7RgWHO1LXWf5qUo-D4ebWhh1Muz2EwVAB90RyrCfIr-AGswh8HZrrLEQx0AlJQlnW0QBORdYAyJhM_3w9jylNjvJIkYqyn0YoGbJ9atoTvHF6bykX9oXoe8HcNFkwzA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl">
-<span class="text-white font-bold text-xl drop-shadow-md">Cardio Zone</span>
-</div>
-</div>
-<!-- HIIT Session -->
-<div class="relative h-80 rounded-2xl overflow-hidden group fade-up" style="transition-delay: 200ms;">
-<img alt="HIIT Session" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMncavdlHgjMBJVbEdHWH7_gPIcF5STuFFxb7yte6XYBynotrjxjsgZfHzF2mksVX5ek7HGIYfmSHxO8Q8kqSx9fl054PWHUGPl1INKPAgDBL6q4yFzhFZPNmmqt58-Araf1kgR9ZNBmEc6NeohS9WJkd0yFHVequtxiyfc6oyoAc9pfhIZE-xATFbNMJk4X61FIR4PpaAxBlB9n1NNsAkTH_jR8GtGRcyuOV6enWh21CZWkTYvnf3VQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl">
-<span class="text-white font-bold text-xl drop-shadow-md">HIIT Session</span>
-</div>
-</div>
-<!-- Personal Training -->
-<div class="relative h-80 rounded-2xl overflow-hidden group fade-up" style="transition-delay: 300ms;">
-<img alt="Personal Training" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk-f4zvEh9hIIPtk7QSFbTqrKqMeArXYbFEREdqNPh82qYViz7Gv2imst1tWbfv3nw3-a0E12BOnJey_jZtjl6GHlntHNNUrNri6oLF1mwucXDOkzYZrv05L8QG_AvFEPv0WQG3ael5rfR_77SDqhU99KsRrZg5yZO4tjlmXk-mpS08F9Qt9XmUPndW0L0cK8Wp3EgxrLYkKT9bboBzXZD-GsLPIune2GNq5F9DpvvL2HejfrgR5TY5Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl">
-<span class="text-white font-bold text-xl drop-shadow-md">Personal Training</span>
-</div>
-</div>
-<!-- Group Classes -->
-<div class="relative h-80 rounded-2xl overflow-hidden group fade-up" style="transition-delay: 400ms;">
-<img alt="Group Classes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUGI4N0eDTLqQqsvVS36wgtYirfyLYVlF4UrL5pPwz9AsdkOBW3Sk2mz-RFKAdJrFptnZlcRUoPIKPIjiKMYGIfoq1B9_AvvmB9zv9F7wIwwh2WyMY-PLexgsJLexuSThe68d8DRQaUoh_24GF1oxn0JyD-jrzJLsSul6C7w0rFyqvoq0TBGT7ujhtdD8LlAHa2EPx_BWpwViqnEQYxZ5btyjyKvnv2qzry0o0C-w4yU6LCWbgL-78Ng"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl">
-<span class="text-white font-bold text-xl drop-shadow-md">Group Classes</span>
-</div>
-</div>
-<!-- Recovery Area -->
-<div class="relative h-80 rounded-2xl overflow-hidden group fade-up" style="transition-delay: 500ms;">
-<img alt="Recovery Area" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt2XuVJYlSra2by_mkYR3uzbODCtqte2MSnjdmdRMAQwoLiBIqjK_o8lxMG2F6vQA-jke0wDOYjwOiHxLPBP9UgGbwPP0rtjYMh7GKUz44FQ-ktWVQ9BQ_nB4GvYZMM7CEJGP3-cpN-wnBbnnvyTdzHbV_wubTIhlMrRjnl8gCZw1xGdg9_BOA7cz7tnFYg32Wih8n3jNqN7p-j5GBGR9SxoTvpiMdvPzo95eZqXWOTjr2s2F6BK9uiw"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl">
-<span class="text-white font-bold text-xl drop-shadow-md">Recovery Area</span>
-</div>
-</div>
-</div>
-</div>
-</section><section class="py-section-gap bg-surface-container/50 backdrop-blur-sm relative overflow-hidden border-t border-white/5">
-<div class="px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto text-center relative z-10 fade-up">
-<h2 class="font-display-2xl text-display-2xl text-white mb-6 tracking-tight">Ready To Start <br/><span class="text-primary-container text-gradient">Training?</span></h2>
-<p class="text-on-surface-variant text-lg mb-10 max-w-2xl mx-auto">Book your first session today and speak directly with an MM Fitness coach.</p>
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-<a class="px-8 py-4 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,255,102,0.4)]" href="booking.html">
-                Book A Session
-                <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-<a class="px-8 py-4 bg-transparent border border-white/30 text-white font-label-md rounded-full btn-interactive hover:bg-white/10 hover:border-white transition-all flex items-center justify-center gap-2" href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer">
-                Chat On WhatsApp
-                <span class="material-symbols-outlined text-sm">chat</span>
-</a>
-</div>
-</div>
-</section><section class="py-section-gap relative z-10 border-t border-white/5">
-<div class="px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto">
-<div class="text-center mb-16 fade-up">
-<h2 class="font-display-xl text-display-xl text-white mb-4">Frequently Asked Questions</h2>
-<p class="text-on-surface-variant">Everything you need to know about starting your journey with MM Fitness.</p>
-</div>
-<div class="space-y-4">
-<!-- FAQ Item 1 -->
-<div class="glass-panel rounded-xl overflow-hidden hover-glow fade-up">
-<button class="w-full p-6 text-left flex justify-between items-center group btn-interactive" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
-<span class="text-white font-bold group-hover:text-primary-container transition-colors">Which programme is right for beginners?</span>
-<span class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow">expand_more</span>
-</button>
-<div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
-                    Our 'General Fitness' or 'Weight Loss' programmes are perfect starting points. We also recommend a few Personal Training sessions to master your form before joining high-intensity classes.
+                <p>
+                  <span class="text-white font-semibold">Benefits:</span> full
+                  facility access, independence, and community.
+                </p>
+                <p>
+                  <span class="text-white font-semibold"
+                    >Recommended frequency:</span
+                  >
+                  3-6 times per week
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Coach support:</span>
+                  available on request when you need direction.
+                </p>
+              </div>
+            </details>
+            <details
+              class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 100ms"
+            >
+              <summary
+                class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"
+              >
+                <div>
+                  <h3 class="text-white font-bold text-lg">
+                    Personal Training
+                  </h3>
+                  <p class="text-on-surface-variant text-sm mt-1">
+                    Open to see who it suits, what it delivers, and how often to
+                    train.
+                  </p>
                 </div>
-</div>
-<!-- FAQ Item 2 -->
-<div class="glass-panel rounded-xl overflow-hidden hover-glow fade-up" style="transition-delay: 100ms;">
-<button class="w-full p-6 text-left flex justify-between items-center group btn-interactive" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
-<span class="text-white font-bold group-hover:text-primary-container transition-colors">Do I need a trainer?</span>
-<span class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow">expand_more</span>
-</button>
-<div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
-                    While not mandatory, a trainer ensures you're using correct form, prevents injury, and provides the accountability needed to reach your goals faster.
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3">
+                <p>
+                  <span class="text-white font-semibold">Designed for:</span>
+                  clients who want close support and faster feedback.
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Benefits:</span> better
+                  form, accountability, and tailored progress.
+                </p>
+                <p>
+                  <span class="text-white font-semibold"
+                    >Recommended frequency:</span
+                  >
+                  1-3 times per week
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Coach support:</span>
+                  1-on-1 guidance every session.
+                </p>
+              </div>
+            </details>
+            <details
+              class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 200ms"
+            >
+              <summary
+                class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"
+              >
+                <div>
+                  <h3 class="text-white font-bold text-lg">Group Classes</h3>
+                  <p class="text-on-surface-variant text-sm mt-1">
+                    Open to see who it suits, what it delivers, and how often to
+                    train.
+                  </p>
                 </div>
-</div>
-<!-- FAQ Item 3 -->
-<div class="glass-panel rounded-xl overflow-hidden hover-glow fade-up" style="transition-delay: 200ms;">
-<button class="w-full p-6 text-left flex justify-between items-center group btn-interactive" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
-<span class="text-white font-bold group-hover:text-primary-container transition-colors">Can I switch programmes later?</span>
-<span class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow">expand_more</span>
-</button>
-<div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
-                    Absolutely! As your fitness level evolves, your goals might too. You can transition between programmes at any time with the help of our coaching staff.
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3">
+                <p>
+                  <span class="text-white font-semibold">Designed for:</span>
+                  people who stay motivated in a group setting.
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Benefits:</span>
+                  energy, variety, and consistency.
+                </p>
+                <p>
+                  <span class="text-white font-semibold"
+                    >Recommended frequency:</span
+                  >
+                  2-4 times per week
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Coach support:</span>
+                  coach-led corrections and encouragement throughout.
+                </p>
+              </div>
+            </details>
+            <details
+              class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 0ms"
+            >
+              <summary
+                class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"
+              >
+                <div>
+                  <h3 class="text-white font-bold text-lg">HIIT</h3>
+                  <p class="text-on-surface-variant text-sm mt-1">
+                    Open to see who it suits, what it delivers, and how often to
+                    train.
+                  </p>
                 </div>
-</div>
-<!-- FAQ Item 4 -->
-<div class="glass-panel rounded-xl overflow-hidden hover-glow fade-up" style="transition-delay: 300ms;">
-<button class="w-full p-6 text-left flex justify-between items-center group btn-interactive" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
-<span class="text-white font-bold group-hover:text-primary-container transition-colors">How long are sessions?</span>
-<span class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow">expand_more</span>
-</button>
-<div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
-                    Personal training sessions typically last 60 or 90 minutes. Group classes are generally 45-60 minutes long, designed to fit into a busy schedule.
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3">
+                <p>
+                  <span class="text-white font-semibold">Designed for:</span>
+                  busy visitors who want intense, efficient sessions.
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Benefits:</span>
+                  conditioning, calorie burn, and time efficiency.
+                </p>
+                <p>
+                  <span class="text-white font-semibold"
+                    >Recommended frequency:</span
+                  >
+                  2-3 times per week
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Coach support:</span>
+                  high-energy coaching and pacing support.
+                </p>
+              </div>
+            </details>
+            <details
+              class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 100ms"
+            >
+              <summary
+                class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"
+              >
+                <div>
+                  <h3 class="text-white font-bold text-lg">
+                    Weight Loss Coaching
+                  </h3>
+                  <p class="text-on-surface-variant text-sm mt-1">
+                    Open to see who it suits, what it delivers, and how often to
+                    train.
+                  </p>
                 </div>
-</div>
-<!-- FAQ Item 5 -->
-<div class="glass-panel rounded-xl overflow-hidden hover-glow fade-up" style="transition-delay: 400ms;">
-<button class="w-full p-6 text-left flex justify-between items-center group btn-interactive" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')">
-<span class="text-white font-bold group-hover:text-primary-container transition-colors">Can I attend multiple classes?</span>
-<span class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow">expand_more</span>
-</button>
-<div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
-                    Yes, depending on your membership tier, you can attend as many classes as you like. We recommend balancing high-intensity sessions with recovery days.
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3">
+                <p>
+                  <span class="text-white font-semibold">Designed for:</span>
+                  clients focused on fat loss and habit change.
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Benefits:</span>
+                  structure, guidance, and sustainable progress.
+                </p>
+                <p>
+                  <span class="text-white font-semibold"
+                    >Recommended frequency:</span
+                  >
+                  2-4 times per week
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Coach support:</span>
+                  regular check-ins and accountability.
+                </p>
+              </div>
+            </details>
+            <details
+              class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 200ms"
+            >
+              <summary
+                class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"
+              >
+                <div>
+                  <h3 class="text-white font-bold text-lg">General Fitness</h3>
+                  <p class="text-on-surface-variant text-sm mt-1">
+                    Open to see who it suits, what it delivers, and how often to
+                    train.
+                  </p>
                 </div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full py-section-gap bg-surface-container-lowest/80 backdrop-blur-xl border-t border-white/5 relative z-10">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="col-span-1 md:col-span-2 mb-8 md:mb-0">
-<h2 class="font-display-xl text-display-xl font-bold text-primary-container mb-4">MM Fitness</h2>
-<p class="text-on-surface-variant text-sm mb-4">11/13 Adebayo Johnson Street, Pako Bus Stop, Dopemu, Lagos. A fitness centre built around coaching, consistency, and community support.</p>
-<p class="text-on-surface-variant text-sm">Mon-Sat 6:30 AM - 9:30 PM. Sunday 11:30 AM - 8:00 PM.</p>
-</div>
-<div>
-<h3 class="text-white font-label-md mb-4 uppercase tracking-wider">Quick Links</h3>
-<ul class="space-y-2">
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="../index.html">Home</a></li>
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="about.html">About</a></li>
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="services.html">Services</a></li>
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="membership.html">Membership</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-white font-label-md mb-4 uppercase tracking-wider">Contact</h3>
-<ul class="space-y-2">
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="contact.html">Address &amp; Hours</a></li>
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="https://www.google.com/maps/search/?api=1&query=11%2F13%20Adebayo%20Johnson%20Street%2C%20Pako%20Bus%20Stop%2C%20Dopemu%2C%20Lagos" target="_blank" rel="noopener noreferrer">Google Maps</a></li>
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="tel:+2347048050420">Call Now</a></li>
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-white font-label-md mb-4 uppercase tracking-wider">Social Links</h3>
-<ul class="space-y-2">
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-<li><a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-</ul>
-</div>
-</div>
-<div class="border-t border-white/5 mt-12 pt-8 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-sm">
-<p>(c) 2026 MM Fitness. Built for the community.</p>
-<div class="flex gap-4">
-<a class="hover:text-primary-container transition-colors" href="contact.html">Privacy Policy</a>
-<a class="hover:text-primary-container transition-colors" href="contact.html">Terms of Service</a>
-</div>
-</div>
-</footer>
-<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Mobile menu toggle
-            const menuBtn = document.querySelector('button[aria-controls="mobileMenu"]');
-            const closeMenuBtn = document.getElementById('closeMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            
-            if(menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.remove('-translate-x-full');
-                });
-            }
-            if(closeMenuBtn && mobileMenu) {
-                closeMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.add('-translate-x-full');
-                });
-            }
-            if(mobileMenu) {
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('-translate-x-full');
-                    });
-                });
-            }
-        });
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3">
+                <p>
+                  <span class="text-white font-semibold">Designed for:</span>
+                  anyone building a balanced fitness routine.
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Benefits:</span>
+                  mobility, strength, and everyday wellness.
+                </p>
+                <p>
+                  <span class="text-white font-semibold"
+                    >Recommended frequency:</span
+                  >
+                  3-5 times per week
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Coach support:</span>
+                  ongoing support for safe, steady progress.
+                </p>
+              </div>
+            </details>
+            <details
+              class="glass-panel rounded-2xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 0ms"
+            >
+              <summary
+                class="flex items-center justify-between gap-4 p-6 cursor-pointer text-left"
+              >
+                <div>
+                  <h3 class="text-white font-bold text-lg">Bodybuilding</h3>
+                  <p class="text-on-surface-variant text-sm mt-1">
+                    Open to see who it suits, what it delivers, and how often to
+                    train.
+                  </p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 group-open:rotate-180"
+                  >expand_more</span
+                >
+              </summary>
+              <div class="px-6 pb-6 text-on-surface-variant text-sm space-y-3">
+                <p>
+                  <span class="text-white font-semibold">Designed for:</span>
+                  clients focused on size, strength, and physique goals.
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Benefits:</span> muscle
+                  gain, stronger lifts, and visual progress.
+                </p>
+                <p>
+                  <span class="text-white font-semibold"
+                    >Recommended frequency:</span
+                  >
+                  3-5 times per week
+                </p>
+                <p>
+                  <span class="text-white font-semibold">Coach support:</span>
+                  structured coaching for growth and technique.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+      <!-- Why Train With Us -->
+      <section
+        class="py-section-gap bg-surface/50 backdrop-blur-md relative z-10 border-y border-white/5"
+      >
+        <div
+          class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+        >
+          <div class="text-center mb-16 fade-up">
+            <h2 class="font-display-xl text-display-xl text-white mb-4">
+              Why Train With Us
+            </h2>
+            <p class="text-on-surface-variant max-w-2xl mx-auto">
+              Experience the MM Fitness difference. We provide everything you
+              need to reach your peak potential.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Professional Coaching -->
+            <div class="p-6 rounded-2xl glass-panel hover-glow fade-up">
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container group-hover:scale-110 transition-transform"
+              >
+                <span class="material-symbols-outlined"
+                  >sports_martial_arts</span
+                >
+              </div>
+              <h3 class="text-white font-bold mb-2">Professional Coaching</h3>
+              <p class="text-on-surface-variant text-sm">
+                Certified professionals dedicated to your success.
+              </p>
+            </div>
+            <!-- Progress Tracking -->
+            <div
+              class="p-6 rounded-2xl glass-panel hover-glow fade-up"
+              style="transition-delay: 100ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container"
+              >
+                <span class="material-symbols-outlined">monitoring</span>
+              </div>
+              <h3 class="text-white font-bold mb-2">Progress Tracking</h3>
+              <p class="text-on-surface-variant text-sm">
+                Monitor your gains with precision and data-driven insights.
+              </p>
+            </div>
+            <!-- Friendly Community -->
+            <div
+              class="p-6 rounded-2xl glass-panel hover-glow fade-up"
+              style="transition-delay: 200ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container"
+              >
+                <span class="material-symbols-outlined">groups</span>
+              </div>
+              <h3 class="text-white font-bold mb-2">Friendly Community</h3>
+              <p class="text-on-surface-variant text-sm">
+                Join a supportive tribe that motivates you every single day.
+              </p>
+            </div>
+            <!-- Flexible Membership -->
+            <div
+              class="p-6 rounded-2xl glass-panel hover-glow fade-up"
+              style="transition-delay: 300ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container"
+              >
+                <span class="material-symbols-outlined">event_available</span>
+              </div>
+              <h3 class="text-white font-bold mb-2">Flexible Membership</h3>
+              <p class="text-on-surface-variant text-sm">
+                Plans designed to fit your lifestyle with no hidden fees.
+              </p>
+            </div>
+            <!-- Modern Equipment -->
+            <div
+              class="p-6 rounded-2xl glass-panel hover-glow fade-up"
+              style="transition-delay: 400ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container"
+              >
+                <span class="material-symbols-outlined">fitness_center</span>
+              </div>
+              <h3 class="text-white font-bold mb-2">Modern Equipment</h3>
+              <p class="text-on-surface-variant text-sm">
+                Access top-tier machines and elite-level strength gear.
+              </p>
+            </div>
+            <!-- Motivating Environment -->
+            <div
+              class="p-6 rounded-2xl glass-panel hover-glow fade-up"
+              style="transition-delay: 500ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4 text-primary-container"
+              >
+                <span class="material-symbols-outlined">bolt</span>
+              </div>
+              <h3 class="text-white font-bold mb-2">Motivating Environment</h3>
+              <p class="text-on-surface-variant text-sm">
+                A high-energy space crafted to push your limits.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Training Process Timeline -->
+      <section class="py-section-gap relative z-10 overflow-hidden">
+        <div
+          class="px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto relative z-10"
+        >
+          <div class="text-center mb-16 fade-up">
+            <h2 class="font-display-xl text-display-xl text-white mb-4">
+              The Process
+            </h2>
+          </div>
+          <div
+            class="relative timeline-line space-y-12 pb-12"
+            id="timelineContainer"
+          >
+            <!-- Step 1 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center fade-up"
+            >
+              <div
+                class="md:w-1/2 md:pr-12 md:text-right flex flex-col items-start md:items-end pl-12 md:pl-0 w-full"
+              >
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Choose Your Goal
+                </h3>
+                <p class="text-on-surface-variant text-sm">
+                  Define what success looks like for you.
+                </p>
+              </div>
+              <div
+                class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"
+              ></div>
+              <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+            </div>
+            <!-- Step 2 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center fade-up"
+              style="transition-delay: 100ms"
+            >
+              <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+              <div
+                class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"
+              ></div>
+              <div
+                class="md:w-1/2 md:pl-12 flex flex-col items-start pl-12 md:pl-12 w-full"
+              >
+                <h3 class="text-xl font-bold text-white mb-1">Meet A Coach</h3>
+                <p class="text-on-surface-variant text-sm">
+                  Get paired with an expert who understands your needs.
+                </p>
+              </div>
+            </div>
+            <!-- Step 3 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center fade-up"
+              style="transition-delay: 200ms"
+            >
+              <div
+                class="md:w-1/2 md:pr-12 md:text-right flex flex-col items-start md:items-end pl-12 md:pl-0 w-full"
+              >
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Choose Your Programme
+                </h3>
+                <p class="text-on-surface-variant text-sm">
+                  Select a plan tailored to your schedule and fitness level.
+                </p>
+              </div>
+              <div
+                class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"
+              ></div>
+              <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+            </div>
+            <!-- Step 4 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center fade-up"
+              style="transition-delay: 300ms"
+            >
+              <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+              <div
+                class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"
+              ></div>
+              <div
+                class="md:w-1/2 md:pl-12 flex flex-col items-start pl-12 md:pl-12 w-full"
+              >
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Start Training
+                </h3>
+                <p class="text-on-surface-variant text-sm">
+                  Hit the floor with confidence and professional support.
+                </p>
+              </div>
+            </div>
+            <!-- Step 5 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center fade-up"
+              style="transition-delay: 400ms"
+            >
+              <div
+                class="md:w-1/2 md:pr-12 md:text-right flex flex-col items-start md:items-end pl-12 md:pl-0 w-full"
+              >
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Track Progress
+                </h3>
+                <p class="text-on-surface-variant text-sm">
+                  Monitor your gains with our data-driven tracking tools.
+                </p>
+              </div>
+              <div
+                class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"
+              ></div>
+              <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+            </div>
+            <!-- Step 6 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center fade-up"
+              style="transition-delay: 500ms"
+            >
+              <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+              <div
+                class="absolute left-[20px] md:left-1/2 w-4 h-4 bg-primary-container rounded-full transform -translate-x-1/2 ring-4 ring-surface shadow-[0_0_10px_rgba(0,255,102,0.8)] z-10 node-point transition-all duration-500"
+              ></div>
+              <div
+                class="md:w-1/2 md:pl-12 flex flex-col items-start pl-12 md:pl-12 w-full"
+              >
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Achieve Results
+                </h3>
+                <p class="text-on-surface-variant text-sm">
+                  Celebrate your transformation and set new milestones.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Booking CTA -->
+      <section
+        class="py-section-gap bg-surface/30 backdrop-blur-sm relative z-10"
+      >
+        <div
+          class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+        >
+          <div class="text-center mb-16 fade-up">
+            <h2 class="font-display-xl text-display-xl text-white mb-4">
+              Which Programme Fits You?
+            </h2>
+            <p class="text-on-surface-variant max-w-2xl mx-auto">
+              Use these visual comparison cards to quickly match your goal with
+              the right training path.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Weight Loss -->
+            <div class="glass-panel p-8 rounded-2xl hover-glow fade-up group">
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container"
+              >
+                <span class="material-symbols-outlined">monitor_weight</span>
+              </div>
+              <h3
+                class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors"
+              >
+                Weight Loss
+              </h3>
+              <ul class="space-y-3 mb-8">
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Sustainable Fat Loss
+                </li>
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Nutritional Guidance
+                </li>
+              </ul>
+              <div class="pt-4 border-t border-white/5">
+                <span
+                  class="text-xs font-bold uppercase tracking-wider text-primary-container"
+                  >Best For:</span
+                >
+                <p class="text-sm text-white mt-1">
+                  Beginners &amp; lifestyle changes
+                </p>
+              </div>
+            </div>
+            <!-- Strength -->
+            <div
+              class="glass-panel p-8 rounded-2xl hover-glow fade-up group"
+              style="transition-delay: 100ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container"
+              >
+                <span class="material-symbols-outlined">fitness_center</span>
+              </div>
+              <h3
+                class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors"
+              >
+                Strength
+              </h3>
+              <ul class="space-y-3 mb-8">
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Compound Movements
+                </li>
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Progressive Overload
+                </li>
+              </ul>
+              <div class="pt-4 border-t border-white/5">
+                <span
+                  class="text-xs font-bold uppercase tracking-wider text-primary-container"
+                  >Best For:</span
+                >
+                <p class="text-sm text-white mt-1">
+                  Powerlifters &amp; athletes
+                </p>
+              </div>
+            </div>
+            <!-- General Fitness -->
+            <div
+              class="glass-panel p-8 rounded-2xl hover-glow fade-up group"
+              style="transition-delay: 200ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container"
+              >
+                <span class="material-symbols-outlined">favorite</span>
+              </div>
+              <h3
+                class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors"
+              >
+                General Fitness
+              </h3>
+              <ul class="space-y-3 mb-8">
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Cardiovascular Health
+                </li>
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Functional Mobility
+                </li>
+              </ul>
+              <div class="pt-4 border-t border-white/5">
+                <span
+                  class="text-xs font-bold uppercase tracking-wider text-primary-container"
+                  >Best For:</span
+                >
+                <p class="text-sm text-white mt-1">
+                  Daily wellness &amp; longevity
+                </p>
+              </div>
+            </div>
+            <!-- Muscle Building -->
+            <div class="glass-panel p-8 rounded-2xl hover-glow fade-up group">
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container"
+              >
+                <span class="material-symbols-outlined">exercise</span>
+              </div>
+              <h3
+                class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors"
+              >
+                Muscle Building
+              </h3>
+              <ul class="space-y-3 mb-8">
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Hypertrophy &amp; Form
+                </li>
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Volume Training
+                </li>
+              </ul>
+              <div class="pt-4 border-t border-white/5">
+                <span
+                  class="text-xs font-bold uppercase tracking-wider text-primary-container"
+                  >Best For:</span
+                >
+                <p class="text-sm text-white mt-1">
+                  Bodybuilders &amp; aesthetics
+                </p>
+              </div>
+            </div>
+            <!-- HIIT -->
+            <div
+              class="glass-panel p-8 rounded-2xl hover-glow fade-up group"
+              style="transition-delay: 100ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container"
+              >
+                <span class="material-symbols-outlined">bolt</span>
+              </div>
+              <h3
+                class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors"
+              >
+                HIIT
+              </h3>
+              <ul class="space-y-3 mb-8">
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Calorie Burn &amp; Metabolism
+                </li>
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  High Intensity Intervals
+                </li>
+              </ul>
+              <div class="pt-4 border-t border-white/5">
+                <span
+                  class="text-xs font-bold uppercase tracking-wider text-primary-container"
+                  >Best For:</span
+                >
+                <p class="text-sm text-white mt-1">
+                  Busy schedules &amp; fat loss
+                </p>
+              </div>
+            </div>
+            <!-- Personal Training -->
+            <div
+              class="glass-panel p-8 rounded-2xl hover-glow fade-up group"
+              style="transition-delay: 200ms"
+            >
+              <div
+                class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center mb-6 text-primary-container"
+              >
+                <span class="material-symbols-outlined">person</span>
+              </div>
+              <h3
+                class="text-headline-md text-white mb-4 group-hover:text-primary-container transition-colors"
+              >
+                Personal Training
+              </h3>
+              <ul class="space-y-3 mb-8">
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  1-on-1 Custom Plans
+                </li>
+                <li
+                  class="flex items-center gap-2 text-on-surface-variant text-sm"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary-container text-xs"
+                    >check</span
+                  >
+                  Elite Accountability
+                </li>
+              </ul>
+              <div class="pt-4 border-t border-white/5">
+                <span
+                  class="text-xs font-bold uppercase tracking-wider text-primary-container"
+                  >Best For:</span
+                >
+                <p class="text-sm text-white mt-1">
+                  Specific goals &amp; rehabilitation
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-section-gap relative z-10">
+        <div
+          class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+        >
+          <div class="text-center mb-16 fade-up">
+            <h2 class="font-display-xl text-display-xl text-white mb-4">
+              Featured Gallery
+            </h2>
+            <p class="text-on-surface-variant max-w-2xl mx-auto">
+              Show members training across strength work, cardio, HIIT, personal
+              training, and group classes.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Strength Training -->
+            <div
+              class="relative aspect-square rounded-2xl overflow-hidden group fade-up"
+            >
+              <img
+                alt="Strength Training"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="../assets/general_fitness.jpeg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl"
+              >
+                <span class="text-white font-bold text-xl drop-shadow-md"
+                  >Strength Training</span
+                >
+              </div>
+            </div>
+            <!-- Cardio Zone -->
+            <div
+              class="relative aspect-square rounded-2xl overflow-hidden group fade-up"
+              style="transition-delay: 100ms"
+            >
+              <img
+                alt="Cardio Zone"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="../assets/gallery2.jpeg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl"
+              >
+                <span class="text-white font-bold text-xl drop-shadow-md"
+                  >Cardio Zone</span
+                >
+              </div>
+            </div>
+            <!-- HIIT Session -->
+            <div
+              class="relative aspect-square rounded-2xl overflow-hidden group fade-up"
+              style="transition-delay: 200ms"
+            >
+              <img
+                alt="HIIT Session"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="../assets/gallery3.jpg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl"
+              >
+                <span class="text-white font-bold text-xl drop-shadow-md"
+                  >HIIT Session</span
+                >
+              </div>
+            </div>
+            <!-- Personal Training -->
+            <div
+              class="relative aspect-square rounded-2xl overflow-hidden group fade-up"
+              style="transition-delay: 300ms"
+            >
+              <img
+                alt="Personal Training"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="../assets/gallery6.png"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl"
+              >
+                <span class="text-white font-bold text-xl drop-shadow-md"
+                  >Personal Training</span
+                >
+              </div>
+            </div>
+            <!-- Group Classes -->
+            <div
+              class="relative aspect-square rounded-2xl overflow-hidden group fade-up"
+              style="transition-delay: 400ms"
+            >
+              <img
+                alt="Group Classes"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="../assets/gallery4.jpg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl"
+              >
+                <span class="text-white font-bold text-xl drop-shadow-md"
+                  >Group Classes</span
+                >
+              </div>
+            </div>
+            <!-- Recovery Area -->
+            <div
+              class="relative aspect-square rounded-2xl overflow-hidden group fade-up"
+              style="transition-delay: 500ms"
+            >
+              <img
+                alt="Recovery Area"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="../assets/gallery5.jpg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 border-2 border-transparent group-hover:border-primary-container rounded-2xl"
+              >
+                <span class="text-white font-bold text-xl drop-shadow-md"
+                  >Recovery Area</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="py-section-gap bg-surface-container/50 backdrop-blur-sm relative overflow-hidden border-t border-white/5"
+      >
+        <div
+          class="px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto text-center relative z-10 fade-up"
+        >
+          <h2
+            class="font-display-2xl text-display-2xl text-white mb-6 tracking-tight"
+          >
+            Ready To Start <br /><span
+              class="text-primary-container text-gradient"
+              >Training?</span
+            >
+          </h2>
+          <p class="text-on-surface-variant text-lg mb-10 max-w-2xl mx-auto">
+            Book your first session today and speak directly with an MM Fitness
+            coach.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              class="px-8 py-4 bg-primary-container text-black font-label-md rounded-full btn-interactive btn-shimmer flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,255,102,0.4)]"
+              href="booking.html"
+            >
+              Book A Session
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </a>
+            <a
+              class="px-8 py-4 bg-transparent border border-white/30 text-white font-label-md rounded-full btn-interactive hover:bg-white/10 hover:border-white transition-all flex items-center justify-center gap-2"
+              href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chat On WhatsApp
+              <span class="material-symbols-outlined text-sm">chat</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="py-section-gap relative z-10 border-t border-white/5">
+        <div class="px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto">
+          <div class="text-center mb-16 fade-up">
+            <h2 class="font-display-xl text-display-xl text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p class="text-on-surface-variant">
+              Everything you need to know about starting your journey with MM
+              Fitness.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div
+              class="glass-panel rounded-xl overflow-hidden hover-glow fade-up"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center group btn-interactive"
+                onclick="
+                  this.nextElementSibling.classList.toggle('hidden');
+                  this.querySelector('.arrow').classList.toggle('rotate-180');
+                "
+              >
+                <span
+                  class="text-white font-bold group-hover:text-primary-container transition-colors"
+                  >Which programme is right for beginners?</span
+                >
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow"
+                  >expand_more</span
+                >
+              </button>
+              <div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
+                Our 'General Fitness' or 'Weight Loss' programmes are perfect
+                starting points. We also recommend a few Personal Training
+                sessions to master your form before joining high-intensity
+                classes.
+              </div>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div
+              class="glass-panel rounded-xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 100ms"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center group btn-interactive"
+                onclick="
+                  this.nextElementSibling.classList.toggle('hidden');
+                  this.querySelector('.arrow').classList.toggle('rotate-180');
+                "
+              >
+                <span
+                  class="text-white font-bold group-hover:text-primary-container transition-colors"
+                  >Do I need a trainer?</span
+                >
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow"
+                  >expand_more</span
+                >
+              </button>
+              <div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
+                While not mandatory, a trainer ensures you're using correct
+                form, prevents injury, and provides the accountability needed to
+                reach your goals faster.
+              </div>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div
+              class="glass-panel rounded-xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 200ms"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center group btn-interactive"
+                onclick="
+                  this.nextElementSibling.classList.toggle('hidden');
+                  this.querySelector('.arrow').classList.toggle('rotate-180');
+                "
+              >
+                <span
+                  class="text-white font-bold group-hover:text-primary-container transition-colors"
+                  >Can I switch programmes later?</span
+                >
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow"
+                  >expand_more</span
+                >
+              </button>
+              <div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
+                Absolutely! As your fitness level evolves, your goals might too.
+                You can transition between programmes at any time with the help
+                of our coaching staff.
+              </div>
+            </div>
+            <!-- FAQ Item 4 -->
+            <div
+              class="glass-panel rounded-xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 300ms"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center group btn-interactive"
+                onclick="
+                  this.nextElementSibling.classList.toggle('hidden');
+                  this.querySelector('.arrow').classList.toggle('rotate-180');
+                "
+              >
+                <span
+                  class="text-white font-bold group-hover:text-primary-container transition-colors"
+                  >How long are sessions?</span
+                >
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow"
+                  >expand_more</span
+                >
+              </button>
+              <div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
+                Personal training sessions typically last 60 or 90 minutes.
+                Group classes are generally 45-60 minutes long, designed to fit
+                into a busy schedule.
+              </div>
+            </div>
+            <!-- FAQ Item 5 -->
+            <div
+              class="glass-panel rounded-xl overflow-hidden hover-glow fade-up"
+              style="transition-delay: 400ms"
+            >
+              <button
+                class="w-full p-6 text-left flex justify-between items-center group btn-interactive"
+                onclick="
+                  this.nextElementSibling.classList.toggle('hidden');
+                  this.querySelector('.arrow').classList.toggle('rotate-180');
+                "
+              >
+                <span
+                  class="text-white font-bold group-hover:text-primary-container transition-colors"
+                  >Can I attend multiple classes?</span
+                >
+                <span
+                  class="material-symbols-outlined text-primary-container transition-transform duration-300 arrow"
+                  >expand_more</span
+                >
+              </button>
+              <div class="hidden px-6 pb-6 text-on-surface-variant text-sm">
+                Yes, depending on your membership tier, you can attend as many
+                classes as you like. We recommend balancing high-intensity
+                sessions with recovery days.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full py-section-gap bg-surface-container-lowest/80 backdrop-blur-xl border-t border-white/5 relative z-10"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+      >
+        <div class="col-span-1 md:col-span-2 mb-8 md:mb-0">
+          <h2
+            class="font-display-xl text-display-xl font-bold text-primary-container mb-4"
+          >
+            MM Fitness
+          </h2>
+          <p class="text-on-surface-variant text-sm mb-4">
+            11/13 Adebayo Johnson Street, Pako Bus Stop, Dopemu, Lagos. A
+            fitness centre built around coaching, consistency, and community
+            support.
+          </p>
+          <p class="text-on-surface-variant text-sm">
+            Mon-Sat 6:30 AM - 9:30 PM. Sunday 11:30 AM - 8:00 PM.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-white font-label-md mb-4 uppercase tracking-wider">
+            Quick Links
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="../index.html"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="about.html"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="services.html"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="membership.html"
+                >Membership</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-label-md mb-4 uppercase tracking-wider">
+            Contact
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="contact.html"
+                >Address &amp; Hours</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="https://www.google.com/maps/search/?api=1&query=11%2F13%20Adebayo%20Johnson%20Street%2C%20Pako%20Bus%20Stop%2C%20Dopemu%2C%20Lagos"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Google Maps</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="tel:+2347048050420"
+                >Call Now</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness"
+                target="_blank"
+                rel="noopener noreferrer"
+                >WhatsApp</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-label-md mb-4 uppercase tracking-wider">
+            Social Links
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="https://www.tiktok.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >TikTok</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-primary-container transition-colors duration-200"
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >YouTube</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="border-t border-white/5 mt-12 pt-8 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-sm"
+      >
+        <p>(c) 2026 MM Fitness. Built for the community.</p>
+        <div class="flex gap-4">
+          <a
+            class="hover:text-primary-container transition-colors"
+            href="contact.html"
+            >Privacy Policy</a
+          >
+          <a
+            class="hover:text-primary-container transition-colors"
+            href="contact.html"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const menuBtn = document.querySelector(
+          'button[aria-controls="mobileMenu"]',
+        );
+        const closeMenuBtn = document.getElementById("closeMenuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
 
-        // Advanced Intersection Observer for staggered reveals
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    if (entry.target.classList.contains('node-point')) {
-                        entry.target.classList.add('animate-pulse-glow');
-                    }
-                    if (entry.target.id === 'timelineContainer') {
-                         entry.target.classList.add('visible');
-                    }
-                    observer.unobserve(entry.target);
-                }
+        if (menuBtn && mobileMenu) {
+          menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("-translate-x-full");
+          });
+        }
+        if (closeMenuBtn && mobileMenu) {
+          closeMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.add("-translate-x-full");
+          });
+        }
+        if (mobileMenu) {
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("-translate-x-full");
             });
-        }, observerOptions);
+          });
+        }
+      });
 
-        document.querySelectorAll('.fade-up, .node-point, #timelineContainer').forEach((el) => {
-            observer.observe(el);
-        });
+      // Advanced Intersection Observer for staggered reveals
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.15,
+      };
 
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg', 'bg-surface/90', 'backdrop-blur-xl', 'border-white/10');
-                nav.classList.remove('bg-surface/80', 'border-white/5');
-            } else {
-                nav.classList.remove('shadow-lg', 'bg-surface/90', 'backdrop-blur-xl', 'border-white/10');
-                nav.classList.add('bg-surface/80', 'border-white/5');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            if (entry.target.classList.contains("node-point")) {
+              entry.target.classList.add("animate-pulse-glow");
             }
+            if (entry.target.id === "timelineContainer") {
+              entry.target.classList.add("visible");
+            }
+            observer.unobserve(entry.target);
+          }
         });
-        
-        setTimeout(() => {
-            document.querySelectorAll('section:first-of-type .fade-up').forEach(el => {
-                el.classList.add('visible');
-            });
-        }, 100);
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".fade-up, .node-point, #timelineContainer")
+        .forEach((el) => {
+          observer.observe(el);
+        });
+
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          nav.classList.add(
+            "shadow-lg",
+            "bg-surface/90",
+            "backdrop-blur-xl",
+            "border-white/10",
+          );
+          nav.classList.remove("bg-surface/80", "border-white/5");
+        } else {
+          nav.classList.remove(
+            "shadow-lg",
+            "bg-surface/90",
+            "backdrop-blur-xl",
+            "border-white/10",
+          );
+          nav.classList.add("bg-surface/80", "border-white/5");
+        }
+      });
+
+      setTimeout(() => {
+        document
+          .querySelectorAll("section:first-of-type .fade-up")
+          .forEach((el) => {
+            el.classList.add("visible");
+          });
+      }, 100);
     </script>
-<!-- Cal element-click embed code begins -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  
-  Cal.config = Cal.config || {};
-  Cal.config.forwardQueryParams = true;
+    <!-- Cal element-click embed code begins -->
+    <script type="text/javascript">
+      (function (C, A, L) {
+        let p = function (a, ar) {
+          a.q.push(ar);
+        };
+        let d = C.document;
+        C.Cal =
+          C.Cal ||
+          function () {
+            let cal = C.Cal;
+            let ar = arguments;
+            if (!cal.loaded) {
+              cal.ns = {};
+              cal.q = cal.q || [];
+              d.head.appendChild(d.createElement("script")).src = A;
+              cal.loaded = true;
+            }
+            if (ar[0] === L) {
+              const api = function () {
+                p(api, arguments);
+              };
+              const namespace = ar[1];
+              api.q = api.q || [];
+              if (typeof namespace === "string") {
+                cal.ns[namespace] = cal.ns[namespace] || api;
+                p(cal.ns[namespace], ar);
+                p(cal, ["initNamespace", namespace]);
+              } else p(cal, ar);
+              return;
+            }
+            p(cal, ar);
+          };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  // Initialize all service namespaces
-  const services = [
-    "gym-membership",
-    "personal-training",
-    "group-classes",
-    "hiit-session",
-    "weight-loss-coaching",
-    "general-body-fitness",
-    "bodybuilding-coaching"
-  ];
-  
-  services.forEach(slug => {
-    Cal("init", slug, {origin:"https://app.cal.com"});
-    Cal.ns[slug]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-  });
-</script>
-<!-- Cal element-click embed code ends -->
-  <script src="../assets/js/site-links.js"></script>
-</body></html>
+      Cal.config = Cal.config || {};
+      Cal.config.forwardQueryParams = true;
+
+      // Initialize all service namespaces
+      const services = [
+        "gym-membership",
+        "personal-training",
+        "group-classes",
+        "hiit-session",
+        "weight-loss-coaching",
+        "general-body-fitness",
+        "bodybuilding-coaching",
+      ];
+
+      services.forEach((slug) => {
+        Cal("init", slug, { origin: "https://app.cal.com" });
+        Cal.ns[slug]("ui", {
+          hideEventTypeDetails: false,
+          layout: "month_view",
+        });
+      });
+    </script>
+    <!-- Cal element-click embed code ends -->
+    <script src="../assets/js/site-links.js"></script>
+  </body>
+</html>

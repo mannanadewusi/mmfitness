@@ -365,12 +365,11 @@ void main() {
 </header>
 
 <!-- Mobile SideNav Drawer -->
-<div aria-label="Mobile Navigation" aria-modal="true" class="fixed inset-y-0 left-0 z-50 flex flex-col bg-surface-container-high h-full w-64 shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out" id="mobileMenu" role="dialog">
+<div aria-label="Mobile Navigation" aria-modal="true" class="fixed inset-y-3 left-3 z-50 flex flex-col bg-surface-container-high h-[calc(100vh-1.5rem)] w-[min(20rem,calc(100vw-1.5rem))] rounded-3xl shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out border border-white/10 overflow-y-auto" id="mobileMenu" role="dialog">
 <div class="p-6 border-b border-surface-container-highest">
 <div class="flex justify-between items-center">
 <div>
 <h2 class="font-headline-md text-headline-md font-bold text-primary-container">MM Fitness</h2>
-<p class="font-body-md text-body-md text-on-surface mt-1">Modern Athletic Minimalism</p>
 </div>
 <button id="closeMenuBtn" class="text-on-surface hover:text-primary-container transition-colors" aria-label="Close menu">
 <span class="material-symbols-outlined text-3xl">close</span>
@@ -379,33 +378,29 @@ void main() {
 </div>
 <nav class="flex flex-col flex-grow p-4 gap-2">
 <a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="../index.html">
-<span aria-hidden="true" class="material-symbols-outlined">home</span> Home
+Home
             </a>
 <a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="about.html">
-<span aria-hidden="true" class="material-symbols-outlined">info</span> About
+About
             </a>
 <a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="services.html">
-<span aria-hidden="true" class="material-symbols-outlined">fitness_center</span> Services
+Services
             </a>
 <a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="membership.html">
-<span aria-hidden="true" class="material-symbols-outlined">card_membership</span> Membership
+Membership
             </a>
 <a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="booking.html">
-<span aria-hidden="true" class="material-symbols-outlined">event_available</span> Book a Session
+Book a Session
             </a>
 <a class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded" href="shop.html">
-<span aria-hidden="true" class="material-symbols-outlined">shopping_bag</span> Fitness Essentials
+Fitness Essentials
             </a>
 <a aria-current="page" class="flex items-center gap-4 p-3 font-body-md text-body-md bg-primary-container text-background rounded font-bold" href="contact.html">
-<span aria-hidden="true" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">contact_support</span> Contact
+Contact
             </a>
 </nav>
 <div class="p-6 border-t border-surface-container-highest">
 <a class="w-full flex items-center justify-center bg-primary-container text-background font-label-md text-label-md rounded px-6 py-3 hover:scale-105 active:scale-95 transition-transform duration-200 mb-4 shimmer-btn font-bold shadow-[0_0_15px_rgba(0,255,102,0.4)]" href="https://cal.com/mannanx" target="_blank" rel="noopener noreferrer">Book A Session</a>
-<div class="flex gap-4 text-on-surface">
-<a href="tel:+2347048050420" aria-label="Call Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">call</a>
-<a href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness" target="_blank" rel="noopener noreferrer" aria-label="Chat with Us" class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors">chat</a>
-</div>
 </div>
 </div>
 <main class="flex-grow">
@@ -413,7 +408,7 @@ void main() {
 <section class="relative pt-section-gap pb-24 overflow-hidden border-b border-white/5">
 <div class="absolute inset-0 z-0">
 <div class="absolute inset-0 bg-gradient-to-t from-surface/50 via-surface/20 to-transparent z-10"></div>
-<div class="bg-cover bg-center bg-no-repeat w-full h-full opacity-40" data-alt="A wide, high-impact photograph of a modern, premium fitness studio interior. The space is illuminated with dramatic, atmospheric lighting featuring cool shadows and striking electric green neon accents reflecting off state-of-the-art equipment. A sense of energy, readiness, and welcoming community permeates the clean, industrial-chic space." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtnrnuDJ0HyFdsBS4uLqiyWa6F7cEAz9pUaKMH7fK50cNfV_PQ7zW2nYR8SuBzrvQyHx1O1EvoAApAWkj2nYKgcMjc4GUAFEkOVRsZIMXf7_f9lj7aeE8hw66hhOots8i6nxWxtevO-Ol-Fc8QZ0mJ-Ntm3oUiS0ohF038SMpiXACO5HiFuNiiyUWL4AN3r1kudw9SNT9pXtp45yBBM1QCjaT0Ni4yNkldAEf2hF8V2_T4xWdjMmiwZg");'></div>
+<div class="bg-cover bg-center bg-no-repeat w-full h-full opacity-40" data-alt="A wide, high-impact photograph of a modern, premium fitness studio interior. The space is illuminated with dramatic, atmospheric lighting featuring cool shadows and striking electric green neon accents reflecting off state-of-the-art equipment. A sense of energy, readiness, and welcoming community permeates the clean, industrial-chic space." style='background-image: url("../assets/hero.jpeg");'></div>
 </div>
 <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
 <h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface mb-stack-lg fade-in-up">
@@ -493,9 +488,9 @@ void main() {
 <div>
 <h3 class="font-label-md text-label-md text-on-surface-variant mb-1">Visit the studio</h3>
 <p class="font-body-lg text-body-lg text-on-surface mb-4">11/13 Adebayo Johnson Street,<br/>Pako Bus Stop, Dopemu, Lagos</p>
-<button class="text-primary-container font-label-md text-label-md hover:underline inline-flex items-center gap-1">
+<a class="text-primary-container font-label-md text-label-md hover:underline inline-flex items-center gap-1" href="https://www.google.com/maps/search/?api=1&query=11%2F13%20Adebayo%20Johnson%20Street%2C%20Pako%20Bus%20Stop%2C%20Dopemu%2C%20Lagos" target="_blank" rel="noopener noreferrer">
                                     Get Directions <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</button>
+</a>
 </div>
 </div>
 </div>
@@ -503,10 +498,9 @@ void main() {
 <!-- Interactive Map & Hours (Right Column, spans 7) -->
 <div class="md:col-span-7 flex flex-col gap-gutter">
 <!-- Map Container -->
-<div class="bg-surface-container-low/80 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden flex flex-col h-full min-h-[400px] relative glow-hover group">
+<div class="bg-surface-container-low/80 backdrop-blur-md border border-white/5 rounded-xl overflow-hidden flex flex-col h-full min-h-[520px] sm:min-h-[580px] md:min-h-[400px] relative glow-hover group">
 <div class="absolute inset-0 z-0">
-<!-- Placeholder for Map Image -->
-<img alt="Google Maps view of MM Fitness location in Dopemu, Lagos" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYhrkC8UCSNGv_JgVZ6Vy-lLADvePrAzN_ov8sQKLKfXABlbIdM7Tg7DEJGTu8h705fi5KnB_rzAtc9_7Fd42UcfV8dGjz-buuoj56l-aEUlnBsJXcaSuf_pb1ok5SrIaxMrp5ALRMy64RB7Wa9MGCPsOYQjUu5IY7Ze5rNd-fs9tIMvsV0EXCSL6Tx9qK_rY2sDgrQKLoFqNpJL0fkH7OU6lUvj-x7WUpLNNWS10puDiY-l4Tsj3GyQ"/>
+<iframe aria-label="Satellite map of MM Fitness location in Dopemu, Lagos" class="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity duration-500" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=6.6106161,3.3075464&t=k&z=20&output=embed" style="border: 0"></iframe>
 </div>
 <!-- Overlay Content -->
 <div class="relative z-10 p-6 bg-gradient-to-b from-surface-container-lowest/90 to-transparent flex justify-between items-start">
@@ -514,14 +508,14 @@ void main() {
 <h3 class="font-headline-md text-headline-md text-on-surface drop-shadow-md">We're in Dopemu</h3>
 <p class="font-body-md text-body-md text-on-surface-variant drop-shadow-md">Easily accessible from Pako Bus Stop</p>
 </div>
-<button class="bg-primary-container text-black font-label-md text-label-md px-4 py-2 rounded-full hover:scale-105 transition-transform font-bold">
+<a class="bg-primary-container text-black font-label-md text-label-md px-4 py-2 rounded-full hover:scale-105 transition-transform font-bold inline-flex items-center justify-center" href="https://www.google.com/maps/search/?api=1&query=11%2F13%20Adebayo%20Johnson%20Street%2C%20Pako%20Bus%20Stop%2C%20Dopemu%2C%20Lagos" target="_blank" rel="noopener noreferrer">
                                 Get Directions
-                            </button>
+                            </a>
 </div>
 <div class="relative z-10 mt-auto p-6 bg-gradient-to-t from-surface-container-lowest/90 to-transparent flex justify-end gap-4">
-<button class="bg-surface-variant border border-white/10 text-on-surface font-label-md text-label-md px-4 py-2 rounded-full hover:bg-white/10 transition-colors backdrop-blur-sm">
+<a class="bg-surface-variant border border-white/10 text-on-surface font-label-md text-label-md px-4 py-2 rounded-full hover:bg-white/10 transition-colors backdrop-blur-sm inline-flex items-center justify-center" href="https://www.google.com/maps/search/?api=1&query=11%2F13%20Adebayo%20Johnson%20Street%2C%20Pako%20Bus%20Stop%2C%20Dopemu%2C%20Lagos" target="_blank" rel="noopener noreferrer">
                                 Open in Google Maps
-                            </button>
+                            </a>
 </div>
 </div>
 <!-- Opening Hours Card -->
@@ -555,24 +549,24 @@ void main() {
                 </p>
 </div>
 <div>
-<form class="flex flex-col gap-4 bg-surface/80 border border-white/5 p-8 rounded-2xl glow-hover backdrop-blur-md">
+<form class="flex flex-col gap-4 bg-surface/80 border border-white/5 p-8 rounded-2xl glow-hover backdrop-blur-md" id="contact-form">
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-on-surface" for="fullName">Full Name</label>
-<input class="bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="fullName" placeholder="John Doe" type="text"/>
+<input class="bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="fullName" name="fullName" placeholder="John Doe" type="text"/>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-on-surface" for="phone">Phone Number</label>
-<input class="bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="phone" placeholder="+234 000 0000" type="tel"/>
+<input class="bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="phone" name="phone" placeholder="+234 000 0000" type="tel"/>
 </div>
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-on-surface" for="email">Email</label>
-<input class="bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="email" placeholder="john@example.com" type="email"/>
+<input class="bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" id="email" name="email" placeholder="john@example.com" type="email"/>
 </div>
 </div>
 <div class="flex flex-col gap-2">
 <label class="font-label-md text-label-md text-on-surface" for="message">Message</label>
-<textarea class="bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors min-h-[150px] resize-y" id="message" placeholder="How can we help you?"></textarea>
+<textarea class="bg-surface-container-low border border-white/10 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors min-h-[150px] resize-y" id="message" name="message" placeholder="How can we help you?"></textarea>
 </div>
 <button class="bg-primary-container text-black font-label-md text-label-md px-8 py-4 rounded-lg font-bold hover:bg-[#00e65c] transition-colors mt-2 pulse-dot" type="submit">
                         Send Message
@@ -677,12 +671,12 @@ void main() {
                     Join the MM Fitness community today. Experience modern equipment, friendly coaching, and a supportive environment designed for your success.
                 </p>
 <div class="flex flex-col sm:flex-row justify-center gap-stack-md">
-<button class="bg-primary-container text-black font-label-md text-label-md px-8 py-4 rounded-full font-bold hover:scale-[1.02] transition-transform duration-200 pulse-dot">
+<a class="bg-primary-container text-black font-label-md text-label-md px-8 py-4 rounded-full font-bold hover:scale-[1.02] transition-transform duration-200 pulse-dot inline-flex items-center justify-center" href="membership.html">
                         Join MM Fitness
-                    </button>
-<button class="bg-transparent border border-white/20 text-on-surface font-label-md text-label-md px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-colors duration-200">
+                    </a>
+<a class="bg-transparent border border-white/20 text-on-surface font-label-md text-label-md px-8 py-4 rounded-full font-bold hover:bg-white/5 transition-colors duration-200 inline-flex items-center justify-center" href="booking.html">
                         Book a Session
-                    </button>
+                    </a>
 </div>
 </div>
 </section>
@@ -728,6 +722,35 @@ void main() {
                     mobileMenu.classList.add('-translate-x-full');
                 });
             });
+        }
+
+        const contactForm = document.getElementById("contact-form");
+        if (contactForm) {
+          contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const fullName = document.getElementById("fullName")?.value.trim() || "";
+            const phone = document.getElementById("phone")?.value.trim() || "";
+            const email = document.getElementById("email")?.value.trim() || "";
+            const message = document.getElementById("message")?.value.trim() || "";
+
+            const lines = [
+              "Hello MM Fitness,",
+              "",
+              `Name: ${fullName || "Not provided"}`,
+              `Phone: ${phone || "Not provided"}`,
+              `Email: ${email || "Not provided"}`,
+              "",
+              "Message:",
+              message || "No message provided.",
+            ];
+
+            const whatsappUrl =
+              "https://wa.me/2347048050420?text=" +
+              encodeURIComponent(lines.join("\n"));
+
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+          });
         }
 
         const observer = new IntersectionObserver((entries) => {

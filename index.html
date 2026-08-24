@@ -376,7 +376,7 @@
     <div
       aria-label="Mobile Navigation"
       aria-modal="true"
-      class="fixed inset-y-0 left-0 z-50 flex flex-col bg-surface-container-high h-full w-64 shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out"
+      class="fixed inset-y-3 left-3 z-50 flex flex-col bg-surface-container-high h-[calc(100vh-1.5rem)] w-[min(20rem,calc(100vw-1.5rem))] rounded-3xl shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out border border-white/10 overflow-y-auto"
       id="mobileMenu"
       role="dialog"
     >
@@ -388,9 +388,6 @@
             >
               MM Fitness
             </h2>
-            <p class="font-body-md text-body-md text-on-surface mt-1">
-              Modern Athletic Minimalism
-            </p>
           </div>
           <button
             id="closeMenuBtn"
@@ -407,64 +404,42 @@
           class="flex items-center gap-4 p-3 font-body-md text-body-md bg-primary-container text-background rounded font-bold"
           href="index.html"
         >
-          <span
-            aria-hidden="true"
-            class="material-symbols-outlined"
-            style="font-variation-settings: &quot;FILL&quot; 1"
-            >home</span
-          >
           Home
         </a>
         <a
           class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
           href="pages/about.html"
         >
-          <span aria-hidden="true" class="material-symbols-outlined">info</span>
           About
         </a>
         <a
           class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
           href="pages/services.html"
         >
-          <span aria-hidden="true" class="material-symbols-outlined"
-            >fitness_center</span
-          >
           Services
         </a>
         <a
           class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
           href="pages/membership.html"
         >
-          <span aria-hidden="true" class="material-symbols-outlined"
-            >card_membership</span
-          >
           Membership
         </a>
         <a
           class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
           href="pages/booking.html"
         >
-          <span aria-hidden="true" class="material-symbols-outlined"
-            >event_available</span
-          >
           Book a Session
         </a>
         <a
           class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
           href="pages/shop.html"
         >
-          <span aria-hidden="true" class="material-symbols-outlined"
-            >shopping_bag</span
-          >
           Fitness Essentials
         </a>
         <a
           class="flex items-center gap-4 p-3 font-body-md text-body-md text-on-surface hover:bg-surface-variant hover:translate-x-2 transition-transform duration-300 rounded"
           href="pages/contact.html"
         >
-          <span aria-hidden="true" class="material-symbols-outlined"
-            >contact_support</span
-          >
           Contact
         </a>
       </nav>
@@ -476,22 +451,6 @@
           rel="noopener noreferrer"
           >Book A Session</a
         >
-        <div class="flex gap-4 text-on-surface">
-          <a
-            href="tel:+2347048050420"
-            aria-label="Call Us"
-            class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors"
-            >call</a
-          >
-          <a
-            href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat with Us"
-            class="material-symbols-outlined cursor-pointer hover:text-primary-container transition-colors"
-            >chat</a
-          >
-        </div>
       </div>
     </div>
     <!-- Hero Section -->
@@ -502,9 +461,7 @@
         <div
           class="w-full h-full bg-cover bg-center"
           data-alt="A powerful, high-contrast action shot of an athlete lifting heavy dumbbells in a moody, dark-themed luxury gym. The atmosphere is filled with subtle chalk dust illuminated by sharp, dramatic electric green spotlights. The background is slightly blurred showing state-of-the-art black equipment. Cinematic lighting creates long shadows and highlights pure muscle definition in a premium fitness setting."
-          style="
-            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCurorh9jD3GG1imOOZxR-6SUjywFXKKzxpqGofcJr_eeaHvuQ4X2ZtpbpbCjk5ELay-VvX8OmZWwrq6doa3G_b49zovbec0MX_Yf0xLG13CBv0zGiRhguxAbtLY3TX_Bt1FRqWNUQE8whgKLesSoHBP3--QPVBSgYm4yEDnBVt1mQeDQFbCqbEShImyBC6cpV3wpsrCmFGlDsvi1nHl1_VoZ-Fw1gg9riNdsGjUJGesEja7c23jKYyPA&quot;);
-          "
+          style="background-image: url(&quot;assets/hero.jpeg&quot;)"
         ></div>
         <div class="absolute inset-0 bg-background/70 luxury-overlay"></div>
       </div>
@@ -540,8 +497,9 @@
         <div
           class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto hero-pulse"
         >
-          <button
+          <a
             class="bg-primary-container text-background px-8 py-4 rounded-lg font-bold text-lg btn-interactive hover:brightness-110 transition-all flex items-center justify-center gap-2 group"
+            href="pages/membership.html"
           >
             Join MM Fitness
             <span
@@ -549,12 +507,13 @@
               data-icon="arrow_forward"
               >arrow_forward</span
             >
-          </button>
-          <button
+          </a>
+          <a
             class="bg-surface-container border border-outline px-8 py-4 rounded-lg font-bold text-lg btn-interactive hover:bg-surface-variant transition-all flex items-center justify-center"
+            href="pages/booking.html"
           >
             Book a Free Trial
-          </button>
+          </a>
         </div>
         <div
           class="flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-8 mt-4 hero-pulse"
@@ -622,31 +581,6 @@
         >
       </div>
     </section>
-    <!-- Mobile Persistent Actions -->
-    <div class="fixed inset-x-0 bottom-0 z-50 md:hidden px-4 pb-4">
-      <div
-        class="mx-auto max-w-md rounded-full border border-white/10 bg-background/85 backdrop-blur-xl p-2 shadow-2xl flex items-center gap-2"
-      >
-        <a
-          class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-surface-container text-white py-3 font-bold"
-          href="tel:+2347048050420"
-        >
-          <span class="material-symbols-outlined text-primary-container"
-            >call</span
-          >
-          Call
-        </a>
-        <a
-          class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] text-white py-3 font-bold"
-          href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="material-symbols-outlined">chat</span>
-          WhatsApp
-        </a>
-      </div>
-    </div>
     <!-- Social Proof Marquee -->
     <div class="bg-surface-container-low border-y border-outline/20 py-8">
       <div class="marquee-container">
@@ -917,7 +851,7 @@
               class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               data-alt="A detailed shot of a member using a premium lat pulldown machine in a dark, high-end gym. The lighting is focused, creating dramatic shadows and highlighting the textured finish of the professional gym equipment. The scene exudes power and elite performance."
               style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBHKwSuLMComqAf6iysCxBd0HNbF6iW31TcL7KWV4SPR2wtI-BbaBhU7GWZ-3IWmloNUkTsYd6f3x0RRAY6tSU-ylAU3M0uGQyVmspC2JaSqQH-6dpSvany6gY2YWNilGIPmbuIhd0bUt8WTKxuxGX14AZheA8jfulJdOV8jJGtqf48G4BBg5rj2Zew2XCOJ6O80Pz3mVFHmGicxko8Mmow9owSkeuLlGA_bWmKO1PFjEI4qFlh-osV8A&quot;);
+                background-image: url(&quot;assets/gym_membership.jpeg&quot;);
               "
             ></div>
             <div
@@ -953,7 +887,7 @@
               class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               data-alt="A personalized training session where a coach is guiding a client through an intensive kettlebell workout. The focus is on the interaction and professional guidance. The setting is a modern Lagos fitness studio with soft ambient green lighting and sleek dark wood flooring."
               style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDwLjJ4YkBAQBTAMQwkmmkRM2S8G6ZqP4lozIAgJAd7xuVhkpTPd_xUwpX16L3-LdKCDK-EqkqhAamEDIyk5bTXDJpScDw8oGxEeshFZKobEoRUyshLqkCnWBAlGSsvNZ0kI5gBTomlqoRx3XV5Nzh3tdHi10dRgrRU0N5XjiwLPZmTL9swSFDGEZ2hgw_m6fsNxo8HzuAfNX0TZku0pkyXbbW4sULbtHOj85Kmft2okKEC6DyM1zT3lg&quot;);
+                background-image: url(&quot;assets/personal_training.jpeg&quot;);
               "
             ></div>
             <div
@@ -989,7 +923,7 @@
               class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               data-alt="A high-energy group fitness class in session. Multiple athletic people are performing explosive movements in unison under dynamic neon green lighting. The mood is intense, communal, and highly motivating, reflecting the energetic culture of Lagos fitness enthusiasts."
               style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDhL_8AayE880FSngmmCN4zOSISFEcgqfBij-O1PoNNYn5hdAhHJqlOF9zm0m1MjGFiap74ZfRwNJOclHji9aF9Bd5pSvKCbi6oX-t7RRVqzEnhiFsDluU6xPLgvU_d9-40ntIHp6Zdo23d8Ejw9HoBcPc1QxPA5cPWH4lNcJJU8j7YYR7X1RK5NP0u7jgLKJbF0x_IdyMItGO-hU_xACQRdbbLqCwsrYftBK-WARVdsacORYY_0S6C7Q&quot;);
+                background-image: url(&quot;assets/group_classes.jpeg&quot;);
               "
             ></div>
             <div
@@ -1024,9 +958,7 @@
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               data-alt="A close up of battle ropes being slammed on a gym floor, motion blur indicating fast, intense movement."
-              style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCW_V0XliQmU1s4b2dWU4XdDf_zDIss2qpzUW5CzZeOreDpFIBdVjnir2kZHw4pj-noVMeC36e3z9YqXBS9LT5KWPNJP1g04D_JDJ7TBzkRztXpX2KcA1RbNyAI2B_pR4Qw6J0dPhgnApojf3V6cmu3GXvczxpPedsJA4khTTLWqv727k6RUoSLrcn--JUCobb2xpJVpPGCzubUi7-ICeQbROoKXLzQqG1JOPtKIcWuCSPfHmpeqrKX5g&quot;);
-              "
+              style="background-image: url(&quot;assets/hiit.jpeg&quot;)"
             ></div>
             <div
               class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"
@@ -1061,7 +993,7 @@
               class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               data-alt="A person running on a treadmill, looking focused and determined."
               style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDWBpmhhG0CiDIOfkFdbGfMvjuBA83OE2V-_Zu01MLkiYOAuS4FHgXfK_C1L3YoTJiM82Kz2_bdlJf0tIXy78XPqGOkOuKqjY6cJgjkOZLt2k0A6nBf9mUgAfFk7d8_NWsASmYVVgjX990pnDmyWdKX2sRNsJWRGH5SItEZ_seBfy_D1YfIWCJCTaLH21jSMJ2RGB8LEDc3d_aaIqpg0vxiev3fC43f_KL-s2VH3hojsr2cnaQg8lO0Og&quot;);
+                background-image: url(&quot;assets/weight_loss_coaching.jpg&quot;);
               "
             ></div>
             <div
@@ -1100,7 +1032,7 @@
               class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               data-alt="A wide view of a modern gym floor with various cardio and weight machines."
               style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBCjh6FDyKyjo_rnPv5dgQ8N-_ZS8398M_Vx7ukZwrYsfAmMnrPOOeG2eHrjDWmCZqHA7bPagRQcJonUAp3SX5p1jIick2Q72q_tFiiikPZaDt6je-teKk31jE_8yd7uAIWVWtyrgUrEMfuytXf8Nf364QuoXWIIIJq1gMegDnR5-ZCu_uVRliARw4B8hsLBZzBTtQXMFTAYEIbk5REEwJhhglHk7lKj5W-9yQD5s7NYYovVmSCPJ2QJQ&quot;);
+                background-image: url(&quot;assets/general_fitness.jpeg&quot;);
               "
             ></div>
             <div
@@ -1267,13 +1199,12 @@
                 class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
                 data-alt="A sleek black container of premium whey protein isolate standing against a minimalist dark backdrop with subtle green lighting accents. The packaging is professional and minimalist, representing the high quality of MM Fitness nutritional supplements."
                 style="
-                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDlTu_yu1k6tQUMVZwZ-8DBdbknIpkW4iTU8s9kukvG9Pff886u71bDGjnYz60sWYKOlqlv6_06yMHkJ3ms9HHkvHq1jUCHhKBPXgLkBPcDoI573CtvhMMYx1m2D5cLNglqbLzUcLK1M8c-wYXdB9ipTw_TmkaDJ9cG1fFfB-r6eWAA1HvNka7FyZQkzK0hycH5SzclPuF5bmKdPUvj3cOge4-N-6Alg0huz3u5zk445eB7hKT-NAIpPA&quot;);
+                  background-image: url(&quot;assets/supplements.jpeg&quot;);
                 "
               ></div>
             </div>
             <div class="flex flex-col">
               <h4 class="text-white font-bold text-sm">Supplements</h4>
-              <p class="text-primary-container font-black">₦45,000</p>
             </div>
           </div>
           <!-- Product 2 -->
@@ -1287,13 +1218,12 @@
                 class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
                 data-alt="A modern, matte black stainless steel shaker bottle with a discreet electric green MM Fitness logo. It is placed on a gym bench, illuminated by a single spotlight, creating a sharp, high-end look for gym accessories."
                 style="
-                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBZhWIOBVC6_ISi4p-cvMXpEbh4ZkZXZbpAtmrXnwAd4K03uE-MmXFSJ9NaC64kwkrcx25Q8Zw9YBpAWOefwLDCD5QwdBYZzeYH4FfacVPetsMgcK3bov-dBBlEGRWZ9ofMwWGORZwH80gwFDsvQsK8owSXomw9ahYMDNrU8XMSgpWfy9Qs7Ex5PU0bIVvPqCCRVOSzN40hTZlU63sjIKNEJFfGTpH8vJ5nSWXpC-pH5cKbSmnLxcCY2w&quot;);
+                  background-image: url(&quot;assets/protein_shakes.jpeg&quot;);
                 "
               ></div>
             </div>
             <div class="flex flex-col">
               <h4 class="text-white font-bold text-sm">Protein Shakes</h4>
-              <p class="text-primary-container font-black">₦12,000</p>
             </div>
           </div>
           <!-- Product 3 -->
@@ -1307,13 +1237,12 @@
                 class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
                 data-alt="High-performance athletic gym wear, including a black compression shirt and shorts with electric green stitching. The garments are neatly folded on a textured dark stone surface, lit with professional product photography lighting."
                 style="
-                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDljQHEOB_Rc-dMXcWQv9cqjrA9YDpTAaqF2I5hvB6E0Yd8j9KNzAwcVbK_bud6bxvlC1HNGVRkE1itV3Cyi0It-_KtZn9NaRyHZVMmIYBs6bt13VockhQA7wtcwQcic7qhjjHq31MMjXZSfyjCsoGQNy0xWsJ6kK6dNqf2gb70Bl7Mdl7jfoxgDIg-mDvrbYad--j_r9EwwBJhSwAcXCPHbpJdigvR6bSZ4a0P9SjqrfC8RMsPnlH06g&quot;);
+                  background-image: url(&quot;assets/gym_wears.jpeg&quot;);
                 "
               ></div>
             </div>
             <div class="flex flex-col">
               <h4 class="text-white font-bold text-sm">Gym Wear</h4>
-              <p class="text-primary-container font-black">₦28,000</p>
             </div>
           </div>
           <!-- Product 4 -->
@@ -1327,13 +1256,12 @@
                 class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
                 data-alt="A set of high-quality, heavy-duty resistance bands in varying shades of black and green, displayed in a dynamic arrangement. The material looks durable and professional, suitable for elite strength training."
                 style="
-                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAsFMOpOWm4S9IuM6DntAs45a6y7UNOyoIs_9HSbnPn-LaBtiLQEDGs1FjqQcq1H9FamZFfBl-mS89C0DkRWAHRgrxTJe19kbBWwbi5a2EpfL5l2K1bMuXXS7_vxo7sAk33o2I92IVY4PEAUMkEt8EMNTlLI4edhWEvxF3MCmrLkAYXK564HI-ZM4Hpw0qdujgd2eTZ0erWSww24Xkb1Ol8hS5wK-fFnhgOcEhdAqSJLIOC4lKw7iPZ2g&quot;);
+                  background-image: url(&quot;assets/resistance_bands.jpg&quot;);
                 "
               ></div>
             </div>
             <div class="flex flex-col">
               <h4 class="text-white font-bold text-sm">Resistance Bands</h4>
-              <p class="text-primary-container font-black">₦15,000</p>
             </div>
           </div>
           <!-- Product 5 -->
@@ -1347,13 +1275,12 @@
                 class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
                 data-alt="Premium weightlifting gloves and wrist wraps made of black leather with green accents. The equipment shows high-quality craftsmanship, displayed on a gym floor with a shallow depth of field."
                 style="
-                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBqeBtt7gw507GTYFGHxXPsl9GDyvCmnNIjNUARzA-x3ZeDaHp-41qMPOZpAMFt-6A58_RAjADUtlPnJjafbIPgebnannR1CU1ZwoZs96piAozKQlJVoh5akl6WsMWOSAyf0nl1M0wk5bnp8HYWkB7RI1NPp4xIxwcZyl126OCICQxkeetnW8iUy6V7AmwXmMfhMTks33iVG2yj_C0vdKhb37Jpf5OQjRj9wBIDWyfjD5rrCgDQUDwEoA&quot;);
+                  background-image: url(&quot;assets/gym_accessories.jpeg&quot;);
                 "
               ></div>
             </div>
             <div class="flex flex-col">
               <h4 class="text-white font-bold text-sm">Gym Accessories</h4>
-              <p class="text-primary-container font-black">₦18,500</p>
             </div>
           </div>
         </div>
@@ -1371,66 +1298,66 @@
             at MM Fitness.
           </p>
         </div>
-        <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
-            class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent"
+            class="overflow-hidden rounded-xl hover-card-effect border border-transparent aspect-square"
           >
             <img
-              class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
+              class="block w-full h-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
               data-alt="A candid, energetic photo of a diverse group of people in Lagos high-fiving after an intense HIIT session at MM Fitness. The atmosphere is filled with joy, sweat, and community spirit. The background features the modern dark aesthetics of the gym."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3sMw69cWErj1LB5cVHmWfrwpLKCnG1tRow5FlX-f9Te7U8kK8AYQEQ-Jqk-WCkOifpWiockOUMPdvSU6jYPSkehNAhHJm-rkkduQuD2CWLcD2LUDGBhuvt5DK4cxJp7Q3Wr1QYKZN0bP3vghqKi8_N_gU0YfOF7twPs8VGvPZUxr9xzRJq2abJ2KXncsLsB0_uFQPGr72m2uujT59zLxm7X5RZJqxEvwrzcSWG8xMXv6p9hQnA13kMg"
+              src="assets/gallery1.jpeg"
             />
           </div>
           <div
-            class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent"
+            class="overflow-hidden rounded-xl hover-card-effect border border-transparent aspect-square"
           >
             <img
-              class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
+              class="block w-full h-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
               data-alt="A close-up of a female athlete performing a heavy barbell squat with perfect form. She is focused, with sweat glistening on her forehead. The lighting is moody and dramatic, focusing on the movement and strength."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-FxTI4SxsPCAk4t-ekChiHlmHrJ4mxjfMEPvgiZSh19xP2sl_K5Ec_rgmgcC9irNwFdLYg4ADCcuEsWC4uLYV2zbtUeQEmbWCcMB5PZhI75zcoGjMG77MxtO2Kbxt9v1or6SQs7YkiCnIMHZS3xJUiUEyeJFTuC3rrNIIajMGTT_nCMeqX2LxPTt4dcSy0uC9J652FOOGcBJ900tRZVia9EnqDkUFE3bs5HdCvw1NZWbVPGIU2Z2iCg"
+              src="assets/gallery2.jpeg"
             />
           </div>
           <div
-            class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent"
+            class="overflow-hidden rounded-xl hover-card-effect border border-transparent aspect-square"
           >
             <img
-              class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
+              class="block w-full h-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
               data-alt="A male bodybuilder posing in front of a mirror at MM Fitness, showing off incredible muscle definition. The gym's lighting highlights the peaks of his muscles. The environment is clean, professional, and elite."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN2Igyz70rsMo-N8LFOll40MrH5FIrYThDjqIygfWCEC_7UBo5H8o3WYTS-AiC4aaCRc9CfhXeNhOzW88vntX-Mipwp0Y4XtInP8nPG68G89K723quYWtbyGw5fJr0NaBANL_bc7DOov_a23GhmbreNde4wyCmdaBAmnFcGcSdOOhhOavfxNByxhNLwQb9AjpEV3DSk-PEGtaR-WZoHrq-P9T5F8-uN16WzmH3nCWmTI0GGt0hNZMTEw"
+              src="assets/gallery3.jpg"
             />
           </div>
           <div
-            class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent"
+            class="overflow-hidden rounded-xl hover-card-effect border border-transparent aspect-square"
           >
             <img
-              class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
+              class="block w-full h-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
               data-alt="A wide shot of the MM Fitness main floor in Dopemu, Lagos, during a busy morning hour. People of various fitness levels are training seriously but politely sharing equipment. The scene shows the vast array of modern equipment available."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlhYJUeejFSXt4t-T8Fb-ArwvG_N36j1obuARHsBW0r6vWccyMIds-OklswxmsaVxl4ykikWvCy3epw-5zvBQKrsba7BpTqNgLD8Jo4hS20y7X59adtRz6Hh4p_UtxMR3friZ_fxQ6yeBbl_fu4y74UXJqkVDpAFf2P1b822Lpcwmos5zu5ULL1Nr-PNa9LQpKJyHl9Onb0DrMroyooVXDqoFhlGpbQHkmM5C9e5G5v1ptPHWKwSsiUA"
+              src="assets/gallery6.png"
             />
           </div>
           <div
-            class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent"
+            class="overflow-hidden rounded-xl hover-card-effect border border-transparent aspect-square"
           >
             <img
-              class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
+              class="block w-full h-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
               data-alt="Two trainers at MM Fitness discussing a workout plan on a tablet with a client. They look professional, knowledgeable, and approachable. The gym logo is visible in the background on a sleek black wall."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy1jBNlCn51EGQE8xYz63VzYOqLdVB-fe24t8mdcyJgmi7MGRJQyomxsucTK_ZXephm4m5yLEPRPw6njUoOpoBwIQma7_qkChJ6ra3pl4Z1ZKST_qAbngndDSNix9CAh7Pao7vKagFNDGY9MzTLmZyaXOdIQ3N8JwVwstalb3P8o-tzS0LpMfb4f1oHkYo5_ovFKUw3RbBTJlliEsyR-xs8PFPPpkYTFMPDktjdactjU0zBp2Qs6O7kQ"
+              src="assets/gallery4.jpg"
             />
           </div>
           <div
-            class="overflow-hidden rounded-xl break-inside-avoid hover-card-effect border border-transparent"
+            class="overflow-hidden rounded-xl hover-card-effect border border-transparent aspect-square"
           >
             <img
-              class="w-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
+              class="block w-full h-full hover:scale-105 transition-transform duration-500 cursor-pointer object-cover"
               data-alt="A dramatic silhouette of a person jumping rope in front of a large window with city lights in the background. The motion blur creates a sense of high-speed cardio and dedication."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpa4yxBVPPGH0wN7bu56I3C-GIAnHEqZMvJhL2drO5ZVNAhjl2Z0IsTHYMg2-0FyS-AdEN9RXgZKgVRZmHGhfY3XDdk3_bU4cuKja6tj7LxysXU3QFgWQE8zUVNO1moDBI2O-EexsNfgsPIxNkg5eRBFjpfY1yxGt9dUNJHmL5pn4lk7EbvjwFPy6tt2KoUkGhFuZh7Z1pgBUyWD0CkaKScvcQ9kd6mTJIIDfLBN4HXLZ-Z8r6ZxI4VA"
+              src="assets/gallery5.jpg"
             />
           </div>
         </div>
         <div class="mt-12 text-center">
           <a
             class="inline-flex items-center justify-center bg-primary-container text-background px-10 py-4 rounded-lg font-bold btn-interactive hover:brightness-110 transition-all"
-            href="#gallery"
+            href="pages/about.html#gallery"
             >View Full Gallery</a
           >
         </div>
@@ -1464,8 +1391,11 @@
               >event_available</span
             ></a
           >
-          <button
+          <a
             class="bg-[#25D366] text-white px-10 py-4 rounded-lg font-bold flex items-center justify-center gap-2 group btn-interactive hover:brightness-110 transition-all"
+            href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Chat on WhatsApp
             <svg class="size-6" fill="currentColor" viewbox="0 0 256 256">
@@ -1473,7 +1403,7 @@
                 d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"
               ></path>
             </svg>
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -1528,20 +1458,24 @@
             </div>
           </div>
           <div class="flex flex-wrap gap-4 mt-4">
-            <button
+            <a
               class="bg-primary-container text-background px-8 py-3 rounded-lg font-bold flex items-center gap-2 btn-interactive hover:brightness-110 transition-all"
+              href="https://www.google.com/maps/search/?api=1&query=11%2F13%20Adebayo%20Johnson%20Street%2C%20Pako%20Bus%20Stop%2C%20Dopemu%2C%20Lagos"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Get Directions
               <span class="material-symbols-outlined" data-icon="map">map</span>
-            </button>
-            <button
+            </a>
+            <a
               class="bg-surface-container border border-outline text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 btn-interactive hover:bg-surface-variant transition-all"
+              href="tel:+2347048050420"
             >
               Call Now
               <span class="material-symbols-outlined" data-icon="call"
                 >call</span
               >
-            </button>
+            </a>
           </div>
         </div>
         <div
@@ -1699,7 +1633,7 @@
           class="w-full h-full bg-cover bg-fixed bg-center"
           data-alt="A cinematic, low-angle shot of a person finishing a run on a treadmill at dawn, looking out over the silhouette of Lagos. The lighting is cold with electric green neon accents from the gym's branding. The feeling is one of accomplishment, silence, and determination."
           style="
-            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAv5-vXqfQNdBTpXPI0IukuXZZrUDz78qlrHo3yWCnI4Zpmj4EhWddPmtFu7DBYisa5ZGQ3xdogv3epP-zb73sNtPTJ5KNRc6Pq6JkYGwuNz0maK4TfLW5b_D-acZnOUHWQmMvNZ0SZDak3n8aaRcokddi_3CCO0JR6gONRIUzjRpuP_PeHOc3x1ZQeZyTCBAoFUt90qkeeqYGQc68cGog9K8cw9H-nO3-3TFbDfhTfjEzUdajMO2vlpg&quot;);
+            background-image: url(&quot;assets/general_fitness.jpeg&quot;);
           "
         ></div>
         <div class="absolute inset-0 bg-background/90 luxury-overlay"></div>
@@ -1714,16 +1648,18 @@
           <span class="text-primary-container">Starts Today.</span>
         </h2>
         <div class="flex flex-col sm:flex-row gap-6">
-          <button
+          <a
             class="bg-primary-container text-background px-12 py-5 rounded-lg font-black text-xl btn-interactive hover:scale-105 transition-all"
+            href="pages/membership.html"
           >
             Join MM Fitness
-          </button>
-          <button
+          </a>
+          <a
             class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-12 py-5 rounded-lg font-black text-xl btn-interactive hover:bg-white/20 transition-all"
+            href="pages/booking.html"
           >
             Book a Session
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -1799,7 +1735,7 @@
             >
             <a
               class="text-secondary text-sm hover:text-white transition-colors"
-              href="#gallery"
+              href="pages/about.html#gallery"
               >Gallery</a
             >
           </div>
