@@ -1,0 +1,161 @@
+/* ==========================================================================
+   MM FITNESS - PRODUCTION STYLESHEET
+   ========================================================================== */
+
+/* Design Tokens & Theme Variables */
+:root {
+  --color-primary: #00ff66;
+  --color-primary-container: #00ff66;
+  --color-on-primary-container: #002107;
+  --color-background: #0b0f12;
+  --color-surface: #101417;
+  --color-surface-container-lowest: #0b0f12;
+  --color-surface-container-low: #181c1f;
+  --color-surface-container: #1c2023;
+  --color-surface-container-high: #262a2e;
+  --color-surface-container-highest: #313539;
+  --color-surface-bright: #363a3d;
+  --color-surface-variant: #313539;
+  --color-on-surface: #e0e3e7;
+  --color-on-surface-variant: #b9ccb5;
+  --color-secondary: #c6c6c7;
+  --color-outline: #849581;
+  --color-outline-variant: #3b4b3a;
+
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Base Styles */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #101417;
+}
+::-webkit-scrollbar-thumb {
+  background: #313539;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff66;
+}
+
+/* Component Utilities */
+.glass-panel, .glass-card {
+  background: rgba(20, 26, 31, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.shimmer-btn:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+.pulse-dot {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(0, 255, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
+}
+
+.hover-card-effect, .hover-glow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+.hover-card-effect:hover, .hover-glow:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px -10px rgba(0, 255, 102, 0.3);
+  border-color: rgba(0, 255, 102, 0.6);
+}
+
+.btn-interactive {
+  transition: transform 0.15s ease, filter 0.3s ease;
+}
+.btn-interactive:active {
+  transform: scale(0.96);
+}
+
+/* Marquee Animation */
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 2rem;
+}
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  justify-around: space-around;
+  min-width: 100%;
+  gap: 2rem;
+  animation: scroll 30s linear infinite;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Motion Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in-section, .fade-up, .reveal, .reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .fade-in-section.is-visible, .fade-up.visible, .reveal.active, .reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section, .fade-up, .reveal, .reveal-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

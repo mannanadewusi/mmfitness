@@ -4,8 +4,88 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Fitness Essentials - MM Fitness</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <title>Fitness Gear &amp; Supplements Shop in Dopemu, Lagos | MM Fitness</title>
+    <meta
+      content="Shop official MM Fitness gear, gym apparel, resistance bands, protein supplements, shaker bottles, and gym accessories at our Dopemu, Lagos store."
+      name="description"
+    />
+    <link rel="canonical" href="https://www.mmfitness.com.ng/pages/shop.html" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+
+    <!-- Open Graph / Social Metadata -->
+    <meta property="og:site_name" content="MM Fitness" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.mmfitness.com.ng/pages/shop.html" />
+    <meta property="og:title" content="Fitness Gear &amp; Supplements Shop in Dopemu, Lagos | MM Fitness" />
+    <meta property="og:description" content="Shop official MM Fitness apparel, supplements, shaker bottles, and training gear in Dopemu, Lagos." />
+    <meta property="og:image" content="https://www.mmfitness.com.ng/assets/hero.jpeg" />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fitness Gear &amp; Supplements Shop in Dopemu, Lagos | MM Fitness" />
+    <meta name="twitter:description" content="Shop official MM Fitness apparel, supplements, shaker bottles, and training gear." />
+    <meta name="twitter:image" content="https://www.mmfitness.com.ng/assets/hero.jpeg" />
+
+    <!-- Production Stylesheet & Script -->
+    <link rel="stylesheet" href="../assets/css/tailwind-shop.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script src="../assets/js/site-links.js" defer></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "OfferCatalog",
+      "name": "MM Fitness Store Essentials",
+      "url": "https://www.mmfitness.com.ng/pages/shop.html",
+      "itemListElement": [
+        {
+          "@type": "Product",
+          "name": "MM Fitness Premium Whey Protein",
+          "description": "High-quality 100% whey isolate for muscle recovery and lean growth.",
+          "offers": {
+            "@type": "Offer",
+            "price": "35000",
+            "priceCurrency": "NGN",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "MM Fitness Insulated Shaker Bottle",
+          "description": "750ml leak-proof stainless steel shaker bottle for protein shakes.",
+          "offers": {
+            "@type": "Offer",
+            "price": "8500",
+            "priceCurrency": "NGN",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "Heavy Duty Resistance Bands Set",
+          "description": "Set of 5 color-coded resistance loop bands with carrying pouch.",
+          "offers": {
+            "@type": "Offer",
+            "price": "12000",
+            "priceCurrency": "NGN",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "name": "MM Fitness Performance Gym Towel",
+          "description": "Ultra-absorbent, quick-dry microfiber workout towel.",
+          "offers": {
+            "@type": "Offer",
+            "price": "5000",
+            "priceCurrency": "NGN",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
@@ -16,154 +96,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap"
       rel="stylesheet"
     />
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-error": "#690005",
-              "on-primary-container": "#007128",
-              "on-error-container": "#ffdad6",
-              "surface-variant": "#313539",
-              "on-tertiary-fixed-variant": "#3d4851",
-              "tertiary-fixed-dim": "#bdc8d3",
-              "primary-fixed": "#6bff83",
-              "on-tertiary-container": "#58636d",
-              "surface-bright": "#363a3d",
-              "on-primary": "#003911",
-              "on-secondary-fixed-variant": "#454747",
-              "secondary-container": "#454747",
-              "on-tertiary-fixed": "#121d25",
-              "on-surface": "#e0e3e7",
-              primary: "#edffe8",
-              surface: "#101417",
-              "tertiary-fixed": "#d9e4ef",
-              "surface-container-lowest": "#0b0f12",
-              "on-background": "#e0e3e7",
-              "inverse-on-surface": "#2d3134",
-              "secondary-fixed": "#e2e2e2",
-              "secondary-fixed-dim": "#c6c6c7",
-              "surface-dim": "#101417",
-              "on-primary-fixed-variant": "#00531b",
-              "inverse-primary": "#006e27",
-              outline: "#849581",
-              secondary: "#c6c6c7",
-              "surface-container-high": "#262a2e",
-              error: "#ffb4ab",
-              "surface-tint": "#00e55b",
-              "on-surface-variant": "#b9ccb5",
-              "on-tertiary": "#27323a",
-              "surface-container-highest": "#313539",
-              "surface-container-low": "#181c1f",
-              "on-secondary": "#2f3131",
-              "tertiary-container": "#d4dfeb",
-              "inverse-surface": "#e0e3e7",
-              "surface-container": "#1c2023",
-              background: "#101417",
-              "on-secondary-fixed": "#1a1c1c",
-              "outline-variant": "#3b4b3a",
-              "primary-container": "#00ff66",
-              "on-primary-fixed": "#002107",
-              "on-secondary-container": "#b4b5b5",
-              tertiary: "#f8faff",
-              "error-container": "#93000a",
-              "primary-fixed-dim": "#00e55b",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              "section-gap": "96px",
-              "stack-sm": "8px",
-              "container-max": "1280px",
-              "margin-desktop": "48px",
-              unit: "8px",
-              "margin-mobile": "16px",
-              "stack-md": "16px",
-              "stack-lg": "32px",
-              gutter: "24px",
-            },
-            fontFamily: {
-              "body-lg": ["Inter"],
-              "display-xl-mobile": ["Montserrat"],
-              "label-md": ["Inter"],
-              "display-xl": ["Montserrat"],
-              "body-md": ["Inter"],
-              "display-2xl": ["Montserrat"],
-              "headline-lg": ["Montserrat"],
-              "headline-md": ["Montserrat"],
-            },
-            fontSize: {
-              "body-lg": [
-                "18px",
-                {
-                  lineHeight: "28px",
-                  fontWeight: "400",
-                },
-              ],
-              "display-xl-mobile": [
-                "36px",
-                {
-                  lineHeight: "44px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "800",
-                },
-              ],
-              "label-md": [
-                "14px",
-                {
-                  lineHeight: "20px",
-                  letterSpacing: "0.05em",
-                  fontWeight: "600",
-                },
-              ],
-              "display-xl": [
-                "48px",
-                {
-                  lineHeight: "56px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "800",
-                },
-              ],
-              "body-md": [
-                "16px",
-                {
-                  lineHeight: "24px",
-                  fontWeight: "400",
-                },
-              ],
-              "display-2xl": [
-                "72px",
-                {
-                  lineHeight: "80px",
-                  letterSpacing: "-0.04em",
-                  fontWeight: "800",
-                },
-              ],
-              "headline-lg": [
-                "32px",
-                {
-                  lineHeight: "40px",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "700",
-                },
-              ],
-              "headline-md": [
-                "24px",
-                {
-                  lineHeight: "32px",
-                  fontWeight: "700",
-                },
-              ],
-            },
-          },
-        },
-      };
-    </script>
     <style>
       body {
         background-color: #0b0f12; /* surface-container-lowest */
@@ -294,7 +226,7 @@
     <div
       aria-label="Mobile Navigation"
       aria-modal="true"
-      class="fixed inset-y-3 left-3 z-50 flex flex-col bg-surface-container-high h-[calc(100vh-1.5rem)] w-[min(20rem,calc(100vw-1.5rem))] rounded-3xl shadow-xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out border border-white/10 overflow-y-auto"
+      class="fixed inset-y-0 left-0 z-50 flex flex-col bg-surface-container-high h-full w-[min(20rem,85vw)] rounded-r-3xl shadow-2xl -translate-x-full md:hidden transition-transform duration-300 ease-in-out border-r border-white/10 overflow-y-auto"
       id="mobileMenu"
       role="dialog"
     >
@@ -376,7 +308,7 @@
     </div>
     <!-- Hero Section -->
     <section
-      class="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden"
+      class="relative min-h-[75vh] md:min-h-[85vh] py-24 md:py-32 flex items-center justify-center overflow-hidden"
     >
       <div class="absolute inset-0 z-0">
         <div
@@ -391,15 +323,15 @@
         ></div>
       </div>
       <div
-        class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mt-12 animate-fade-in-up"
+        class="relative z-10 max-w-container-max mx-auto px-4 sm:px-6 md:px-12 text-center animate-fade-in-up"
       >
         <h1
-          class="font-display-xl-mobile md:font-display-2xl text-display-xl-mobile md:text-display-2xl text-primary mb-6 max-w-4xl mx-auto tracking-tight"
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary mb-6 max-w-4xl mx-auto tracking-tight leading-tight"
         >
-          Everything You Need To Support Your Fitness Journey.
+          Fitness Gear &amp; Supplements at MM Fitness Dopemu, Lagos
         </h1>
         <p
-          class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10"
+          class="font-body-lg text-base sm:text-lg text-on-surface-variant max-w-2xl mx-auto mb-10"
         >
           Premium supplements, hydration solutions, and quality accessories
           curated for MM Fitness members. Elevate your performance with gear you
@@ -409,7 +341,7 @@
           class="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
-            class="bg-primary-container text-on-primary-fixed font-label-md text-label-md py-4 px-8 rounded-full hover-lift flex items-center gap-2 w-full sm:w-auto justify-center shadow-[0_0_20px_rgba(0,255,102,0.3)]"
+            class="bg-primary-container text-on-primary-fixed font-label-md text-label-md py-4 px-8 rounded-full hover-lift flex items-center gap-2 w-full sm:w-auto justify-center shadow-[0_0_20px_rgba(0,255,102,0.3)] font-bold"
             href="https://wa.me/2347048050420?text=Hello%20MM%20Fitness%2C%20I%27d%20like%20to%20enquire%20about%20products%20at%20the%20shop."
             target="_blank"
             rel="noopener noreferrer"
@@ -422,8 +354,8 @@
             Chat on WhatsApp
           </a>
           <a
-            class="bg-transparent border border-white/20 text-primary font-label-md text-label-md py-4 px-8 rounded-full hover:bg-primary-container hover:text-on-primary-fixed hover:border-transparent transition-all duration-300 w-full sm:w-auto justify-center inline-flex items-center"
-            href="contact.html#location"
+            class="bg-transparent border border-white/20 text-primary font-label-md text-label-md py-4 px-8 rounded-full hover:bg-primary-container hover:text-on-primary-fixed hover:border-transparent transition-all duration-300 w-full sm:w-auto justify-center inline-flex items-center font-bold"
+            href="contact.html"
           >
             Visit the Gym
           </a>
@@ -432,11 +364,11 @@
     </section>
     <!-- Featured Products -->
     <section
-      class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
+      class="py-16 sm:py-24 px-4 sm:px-6 md:px-12 max-w-container-max mx-auto"
     >
       <div class="mb-12 text-center">
         <h2
-          class="font-display-xl-mobile md:font-display-xl text-headline-lg font-black text-primary mb-4"
+          class="text-2xl sm:text-4xl md:text-5xl font-black text-primary mb-4"
         >
           Featured Essentials
         </h2>
@@ -445,7 +377,7 @@
           performance and recovery.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <!-- Product Card 1 -->
         <div
           class="glass-card rounded-xl p-4 flex flex-col hover-lift group border border-surface-variant hover:border-primary/50 transition-all"
@@ -1208,14 +1140,16 @@
     >
       <a
         class="flex flex-col items-center justify-center text-on-surface active:bg-surface-bright p-2 rounded-lg transition-all"
-        href="#"
+        href="tel:+2347048050420"
       >
         <span class="material-symbols-outlined mb-1">call</span>
         <span class="font-label-md text-label-md text-[10px]">Call Us</span>
       </a>
       <a
         class="flex flex-col items-center justify-center text-primary font-bold active:bg-surface-bright p-2 rounded-lg transition-all scale-95"
-        href="#"
+        href="https://wa.me/2347048050420"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <span class="material-symbols-outlined mb-1">chat</span>
         <span class="font-label-md text-label-md text-[10px]">WhatsApp</span>
@@ -1246,17 +1180,17 @@
           </h4>
           <a
             class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max"
-            href="#"
+            href="services.html"
             >Programs</a
           >
           <a
             class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max"
-            href="#"
+            href="membership.html"
             >Membership</a
           >
           <a
             class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max"
-            href="#"
+            href="about.html"
             >Facilities</a
           >
         </div>
@@ -1268,17 +1202,17 @@
           </h4>
           <a
             class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max"
-            href="#"
+            href="about.html#testimonials"
             >Reviews</a
           >
           <a
             class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max"
-            href="#"
+            href="contact.html"
             >Location</a
           >
           <a
             class="font-body-md text-body-md text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max font-bold"
-            href="#"
+            href="shop.html"
             >Shop Essentials</a
           >
         </div>
@@ -1290,12 +1224,12 @@
           </h4>
           <a
             class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max"
-            href="#"
+            href="contact.html"
             >Privacy Policy</a
           >
           <a
             class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors focus:ring-2 focus:ring-primary rounded px-1 -ml-1 w-max"
-            href="#"
+            href="contact.html"
             >Terms of Service</a
           >
         </div>
@@ -1304,7 +1238,7 @@
         class="mt-16 pt-8 border-t border-surface-variant px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center"
       >
         <p class="font-body-md text-body-md text-on-surface-variant">
-          © 2024 MM Fitness Dopemu. All Rights Reserved.
+          © 2026 MM Fitness Dopemu. All Rights Reserved.
         </p>
       </div>
     </footer>

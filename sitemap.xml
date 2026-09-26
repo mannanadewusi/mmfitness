@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+       <loc>https://www.mmfitness.com.ng/</loc>
+       <lastmod>2026-09-17T08:54:17+00:00</lastmod>
+       <priority>1.0000</priority>
+  </url>
+  <url>
+       <loc>https://www.mmfitness.com.ng/index.html</loc>
+       <lastmod>2026-09-17T10:53:09+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.mmfitness.com.ng/pages/about.html</loc>
+       <lastmod>2026-09-17T10:53:09+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.mmfitness.com.ng/pages/services.html</loc>
+       <lastmod>2026-09-17T10:53:09+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.mmfitness.com.ng/pages/membership.html</loc>
+       <lastmod>2026-09-17T10:53:09+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.mmfitness.com.ng/pages/shop.html</loc>
+       <lastmod>2026-09-17T10:53:09+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.mmfitness.com.ng/pages/contact.html</loc>
+       <lastmod>2026-09-17T10:53:10+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://www.mmfitness.com.ng/pages/booking.html</loc>
+       <lastmod>2026-09-17T10:53:10+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+</urlset>
