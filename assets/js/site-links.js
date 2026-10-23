@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     backdrop.classList.add("opacity-100", "pointer-events-auto");
     document.body.classList.add("overflow-hidden");
     if (menuBtn) menuBtn.setAttribute("aria-expanded", "true");
+    backdrop.setAttribute("aria-hidden", "false");
   }
 
   function closeDrawer() {
@@ -32,24 +33,45 @@ document.addEventListener("DOMContentLoaded", () => {
     backdrop.classList.add("opacity-0", "pointer-events-none");
     document.body.classList.remove("overflow-hidden");
     if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+    backdrop.setAttribute("aria-hidden", "true");
   }
 
-  if (menuBtn) {
-    menuBtn.addEventListener("click", () => {
-      const isOpen = !mobileMenu.classList.contains("-translate-x-full");
-      if (isOpen) closeDrawer();
-      else openDrawer();
-    });
-  }
+  // Several legacy pages still include their own menu listeners. Handle these
+  // controls during the capture phase so those listeners cannot reopen the
+  // drawer after it has been closed and leave its blurred backdrop behind.
+  document.addEventListener(
+    "click",
+    (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
 
-  if (closeMenuBtn) closeMenuBtn.addEventListener("click", closeDrawer);
-  if (backdrop) backdrop.addEventListener("click", closeDrawer);
+      if (target.closest('button[aria-controls="mobileMenu"]')) {
+        event.stopImmediatePropagation();
+        const isOpen = mobileMenu && !mobileMenu.classList.contains("-translate-x-full");
+        if (isOpen) closeDrawer();
+        else openDrawer();
+        return;
+      }
 
-  if (mobileMenu) {
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeDrawer);
-    });
-  }
+      if (
+        target === backdrop ||
+        target.closest("#closeMenuBtn") ||
+        target.closest("#mobileMenu a")
+      ) {
+        event.stopImmediatePropagation();
+        closeDrawer();
+      }
+    },
+    true,
+  );
+
+  // Never retain the mobile-only backdrop or scroll lock after rotating or
+  // resizing to a desktop layout.
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) closeDrawer();
+  });
+
+  closeDrawer();
 
   document.addEventListener("keydown", (e) => {
     if (
